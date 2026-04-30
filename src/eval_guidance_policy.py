@@ -92,6 +92,22 @@ def _random_box(seed: int) -> list:
     return [x1, y1, max(x1 + 0.02, x2), max(y1 + 0.02, y2)]
 
 
+def _load_prompted_boxes(results_file: str) -> dict:
+    """Load predicted boxes from an existing VSR eval results JSON keyed by example_id."""
+    with open(results_file) as f:
+        records = json.load(f)
+    boxes = {}
+    for r in records:
+        eid = r.get("example_id")
+        if eid is None:
+            continue
+        box = (r.get("pass1_box") or r.get("initial_box")
+               or r.get("predicted_box") or r.get("box"))
+        if box and len(box) == 4:
+            boxes[str(eid)] = box
+    return boxes
+
+
 # ---------------------------------------------------------------------------
 # VLM answering
 # ---------------------------------------------------------------------------
@@ -146,6 +162,8 @@ def eval_policy(
     max_examples: Optional[int],
     save_viz: bool,
     viz_dir: Optional[str],
+    method_name: Optional[str] = None,
+    prompted_results_file: Optional[str] = None,
 ) -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     os.makedirs(output_dir, exist_ok=True)
@@ -171,6 +189,15 @@ def eval_policy(
     # Load VLM (if any answer modes requested)
     run_vlm = any(m != "grounding_only" for m in modes) and model_name
     vlm = load_vlm(model_name) if run_vlm else None
+
+    # Load prompted boxes for 'prompted' baseline
+    prompted_boxes: dict = {}
+    if "prompted" in baselines:
+        if prompted_results_file:
+            prompted_boxes = _load_prompted_boxes(prompted_results_file)
+            print(f"Loaded {len(prompted_boxes)} prompted boxes from {prompted_results_file}")
+        else:
+            print("Warning: --prompted-results-file not provided; 'prompted' baseline boxes will be None")
 
     results_by_method: dict[str, list[dict]] = {m: [] for m in modes}
     for bsl in baselines:
@@ -236,12 +263,25 @@ def eval_policy(
 
             correct = (vlm_answer == gt_answer) if vlm_answer else None
 
+            # For oracle, report GT box metrics (IoU=1.0 by definition)
+            if mode == "oracle":
+                record_base = {
+                    **base_record,
+                    "predicted_box": target_box,
+                    "iou":           1.0,
+                    "rsa_50":        1.0,
+                    "rsa_25":        1.0,
+                    "pred_area":     box_area(target_box),
+                }
+            else:
+                record_base = base_record
+
             record = {
-                **base_record,
-                "answer_mode":     mode,
-                "vlm_answer":      vlm_answer,
-                "answer_correct":  correct,
-                "vlm_raw":         raw_out,
+                **record_base,
+                "answer_mode":    mode,
+                "vlm_answer":     vlm_answer,
+                "answer_correct": correct,
+                "vlm_raw":        raw_out,
             }
             results_by_method[mode].append(record)
 
@@ -251,31 +291,46 @@ def eval_policy(
                 bsl_box = _random_box(seed=abs(hash(example_id)) % 100000)
             elif bsl == "full_image":
                 bsl_box = [0.0, 0.0, 1.0, 1.0]
+            elif bsl == "prompted":
+                bsl_box = prompted_boxes.get(str(example_id))
             else:
                 bsl_box = pred_box
 
-            bsl_iou  = _iou(bsl_box, target_box) if bsl_box else None
-            bsl_rsa5 = rsa_at_threshold(bsl_box, target_box, 0.5)
+            bsl_iou   = _iou(bsl_box, target_box) if bsl_box else None
+            bsl_rsa5  = rsa_at_threshold(bsl_box, target_box, 0.5)
             bsl_rsa25 = rsa_at_threshold(bsl_box, target_box, 0.25)
+            bsl_area  = box_area(bsl_box) if bsl_box else None
 
+            crop_answer = full_answer = full_crop_answer = None
+            crop_correct = full_correct = full_crop_correct = None
             if vlm:
-                bsl_image  = safe_crop(image, bsl_box) if bsl_box else image
-                bsl_answer, bsl_raw = ask_vlm(vlm, bsl_image, caption)
-            else:
-                bsl_answer, bsl_raw = None, ""
+                bsl_crop_img = safe_crop(image, bsl_box) if bsl_box else image
+                crop_answer, _      = ask_vlm(vlm, bsl_crop_img, caption)
+                full_answer, _      = ask_vlm(vlm, image, caption)
+                full_crop_answer, _ = ask_vlm_multi(vlm, image, bsl_crop_img, caption)
+                crop_correct      = (crop_answer      == gt_answer) if crop_answer      else None
+                full_correct      = (full_answer      == gt_answer) if full_answer       else None
+                full_crop_correct = (full_crop_answer == gt_answer) if full_crop_answer  else None
 
             results_by_method[f"baseline_{bsl}"].append({
-                "example_id":   example_id,
-                "caption":      caption,
-                "ground_truth": gt_answer,
-                "target_box":   target_box,
-                "predicted_box": bsl_box,
-                "iou":          bsl_iou,
-                "rsa_50":       bsl_rsa5,
-                "rsa_25":       bsl_rsa25,
-                "pred_area":    box_area(bsl_box) if bsl_box else None,
-                "vlm_answer":   bsl_answer,
-                "answer_correct": (bsl_answer == gt_answer) if bsl_answer else None,
+                "example_id":               example_id,
+                "caption":                  caption,
+                "ground_truth":             gt_answer,
+                "target_box":               target_box,
+                "predicted_box":            bsl_box,
+                "iou":                      bsl_iou,
+                "rsa_50":                   bsl_rsa5,
+                "rsa_25":                   bsl_rsa25,
+                "pred_area":                bsl_area,
+                # Crop FAA (VLM sees only the baseline crop)
+                "vlm_answer":               crop_answer,
+                "answer_correct":           crop_correct,
+                # Full FAA (VLM sees full image — same as policy full mode)
+                "full_vlm_answer":          full_answer,
+                "full_answer_correct":      full_correct,
+                # Full+Crop FAA (VLM sees full image + baseline crop)
+                "full_crop_vlm_answer":     full_crop_answer,
+                "full_crop_answer_correct": full_crop_correct,
             })
 
         # Visualization
@@ -297,7 +352,7 @@ def eval_policy(
     _print_summary(results_by_method)
 
     # Save CSV summary
-    _save_csv_summary(results_by_method, ckpt_name, output_dir)
+    _save_csv_summary(results_by_method, ckpt_name, output_dir, method_name=method_name)
 
 
 def _print_summary(results_by_method: dict[str, list[dict]]) -> None:
@@ -330,40 +385,112 @@ def _save_csv_summary(
     results_by_method: dict[str, list[dict]],
     ckpt_name: str,
     output_dir: str,
+    method_name: Optional[str] = None,
 ) -> None:
+    """
+    Write / update results/guidance_aggregated/guidance_summary.csv.
+
+    Format: one row per method (wide), columns:
+      Method, N, Mean IoU, RSA@0.5, RSA@0.25, Mean Area,
+      Full FAA, Crop FAA, Full+Crop FAA, Notes
+
+    Accumulates across runs: existing rows for other methods are preserved;
+    rows for methods in this run are overwritten.  Use --method-name to set
+    a human-readable row label (defaults to checkpoint basename).
+    """
     import csv
+
+    COLS = [
+        "Method", "N", "Mean IoU", "RSA@0.5", "RSA@0.25", "Mean Area",
+        "Full FAA", "Crop FAA", "Full+Crop FAA", "Notes",
+    ]
+
     agg_dir = os.path.join(os.path.dirname(output_dir), "guidance_aggregated")
     os.makedirs(agg_dir, exist_ok=True)
-    path = os.path.join(agg_dir, "guidance_summary.csv")
+    csv_path = os.path.join(agg_dir, "guidance_summary.csv")
 
-    rows = []
-    for method, records in results_by_method.items():
-        if not records:
+    def _avg(records, key):
+        vals = [r[key] for r in records if r.get(key) is not None]
+        return sum(vals) / len(vals) if vals else None
+
+    def _fmt(v):
+        if v is None:
+            return ""
+        return f"{v:.4f}" if isinstance(v, float) else str(v)
+
+    new_rows: dict[str, dict] = {}
+
+    # --- Policy row (from full / crop / full_crop modes) ---
+    policy_modes = [m for m in ("full", "crop", "full_crop")
+                    if results_by_method.get(m)]
+    if policy_modes:
+        ref = results_by_method[policy_modes[0]]
+        label = method_name or ckpt_name
+        new_rows[label] = {
+            "Method":        label,
+            "N":             len(ref),
+            "Mean IoU":      _fmt(_avg(ref, "iou")),
+            "RSA@0.5":       _fmt(_avg(ref, "rsa_50")),
+            "RSA@0.25":      _fmt(_avg(ref, "rsa_25")),
+            "Mean Area":     _fmt(_avg(ref, "pred_area")),
+            "Full FAA":      _fmt(_avg(results_by_method.get("full",      []), "answer_correct")),
+            "Crop FAA":      _fmt(_avg(results_by_method.get("crop",      []), "answer_correct")),
+            "Full+Crop FAA": _fmt(_avg(results_by_method.get("full_crop", []), "answer_correct")),
+            "Notes":         "",
+        }
+
+    # --- Oracle row ---
+    if results_by_method.get("oracle"):
+        oc = results_by_method["oracle"]
+        new_rows["Ground-Truth Oracle"] = {
+            "Method":        "Ground-Truth Oracle",
+            "N":             len(oc),
+            "Mean IoU":      "1.0000",
+            "RSA@0.5":       "1.0000",
+            "RSA@0.25":      "1.0000",
+            "Mean Area":     _fmt(_avg(oc, "pred_area")),
+            "Full FAA":      "",
+            "Crop FAA":      _fmt(_avg(oc, "answer_correct")),
+            "Full+Crop FAA": "",
+            "Notes":         "GT crop upper bound",
+        }
+
+    # --- Baseline rows ---
+    bsl_labels = {
+        "baseline_random":     "Random Box",
+        "baseline_full_image": "Full Image Box",
+        "baseline_prompted":   "Prompted V-CoT",
+    }
+    for key, label in bsl_labels.items():
+        if not results_by_method.get(key):
             continue
-        n = len(records)
-        ious  = [r["iou"]    for r in records if r.get("iou")    is not None]
-        rsa5  = [r["rsa_50"] for r in records if r.get("rsa_50") is not None]
-        rsa25 = [r["rsa_25"] for r in records if r.get("rsa_25") is not None]
-        areas = [r["pred_area"] for r in records if r.get("pred_area") is not None]
-        correct = [r["answer_correct"] for r in records if r.get("answer_correct") is not None]
+        recs = results_by_method[key]
+        new_rows[label] = {
+            "Method":        label,
+            "N":             len(recs),
+            "Mean IoU":      _fmt(_avg(recs, "iou")),
+            "RSA@0.5":       _fmt(_avg(recs, "rsa_50")),
+            "RSA@0.25":      _fmt(_avg(recs, "rsa_25")),
+            "Mean Area":     _fmt(_avg(recs, "pred_area")),
+            "Full FAA":      _fmt(_avg(recs, "full_answer_correct")),
+            "Crop FAA":      _fmt(_avg(recs, "answer_correct")),
+            "Full+Crop FAA": _fmt(_avg(recs, "full_crop_answer_correct")),
+            "Notes":         "baseline",
+        }
 
-        rows.append({
-            "checkpoint": ckpt_name,
-            "method":     method,
-            "n":          n,
-            "mean_iou":   sum(ious)  / len(ious)   if ious  else "",
-            "rsa_50":     sum(rsa5)  / len(rsa5)   if rsa5  else "",
-            "rsa_25":     sum(rsa25) / len(rsa25)  if rsa25 else "",
-            "mean_area":  sum(areas) / len(areas)  if areas else "",
-            "faa":        sum(correct) / len(correct) if correct else "",
-        })
+    # --- Merge with existing CSV ---
+    existing: dict[str, dict] = {}
+    if os.path.exists(csv_path):
+        with open(csv_path, newline="") as f:
+            for row in csv.DictReader(f):
+                existing[row["Method"]] = row
+    existing.update(new_rows)
 
-    if rows:
-        with open(path, "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-            writer.writeheader()
-            writer.writerows(rows)
-        print(f"Summary CSV → {path}")
+    with open(csv_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(existing.values())
+    print(f"Guidance summary CSV → {csv_path}")
 
 
 def _save_viz(
@@ -400,7 +527,7 @@ def main():
                    choices=["full", "crop", "oracle", "full_crop"],
                    help="VLM answer modes to evaluate")
     p.add_argument("--baselines",     nargs="+", default=["random", "full_image"],
-                   choices=["random", "full_image"])
+                   choices=["random", "full_image", "prompted"])
     p.add_argument("--split",         default="test", choices=["train", "val", "test"])
     p.add_argument("--seed",          type=int, default=42)
     p.add_argument("--max-examples",  type=int, default=None)
@@ -408,6 +535,11 @@ def main():
                    help="Save visualization images (GT + pred boxes)")
     p.add_argument("--viz-dir",       default="results/guidance_viz")
     p.add_argument("--output-dir",    default="results/guidance_raw")
+    p.add_argument("--method-name",   default=None,
+                   help="Row label for guidance_summary.csv (defaults to checkpoint basename)")
+    p.add_argument("--prompted-results-file", default=None,
+                   help="Path to existing VSR eval JSON for the 'prompted' baseline "
+                        "(e.g. results/raw/qwen_visual_clean.json)")
     args = p.parse_args()
 
     if args.model == "none":
@@ -415,17 +547,19 @@ def main():
         args.modes = []
 
     eval_policy(
-        checkpoint    = args.checkpoint,
-        data_cache    = args.data,
-        model_name    = args.model,
-        modes         = args.modes,
-        output_dir    = args.output_dir,
-        baselines     = args.baselines,
-        split         = args.split,
-        seed          = args.seed,
-        max_examples  = args.max_examples,
-        save_viz      = args.save_viz,
-        viz_dir       = args.viz_dir if args.save_viz else None,
+        checkpoint             = args.checkpoint,
+        data_cache             = args.data,
+        model_name             = args.model,
+        modes                  = args.modes,
+        output_dir             = args.output_dir,
+        baselines              = args.baselines,
+        split                  = args.split,
+        seed                   = args.seed,
+        max_examples           = args.max_examples,
+        save_viz               = args.save_viz,
+        viz_dir                = args.viz_dir if args.save_viz else None,
+        method_name            = args.method_name,
+        prompted_results_file  = args.prompted_results_file,
     )
 
 

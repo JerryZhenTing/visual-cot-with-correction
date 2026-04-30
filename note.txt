@@ -646,5 +646,70 @@ LEARNED VISUAL GUIDANCE PIPELINE (new):
                CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32'); \
                print('CLIP OK')"
 
+  GUIDANCE TABLE — 7 PAPER ROWS AND HOW TO PRODUCE THEM:
+
+  Rows: Prompted V-CoT | Random Box | Full Image Box | Guidance SFT |
+        Guidance SFT+RL | Guidance SFT+RL+Qwen | Ground-Truth Oracle
+
+  Columns: Method | N | Mean IoU | RSA@0.5 | RSA@0.25 | Mean Area |
+           Full FAA | Crop FAA | Full+Crop FAA | Notes
+
+  Output CSV: results/guidance_aggregated/guidance_summary.csv
+    - Wide format (one row per method, three FAA columns)
+    - Accumulates across runs: each eval call upserts its row(s) by method name,
+      preserving rows from other checkpoints.
+
+  BUG FIXES applied to eval_guidance_policy.py (2026-04-30):
+    1. Prompted baseline: was in docstring but not in --baselines choices and
+       dispatched to pred_box instead of loaded file.
+       Fix: added "prompted" to choices, added --prompted-results-file arg,
+       added _load_prompted_boxes() helper (tries pass1_box/initial_box/
+       predicted_box/box keys in order).
+    2. Baselines only had crop FAA. Now also compute full_answer_correct and
+       full_crop_answer_correct for every baseline row.
+    3. Oracle row stored policy's IoU (often None). Now overrides
+       iou=1.0, rsa_50=1.0, rsa_25=1.0, pred_area=area(target_box).
+    4. CSV was narrow (one faa column) and overwrote on every run.
+       Now wide format + merge: reads existing CSV, upserts rows by Method,
+       rewrites. Multiple checkpoint evals accumulate in one file.
+    5. Added --method-name arg so each checkpoint gets a human-readable label
+       (e.g. "Guidance SFT") rather than just "best".
+
+  COMMANDS TO REPRODUCE ALL 7 ROWS:
+
+    # Run 1: SFT checkpoint + all baselines + oracle (run this first)
+    python src/eval_guidance_policy.py \
+        --checkpoint ../checkpoints/guidance_sft/best.pt \
+        --method-name "Guidance SFT" \
+        --data data/vsr_guidance_full.json \
+        --model qwen --modes full crop full_crop oracle \
+        --baselines random full_image prompted \
+        --prompted-results-file results/raw/qwen_visual_clean.json \
+        --split test --output-dir results/guidance_raw
+
+    # Run 2: RL grounding checkpoint (baselines already in CSV from Run 1)
+    python src/eval_guidance_policy.py \
+        --checkpoint ../checkpoints/guidance_rl/best.pt \
+        --method-name "Guidance SFT+RL" \
+        --data data/vsr_guidance_full.json \
+        --model qwen --modes full crop full_crop \
+        --split test --output-dir results/guidance_raw
+
+    # Run 3: RL+Qwen combined checkpoint
+    python src/eval_guidance_policy.py \
+        --checkpoint ../checkpoints/guidance_rl_combined/best.pt \
+        --method-name "Guidance SFT+RL+Qwen" \
+        --data data/vsr_guidance_full.json \
+        --model qwen --modes full crop full_crop \
+        --split test --output-dir results/guidance_raw
+
+  SANITY CHECKS (expected after runs complete):
+    Random Box Mean IoU:     ~0.07-0.12
+    Full Image Box Area:     1.0000
+    Oracle RSA@0.5:          1.0000  (enforced in code)
+    Oracle Crop FAA:         upper bound — should be highest FAA
+    Full FAA all methods:    same value (all see same full image)
+    Full+Crop FAA >= Crop FAA (more context always helps or is neutral)
+
 
 ================================================================================
