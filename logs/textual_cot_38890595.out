@@ -1,0 +1,139 @@
+Job 38890595 starting on v024.ib.bridges2.psc.edu at Sun Apr 12 22:55:57 EDT 2026
+GPU: Tesla V100-SXM2-32GB
+Loading VSR dev subset...
+Downloading/loading cambridgeltl/vsr_zeroshot (validation split)...
+Loaded 20 VSR examples.
+  20 examples ready.
+
+Loading Qwen/Qwen2.5-VL-7B-Instruct (dtype=torch.bfloat16, device_map=auto) ...
+Model ready.
+
+[1/20] vsr_0000
+  Caption : The dog is on the surfboard.
+  GT      : True
+  Raw     : { "reasoning": "The dog is standing on a surfboard in the water.", "answer": "true" }
+  [✓] vsr_0000  ans=true  gt=true
+
+[2/20] vsr_0001
+  Caption : The laptop is at the left side of the dog.
+  GT      : True
+  Raw     : { "reasoning": "The laptop is positioned on the left side of the dog in the image.", "box": null, "answer": "true" }
+  [✓] vsr_0001  ans=true  gt=true
+
+[3/20] vsr_0002
+  Caption : The laptop is inside the train.
+  GT      : True
+  Raw     : { "reasoning": "The image shows a laptop on a desk within the interior of a train car.", "answer": "true" }
+  [✓] vsr_0002  ans=true  gt=true
+
+[4/20] vsr_0003
+  Caption : The zebra is behind the horse.
+  GT      : True
+  Raw     : { "reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.", "answer": "true" }
+  [✓] vsr_0003  ans=true  gt=true
+
+[5/20] vsr_0004
+  Caption : The chair is under the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is standing on the floor next to the chair, not under it.", "box": null, "answer": "false" }
+  [✓] vsr_0004  ans=false  gt=false
+
+[6/20] vsr_0005
+  Caption : The chair is beneath the horse.
+  GT      : True
+  Raw     : { "reasoning": "The horse is positioned on top of the chair, indicating that the chair is beneath the horse.", "box": null, "answer": "true" }
+  [✓] vsr_0005  ans=true  gt=true
+
+[7/20] vsr_0006
+  Caption : The chair is above the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is sitting on the couch, which is below the chair.", "box": null, "answer": "false" }
+  [✓] vsr_0006  ans=false  gt=false
+
+[8/20] vsr_0007
+  Caption : The zebra is left of the horse.
+  GT      : False
+  Raw     : { "reasoning": "The zebra is positioned to the right of the horse when looking at the image.", "answer": "false" }
+  [✓] vsr_0007  ans=false  gt=false
+
+[9/20] vsr_0008
+  Caption : The motorcycle is ahead of the train.
+  GT      : True
+  Raw     : { "reasoning": "There is no motorcycle visible in the image; it appears to be a train with people on its platform.", "answer": "false" }
+  [✗] vsr_0008  ans=false  gt=true
+
+[10/20] vsr_0009
+  Caption : The bench is over the dog.
+  GT      : True
+  Raw     : { "reasoning": "The bench is positioned above the dog, which is lying on the ground beneath it.", "answer": "true" }
+  [✓] vsr_0009  ans=true  gt=true
+
+[11/20] vsr_0010
+  Caption : The train is perpendicular to the motorcycle.
+  GT      : True
+  Raw     : { "reasoning": "The train is positioned behind the motorcycle, indicating it is not perpendicular to it.", "box": null, "answer": "false" }
+  [✗] vsr_0010  ans=false  gt=true
+
+[12/20] vsr_0011
+  Caption : The laptop is above the dog.
+  GT      : True
+  Raw     : { "reasoning": "The laptop is placed on the person's lap, which is above the dog lying on the floor.", "box": null, "answer": "true" }
+  [✓] vsr_0011  ans=true  gt=true
+
+[13/20] vsr_0012
+  Caption : The motorcycle is behind the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is sitting on the motorcycle, which means it is not behind the dog.", "answer": "false" }
+  [✓] vsr_0012  ans=false  gt=false
+
+[14/20] vsr_0013
+  Caption : The dog is in the middle of the chair.
+  GT      : True
+  Raw     : { "reasoning": "The dog is positioned towards the back of the chair, not in the middle.", "answer": "false" }
+  [✗] vsr_0013  ans=false  gt=true
+
+[15/20] vsr_0014
+  Caption : The refrigerator is at the left side of the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is positioned on the left side of the refrigerator, facing it.", "box": null, "answer": "false" }
+  [✓] vsr_0014  ans=false  gt=false
+
+[16/20] vsr_0015
+  Caption : The chair is opposite to the dog.
+  GT      : True
+  Raw     : { "reasoning": "The dog is lying on a bed, and there is no visible chair in the image.", "box": null, "answer": "false" }
+  [✗] vsr_0015  ans=false  gt=true
+
+[17/20] vsr_0016
+  Caption : The dog is on the motorcycle.
+  GT      : False
+  Raw     : { "reasoning": "The dog is wearing a harness and goggles, which suggests it is being prepared for an activity, possibly riding, but it is not actually on the motorcycle.", "box": null, "answer": "fals
+  [✓] vsr_0016  ans=false  gt=false
+
+[18/20] vsr_0017
+  Caption : The bench is touching the dog.
+  GT      : True
+  Raw     : { "reasoning": "The bench is positioned directly beneath the dog's body, indicating that it is touching the dog.", "box": null, "answer": "true" }
+  [✓] vsr_0017  ans=true  gt=true
+
+[19/20] vsr_0018
+  Caption : The bench is in front of the train.
+  GT      : True
+  Raw     : { "reasoning": "The bench is positioned behind the train, not in front of it.", "answer": "false" }
+  [✗] vsr_0018  ans=false  gt=true
+
+[20/20] vsr_0019
+  Caption : The laptop is on the bench.
+  GT      : False
+  Raw     : { "reasoning": "The laptop is placed on a round table, not on a bench.", "box": null, "answer": "false" }
+  [✓] vsr_0019  ans=false  gt=false
+Saved 20 results → /jet/home/zliu51/project/src/../results/textual_cot_results.json
+
+====================================================
+  Textual CoT — Summary
+====================================================
+  Examples          : 20
+  Parsed answers    : 20 / 20
+  Final Answer Acc  : 0.750   (15/20 correct)
+====================================================
+Job finished at Sun Apr 12 23:02:07 EDT 2026

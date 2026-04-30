@@ -1,0 +1,23 @@
+You are solving a visual spatial reasoning task.
+
+First identify the single most relevant image region for answering the question.
+Then decide whether the statement is true or false.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"reasoning": "<1-2 short sentences>",
+"box": [xmin, ymin, xmax, ymax],
+"answer": "true" or "false"
+}
+
+Requirements:
+- Output exactly one bounding box.
+- Use normalized coordinates in [0,1].
+- Ensure xmin < xmax and ymin < ymax.
+- Keep reasoning short.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.
+
+Question: Is the following statement true or false with respect to the image?
+Statement: {caption}

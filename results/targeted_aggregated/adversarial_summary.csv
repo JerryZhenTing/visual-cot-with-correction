@@ -1,0 +1,5 @@
+model,method,occlusion_faa,occlusion_rsa,occlusion_n,mask_faa,mask_rsa,mask_n,distractor_faa,distractor_rsa,distractor_n,brr,afr,rr
+qwen,multistage,0.796748,0.009485,738,0.739837,0.005420,369,0.796748,0.008130,738,1.000000,0.000000,0.000000
+qwen,textual,0.758808,,738,0.731707,,369,0.765583,,738,,,
+qwen,verification,0.734417,0.013583,738,0.661247,0.013550,369,0.747967,0.008141,738,0.187534,0.189702,0.317043
+qwen,visual,0.785908,0.009485,738,0.731707,0.005420,369,0.780488,0.008130,738,,,

@@ -1,0 +1,21 @@
+You are re-examining a visual spatial reasoning question.
+
+You previously identified the region {revised_box} (normalized [xmin, ymin, xmax, ymax]) as the most relevant area of the image.
+
+Look at the full image. Use that region as a guide, but keep both objects and the space between them in view when deciding whether the statement is true or false.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"answer_reasoning": "<1-2 short sentences on the spatial relationship you observe>",
+"answer": "true" or "false"
+}
+
+Requirements:
+- Consider both objects and their spatial relationship.
+- Keep reasoning short.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.
+
+Question: Is the following statement true or false with respect to the image?
+Statement: {caption}

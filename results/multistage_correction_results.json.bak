@@ -1,0 +1,1562 @@
+[
+  {
+    "example_id": "vsr_0000",
+    "caption": "The dog is on the surfboard.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0025781249999999997,
+      0.3800900900900901,
+      0.9294531249999999,
+      0.9804054054054054
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The bulldog is standing on the surfboard, which is floating on water.\",\n\"box\": [0, 345, 644, 448],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The bulldog is standing on the surfboard, which is floating on water.",
+      "box": [
+        0,
+        345,
+        644,
+        448
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The bulldog is standing on the surfboard, which is floating on water.",
+    "initial_box": [
+      0.0,
+      345.0,
+      644.0,
+      448.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 345.0, 644.0, 448.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box captures the dog and part of the surfboard, indicating the dog is indeed on the surfboard.\",\n\"box\": [0.0, 345.0, 644.0, 448.0],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box captures the dog and part of the surfboard, indicating the dog is indeed on the surfboard.",
+      "box": [
+        0.0,
+        345.0,
+        644.0,
+        448.0
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The bounding box captures the dog and part of the surfboard, indicating the dog is indeed on the surfboard.",
+    "revised_box": [
+      0.0,
+      345.0,
+      644.0,
+      448.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 345.0, 644.0, 448.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog's paws are clearly visible on the surfboard, indicating it is standing on it.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog's paws are clearly visible on the surfboard, indicating it is standing on it.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The dog's paws are clearly visible on the surfboard, indicating it is standing on it.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0001",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.12359477124183006,
+      0.04911764705882353,
+      0.9369607843137256,
+      0.5967320261437908
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The laptop is positioned to the left of the dog's head.\",\n\"box\": [0, 76, 315, 428],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The laptop is positioned to the left of the dog's head.",
+      "box": [
+        0,
+        76,
+        315,
+        428
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The laptop is positioned to the left of the dog's head.",
+    "initial_box": [
+      0.0,
+      76.0,
+      315.0,
+      428.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 76.0, 315.0, 428.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The initial bounding box captures the laptop and part of the dog's body, but it does not fully encompass the dog. A corrected box should include more of the dog.\",\n\"box\": [0, 76, 315, 428],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The initial bounding box captures the laptop and part of the dog's body, but it does not fully encompass the dog. A corrected box should include more of the dog.",
+      "box": [
+        0,
+        76,
+        315,
+        428
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The initial bounding box captures the laptop and part of the dog's body, but it does not fully encompass the dog. A corrected box should include more of the dog.",
+    "revised_box": [
+      0.0,
+      76.0,
+      315.0,
+      428.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 76.0, 315.0, 428.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The laptop is positioned to the left of the dog's body in the image.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The laptop is positioned to the left of the dog's body in the image.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The laptop is positioned to the left of the dog's body in the image.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0002",
+    "caption": "The laptop is inside the train.",
+    "relation": "inside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.02857142857142857,
+      1.0,
+      1.0
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The laptop is on a desk inside the train car.\",\n\"box\": [304, 150, 326, 180],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The laptop is on a desk inside the train car.",
+      "box": [
+        304,
+        150,
+        326,
+        180
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The laptop is on a desk inside the train car.",
+    "initial_box": [
+      304.0,
+      150.0,
+      326.0,
+      180.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [304.0, 150.0, 326.0, 180.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too small and does not capture the laptop.\",\n\"box\": [309, 147, 324, 179],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box is too small and does not capture the laptop.",
+      "box": [
+        309,
+        147,
+        324,
+        179
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box is too small and does not capture the laptop.",
+    "revised_box": [
+      309.0,
+      147.0,
+      324.0,
+      179.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [309.0, 147.0, 324.0, 179.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The image shows a laptop placed on a desk within the interior of a train car.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The image shows a laptop placed on a desk within the interior of a train car.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The image shows a laptop placed on a desk within the interior of a train car.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0003",
+    "caption": "The zebra is behind the horse.",
+    "relation": "behind",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.149921875,
+      0.00225,
+      1.0,
+      0.665625
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.\",\n\"box\": [386, 314, 629, 599],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.",
+      "box": [
+        386,
+        314,
+        629,
+        599
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.",
+    "initial_box": [
+      386.0,
+      314.0,
+      629.0,
+      599.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [386.0, 314.0, 629.0, 599.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box is adequate as it captures both the horse and the zebra, and their spatial relationship.\",\n\"box\": [17, 320, 456, 644],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box is adequate as it captures both the horse and the zebra, and their spatial relationship.",
+      "box": [
+        17,
+        320,
+        456,
+        644
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The box is adequate as it captures both the horse and the zebra, and their spatial relationship.",
+    "revised_box": [
+      17.0,
+      320.0,
+      456.0,
+      644.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [17.0, 320.0, 456.0, 644.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The zebra is positioned to the right and slightly above the horse, indicating it is behind the horse.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The zebra is positioned to the right and slightly above the horse, indicating it is behind the horse.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The zebra is positioned to the right and slightly above the horse, indicating it is behind the horse.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0004",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.1701,
+      0.5977066666666666,
+      0.77838,
+      1.68552
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The dog is standing on the floor next to the chair, not under it.\",\n\"box\": [185, 173, 490, 364],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The dog is standing on the floor next to the chair, not under it.",
+      "box": [
+        185,
+        173,
+        490,
+        364
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The dog is standing on the floor next to the chair, not under it.",
+    "initial_box": [
+      185.0,
+      173.0,
+      490.0,
+      364.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [185.0, 173.0, 490.0, 364.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box includes the chair and the dog, but the dog is not entirely within the box, which makes it insufficient.\",\n\"box\": [185.0, 173.0, 490.0, 364.0],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box includes the chair and the dog, but the dog is not entirely within the box, which makes it insufficient.",
+      "box": [
+        185.0,
+        173.0,
+        490.0,
+        364.0
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box includes the chair and the dog, but the dog is not entirely within the box, which makes it insufficient.",
+    "revised_box": [
+      185.0,
+      173.0,
+      490.0,
+      364.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [185.0, 173.0, 490.0, 364.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is standing on the floor next to the chair, not under it.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is standing on the floor next to the chair, not under it.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The dog is standing on the floor next to the chair, not under it.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0005",
+    "caption": "The chair is beneath the horse.",
+    "relation": "beneath",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.01891666666666667,
+      0.113625,
+      1.2496666666666667,
+      0.55765625
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The red chair is positioned directly under the brown and white horse statue.\",\n\"box\": [13, 84, 396, 635],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The red chair is positioned directly under the brown and white horse statue.",
+      "box": [
+        13,
+        84,
+        396,
+        635
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The red chair is positioned directly under the brown and white horse statue.",
+    "initial_box": [
+      13.0,
+      84.0,
+      396.0,
+      635.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [13.0, 84.0, 396.0, 635.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures both the chair and the horse, ensuring they are within the same frame and maintaining their spatial relationship.\",\n\"box\": [13.0, 84.0, 396.0, 635.0],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures both the chair and the horse, ensuring they are within the same frame and maintaining their spatial relationship.",
+      "box": [
+        13.0,
+        84.0,
+        396.0,
+        635.0
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The bounding box correctly captures both the chair and the horse, ensuring they are within the same frame and maintaining their spatial relationship.",
+    "revised_box": [
+      13.0,
+      84.0,
+      396.0,
+      635.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [13.0, 84.0, 396.0, 635.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The horse is positioned above the chair, indicating that the chair is indeed beneath the horse.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The horse is positioned above the chair, indicating that the chair is indeed beneath the horse.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The horse is positioned above the chair, indicating that the chair is indeed beneath the horse.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0006",
+    "caption": "The chair is above the dog.",
+    "relation": "above",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.01008,
+      0.1445180722891566,
+      0.73412,
+      1.4805120481927712
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The cat is on the chair, which is behind the dog.\",\n\"box\": [0, 134, 504, 336],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The cat is on the chair, which is behind the dog.",
+      "box": [
+        0,
+        134,
+        504,
+        336
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The cat is on the chair, which is behind the dog.",
+    "initial_box": [
+      0.0,
+      134.0,
+      504.0,
+      336.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 134.0, 504.0, 336.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box includes both the dog and the cat, but it does not capture the chair. The chair should be included to verify the statement.\",\n\"box\": [0, 134.0, 504.0, 336.0],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box includes both the dog and the cat, but it does not capture the chair. The chair should be included to verify the statement.",
+      "box": [
+        0,
+        134.0,
+        504.0,
+        336.0
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box includes both the dog and the cat, but it does not capture the chair. The chair should be included to verify the statement.",
+    "revised_box": [
+      0.0,
+      134.0,
+      504.0,
+      336.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 134.0, 504.0, 336.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is sitting on a couch, and there is no visible chair above it.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is sitting on a couch, and there is no visible chair above it.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The dog is sitting on a couch, and there is no visible chair above it.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0007",
+    "caption": "The zebra is left of the horse.",
+    "relation": "left of",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.0050625,
+      0.18328125,
+      0.961296875,
+      0.673140625
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The zebra is to the right of the horse.\",\n\"box\": [386, 314, 629, 602],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The zebra is to the right of the horse.",
+      "box": [
+        386,
+        314,
+        629,
+        602
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The zebra is to the right of the horse.",
+    "initial_box": [
+      386.0,
+      314.0,
+      629.0,
+      602.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [386.0, 314.0, 629.0, 602.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box is too narrow and does not capture the entire zebra, making it insufficient.\",\n\"box\": [387, 315, 629, 635],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box is too narrow and does not capture the entire zebra, making it insufficient.",
+      "box": [
+        387,
+        315,
+        629,
+        635
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The box is too narrow and does not capture the entire zebra, making it insufficient.",
+    "revised_box": [
+      387.0,
+      315.0,
+      629.0,
+      635.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [387.0, 315.0, 629.0, 635.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The zebra is positioned to the right of the horse in the image.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The zebra is positioned to the right of the horse in the image.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The zebra is positioned to the right of the horse in the image.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0008",
+    "caption": "The motorcycle is ahead of the train.",
+    "relation": "ahead of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.018501170960187354,
+      0.9977500000000001,
+      1.481990632318501
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The motorcycle is in front of the train, positioned on the ground near the train's front.\",\n\"box\": [179, 345, 336, 415],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The motorcycle is in front of the train, positioned on the ground near the train's front.",
+      "box": [
+        179,
+        345,
+        336,
+        415
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The motorcycle is in front of the train, positioned on the ground near the train's front.",
+    "initial_box": [
+      179.0,
+      345.0,
+      336.0,
+      415.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [179.0, 345.0, 336.0, 415.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": false,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too small and does not capture the train or the motorcycle.\",\n\"box\": [178, 338, 336, 415],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box is too small and does not capture the train or the motorcycle.",
+      "box": [
+        178,
+        338,
+        336,
+        415
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box is too small and does not capture the train or the motorcycle.",
+    "revised_box": [
+      178.0,
+      338.0,
+      336.0,
+      415.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [178.0, 338.0, 336.0, 415.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"There is no motorcycle visible in the image; the focus is on a train and workers around it.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "There is no motorcycle visible in the image; the focus is on a train and workers around it.",
+      "answer": "false"
+    },
+    "crop_reasoning": "There is no motorcycle visible in the image; the focus is on a train and workers around it.",
+    "final_answer": "false",
+    "final_answer_correct": false,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0009",
+    "caption": "The bench is over the dog.",
+    "relation": "over",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.06476562500000001,
+      0.0,
+      0.86459375,
+      1.1356792873051225
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The bench is positioned above the dog, which is lying on the ground beneath it.\",\n\"box\": [0, 0, 643, 257],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The bench is positioned above the dog, which is lying on the ground beneath it.",
+      "box": [
+        0,
+        0,
+        643,
+        257
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The bench is positioned above the dog, which is lying on the ground beneath it.",
+    "initial_box": [
+      0.0,
+      0.0,
+      643.0,
+      257.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 257.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The initial bounding box includes the bench and the dog, but it does not fully capture the spatial relationship between them. The dog is under the bench, so the box needs adjustment.\",\n\"box\": [0.0, 0.0, 643.0, 257.0],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The initial bounding box includes the bench and the dog, but it does not fully capture the spatial relationship between them. The dog is under the bench, so the box needs adjustment.",
+      "box": [
+        0.0,
+        0.0,
+        643.0,
+        257.0
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The initial bounding box includes the bench and the dog, but it does not fully capture the spatial relationship between them. The dog is under the bench, so the box needs adjustment.",
+    "revised_box": [
+      0.0,
+      0.0,
+      643.0,
+      257.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 257.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is lying on the ground under the bench, indicating that the bench is above the dog.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is lying on the ground under the bench, indicating that the bench is above the dog.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The dog is lying on the ground under the bench, indicating that the bench is above the dog.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0010",
+    "caption": "The train is perpendicular to the motorcycle.",
+    "relation": "perpendicular to",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.01234375,
+      0.9977500000000001,
+      0.9887656249999999
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The train is positioned behind the motorcycle, indicating they are not perpendicular.\",\n\"box\": [0, 0, 443, 256],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The train is positioned behind the motorcycle, indicating they are not perpendicular.",
+      "box": [
+        0,
+        0,
+        443,
+        256
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The train is positioned behind the motorcycle, indicating they are not perpendicular.",
+    "initial_box": [
+      0.0,
+      0.0,
+      443.0,
+      256.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 443.0, 256.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": false,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The initial bounding box includes the train but does not capture the motorcycle fully, making it insufficient.\",\n\"box\": [0.0, 0.0, 443.0, 256.0],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The initial bounding box includes the train but does not capture the motorcycle fully, making it insufficient.",
+      "box": [
+        0.0,
+        0.0,
+        443.0,
+        256.0
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The initial bounding box includes the train but does not capture the motorcycle fully, making it insufficient.",
+    "revised_box": [
+      0.0,
+      0.0,
+      443.0,
+      256.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 443.0, 256.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The train and motorcycle are positioned at different angles, indicating they are not perpendicular.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The train and motorcycle are positioned at different angles, indicating they are not perpendicular.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The train and motorcycle are positioned at different angles, indicating they are not perpendicular.",
+    "final_answer": "false",
+    "final_answer_correct": false,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0011",
+    "caption": "The laptop is above the dog.",
+    "relation": "above",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.09825,
+      0.028145539906103287,
+      0.78125,
+      0.8711032863849766
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The laptop is placed on the person's lap, which is above the dog lying on the floor.\",\n\"box\": [74, 148, 356, 419],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The laptop is placed on the person's lap, which is above the dog lying on the floor.",
+      "box": [
+        74,
+        148,
+        356,
+        419
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The laptop is placed on the person's lap, which is above the dog lying on the floor.",
+    "initial_box": [
+      74.0,
+      148.0,
+      356.0,
+      419.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [74.0, 148.0, 356.0, 419.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box correctly captures the laptop and the dog, ensuring the spatial relationship between them.\",\n\"box\": [74.0, 148.0, 356.0, 419.0],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box correctly captures the laptop and the dog, ensuring the spatial relationship between them.",
+      "box": [
+        74.0,
+        148.0,
+        356.0,
+        419.0
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The box correctly captures the laptop and the dog, ensuring the spatial relationship between them.",
+    "revised_box": [
+      74.0,
+      148.0,
+      356.0,
+      419.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [74.0, 148.0, 356.0, 419.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The laptop is positioned above the dog, which is lying on the floor.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The laptop is positioned above the dog, which is lying on the floor.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The laptop is positioned above the dog, which is lying on the floor.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0012",
+    "caption": "The motorcycle is behind the dog.",
+    "relation": "behind",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.0,
+      0.159546875,
+      0.6828125,
+      0.9977500000000001
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The motorcycle is positioned in front of the dog, which is sitting on the backrest of the motorcycle.\",\n\"box\": [34, 256, 589, 591],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The motorcycle is positioned in front of the dog, which is sitting on the backrest of the motorcycle.",
+      "box": [
+        34,
+        256,
+        589,
+        591
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The motorcycle is positioned in front of the dog, which is sitting on the backrest of the motorcycle.",
+    "initial_box": [
+      34.0,
+      256.0,
+      589.0,
+      591.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [34.0, 256.0, 589.0, 591.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too large and includes unnecessary background elements, making it inadequate.\",\n\"box\": [37, 256, 589, 591],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box is too large and includes unnecessary background elements, making it inadequate.",
+      "box": [
+        37,
+        256,
+        589,
+        591
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box is too large and includes unnecessary background elements, making it inadequate.",
+    "revised_box": [
+      37.0,
+      256.0,
+      589.0,
+      591.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [37.0, 256.0, 589.0, 591.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind it.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind it.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind it.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0013",
+    "caption": "The dog is in the middle of the chair.",
+    "relation": "in the middle of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.007541666666666667,
+      0.772640625,
+      0.9876250000000001
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The dog is lying on the chair, positioned towards the back and slightly off-center.\",\n\"box\": [116, 58, 479, 468],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The dog is lying on the chair, positioned towards the back and slightly off-center.",
+      "box": [
+        116,
+        58,
+        479,
+        468
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The dog is lying on the chair, positioned towards the back and slightly off-center.",
+    "initial_box": [
+      116.0,
+      58.0,
+      479.0,
+      468.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [116.0, 58.0, 479.0, 468.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box adequately captures the dog lying in the middle of the chair.\",\n\"box\": [116.0, 58.0, 479.0, 468.0],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box adequately captures the dog lying in the middle of the chair.",
+      "box": [
+        116.0,
+        58.0,
+        479.0,
+        468.0
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The bounding box adequately captures the dog lying in the middle of the chair.",
+    "revised_box": [
+      116.0,
+      58.0,
+      479.0,
+      468.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [116.0, 58.0, 479.0, 468.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is positioned centrally within the chair, indicating it is in the middle.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is positioned centrally within the chair, indicating it is in the middle.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The dog is positioned centrally within the chair, indicating it is in the middle.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0014",
+    "caption": "The refrigerator is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.00826,
+      0.011013333333333333,
+      1.088,
+      1.23912
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The refrigerator is on the right side of the dog, as the dog's head is turned towards it.\",\n\"box\": [134, 0, 504, 364],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The refrigerator is on the right side of the dog, as the dog's head is turned towards it.",
+      "box": [
+        134,
+        0,
+        504,
+        364
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The refrigerator is on the right side of the dog, as the dog's head is turned towards it.",
+    "initial_box": [
+      134.0,
+      0.0,
+      504.0,
+      364.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [134.0, 0.0, 504.0, 364.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box is too large and includes unnecessary background. It should be adjusted to focus more on the dog and the refrigerator.\",\n\"box\": [0, 74, 310, 364],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box is too large and includes unnecessary background. It should be adjusted to focus more on the dog and the refrigerator.",
+      "box": [
+        0,
+        74,
+        310,
+        364
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The box is too large and includes unnecessary background. It should be adjusted to focus more on the dog and the refrigerator.",
+    "revised_box": [
+      0.0,
+      74.0,
+      310.0,
+      364.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 74.0, 310.0, 364.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog's head and part of its body are visible on the left side of the image, indicating that the refrigerator is on the right side.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog's head and part of its body are visible on the left side of the image, indicating that the refrigerator is on the right side.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The dog's head and part of its body are visible on the left side of the image, indicating that the refrigerator is on the right side.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0015",
+    "caption": "The chair is opposite to the dog.",
+    "relation": "opposite to",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The dog is lying on a bed, and the chair is positioned behind it.\",\n\"box\": [463, 0, 587, 132],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The dog is lying on a bed, and the chair is positioned behind it.",
+      "box": [
+        463,
+        0,
+        587,
+        132
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The dog is lying on a bed, and the chair is positioned behind it.",
+    "initial_box": [
+      463.0,
+      0.0,
+      587.0,
+      132.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [463.0, 0.0, 587.0, 132.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 0.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too small and does not capture the entire chair or the dog. It should be expanded to include more of the chair and the dog.\",\n\"box\": [534, 0, 644, 209],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box is too small and does not capture the entire chair or the dog. It should be expanded to include more of the chair and the dog.",
+      "box": [
+        534,
+        0,
+        644,
+        209
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box is too small and does not capture the entire chair or the dog. It should be expanded to include more of the chair and the dog.",
+    "revised_box": [
+      534.0,
+      0.0,
+      644.0,
+      209.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [534.0, 0.0, 644.0, 209.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The image shows a dog lying on a bed with a chair partially visible in the background, but it's not clear if the chair is directly opposite the dog.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The image shows a dog lying on a bed with a chair partially visible in the background, but it's not clear if the chair is directly opposite the dog.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The image shows a dog lying on a bed with a chair partially visible in the background, but it's not clear if the chair is directly opposite the dog.",
+    "final_answer": "false",
+    "final_answer_correct": false,
+    "box_revised": true,
+    "answer_flipped": true,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0016",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.040703125,
+      0.25009345794392523,
+      0.7078125,
+      1.4953271028037383
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The dog is wearing goggles and a harness, suggesting it's being prepared for a ride, but it is not physically on the motorcycle. The motorcycle is in the background.\",\n\"box\": [328, 214, 644, 415],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The dog is wearing goggles and a harness, suggesting it's being prepared for a ride, but it is not physically on the motorcycle. The motorcycle is in the background.",
+      "box": [
+        328,
+        214,
+        644,
+        415
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The dog is wearing goggles and a harness, suggesting it's being prepared for a ride, but it is not physically on the motorcycle. The motorcycle is in the background.",
+    "initial_box": [
+      328.0,
+      214.0,
+      644.0,
+      415.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [328.0, 214.0, 644.0, 415.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too large and includes parts of the motorcycle that are not relevant to the statement. It should be adjusted to focus more on the dog.\",\n\"box\": [0, 47, 462, 415],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box is too large and includes parts of the motorcycle that are not relevant to the statement. It should be adjusted to focus more on the dog.",
+      "box": [
+        0,
+        47,
+        462,
+        415
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The bounding box is too large and includes parts of the motorcycle that are not relevant to the statement. It should be adjusted to focus more on the dog.",
+    "revised_box": [
+      0.0,
+      47.0,
+      462.0,
+      415.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 47.0, 462.0, 415.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The dog is wearing a harness and goggles, which suggests it's being prepared for a ride, but the background shows a car, not a motorcycle.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The dog is wearing a harness and goggles, which suggests it's being prepared for a ride, but the background shows a car, not a motorcycle.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The dog is wearing a harness and goggles, which suggests it's being prepared for a ride, but the background shows a car, not a motorcycle.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0017",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.4462291666666667,
+      0.020999999999999998,
+      1.1854166666666666,
+      0.672578125
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The wooden bench is touching the paper dog sculpture.\",\n\"box\": [0, 83, 476, 635],\n\"answer\": \"true\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The wooden bench is touching the paper dog sculpture.",
+      "box": [
+        0,
+        83,
+        476,
+        635
+      ],
+      "answer": "true"
+    },
+    "initial_reasoning": "The wooden bench is touching the paper dog sculpture.",
+    "initial_box": [
+      0.0,
+      83.0,
+      476.0,
+      635.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [0.0, 83.0, 476.0, 635.0]",
+    "initial_answer": "true",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The bounding box adequately captures the bench and the dog, ensuring they are both visible and their spatial relationship is clear.\",\n\"box\": [0, 83, 476, 635],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The bounding box adequately captures the bench and the dog, ensuring they are both visible and their spatial relationship is clear.",
+      "box": [
+        0,
+        83,
+        476,
+        635
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The bounding box adequately captures the bench and the dog, ensuring they are both visible and their spatial relationship is clear.",
+    "revised_box": [
+      0.0,
+      83.0,
+      476.0,
+      635.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [0.0, 83.0, 476.0, 635.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The bench and the dog appear to be in close proximity, with the dog positioned on the bench's surface.\",\n\"answer\": \"true\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The bench and the dog appear to be in close proximity, with the dog positioned on the bench's surface.",
+      "answer": "true"
+    },
+    "crop_reasoning": "The bench and the dog appear to be in close proximity, with the dog positioned on the bench's surface.",
+    "final_answer": "true",
+    "final_answer_correct": true,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0018",
+    "caption": "The bench is in front of the train.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.000375,
+      0.24911007025761125,
+      0.880796875,
+      0.8107025761124123
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The bench is positioned behind the train, indicating it is not in front of the train.\",\n\"box\": [526, 178, 549, 200],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The bench is positioned behind the train, indicating it is not in front of the train.",
+      "box": [
+        526,
+        178,
+        549,
+        200
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The bench is positioned behind the train, indicating it is not in front of the train.",
+    "initial_box": [
+      526.0,
+      178.0,
+      549.0,
+      200.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [526.0, 178.0, 549.0, 200.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": false,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box is too small and does not capture the bench or the train. It should be larger to include both objects.\",\n\"box\": [526, 178, 549, 200],\n\"answer\": \"false\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box is too small and does not capture the bench or the train. It should be larger to include both objects.",
+      "box": [
+        526,
+        178,
+        549,
+        200
+      ],
+      "answer": "false"
+    },
+    "verification_reasoning": "The box is too small and does not capture the bench or the train. It should be larger to include both objects.",
+    "revised_box": [
+      526.0,
+      178.0,
+      549.0,
+      200.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [526.0, 178.0, 549.0, 200.0]",
+    "revised_answer": "false",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The image shows a train-like structure with benches attached to it, and there's no indication that a bench is positioned in front of the train.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The image shows a train-like structure with benches attached to it, and there's no indication that a bench is positioned in front of the train.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The image shows a train-like structure with benches attached to it, and there's no indication that a bench is positioned in front of the train.",
+    "final_answer": "false",
+    "final_answer_correct": false,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false
+  },
+  {
+    "example_id": "vsr_0019",
+    "caption": "The laptop is on the bench.",
+    "relation": "on",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.002511737089201878,
+      0.0,
+      1.5013615023474178,
+      0.7383124999999999
+    ],
+    "initial_raw_output": "{\n\"reasoning\": \"The laptop is on the table, which is next to the bench.\",\n\"box\": [139, 274, 418, 425],\n\"answer\": \"false\"\n}",
+    "initial_parsed_json": {
+      "reasoning": "The laptop is on the table, which is next to the bench.",
+      "box": [
+        139,
+        274,
+        418,
+        425
+      ],
+      "answer": "false"
+    },
+    "initial_reasoning": "The laptop is on the table, which is next to the bench.",
+    "initial_box": [
+      139.0,
+      274.0,
+      418.0,
+      425.0
+    ],
+    "initial_box_valid": false,
+    "initial_box_invalid_reason": "box values outside [0,1]: [139.0, 274.0, 418.0, 425.0]",
+    "initial_answer": "false",
+    "initial_answer_correct": true,
+    "initial_iou": null,
+    "initial_rsa": null,
+    "bqs": 0.0,
+    "format_score": 0.0,
+    "overlap_score": 0.0,
+    "mention_score": 1.0,
+    "stability_score": 1.0,
+    "correction_triggered": true,
+    "verification_raw_output": "{\n\"verification_reasoning\": \"The box is adequate as it captures the laptop and part of the bench, but it does not fully cover the bench.\",\n\"box\": [146, 378, 420, 637],\n\"answer\": \"true\"\n}",
+    "verification_parsed_json": {
+      "verification_reasoning": "The box is adequate as it captures the laptop and part of the bench, but it does not fully cover the bench.",
+      "box": [
+        146,
+        378,
+        420,
+        637
+      ],
+      "answer": "true"
+    },
+    "verification_reasoning": "The box is adequate as it captures the laptop and part of the bench, but it does not fully cover the bench.",
+    "revised_box": [
+      146.0,
+      378.0,
+      420.0,
+      637.0
+    ],
+    "revised_box_valid": false,
+    "revised_box_invalid_reason": "box values outside [0,1]: [146.0, 378.0, 420.0, 637.0]",
+    "revised_answer": "true",
+    "revised_iou": null,
+    "revised_rsa": null,
+    "crop_raw_output": "{\n\"crop_reasoning\": \"The laptop is placed on a round table, not on the bench.\",\n\"answer\": \"false\"\n}",
+    "crop_parsed_json": {
+      "crop_reasoning": "The laptop is placed on a round table, not on the bench.",
+      "answer": "false"
+    },
+    "crop_reasoning": "The laptop is placed on a round table, not on the bench.",
+    "final_answer": "false",
+    "final_answer_correct": true,
+    "box_revised": true,
+    "answer_flipped": false,
+    "recovered": false
+  }
+]

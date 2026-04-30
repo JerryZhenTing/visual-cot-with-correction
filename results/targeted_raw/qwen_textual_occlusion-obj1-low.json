@@ -1,0 +1,3662 @@
+[
+  {
+    "example_id": "vsr_0000",
+    "caption": "The dog is on the surfboard.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing on a surfboard in the water.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing on a surfboard in the water.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is standing on a surfboard in the water.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0025781249999999997,
+      0.3800900900900901,
+      0.9294531249999999,
+      0.9804054054054054
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0001",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned on the left side of the dog in the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned on the left side of the dog in the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned on the left side of the dog in the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.12359477124183006,
+      0.04911764705882353,
+      0.9369607843137256,
+      0.5967320261437908
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0002",
+    "caption": "The laptop is inside the train.",
+    "relation": "inside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"There is no visible laptop in the image.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "There is no visible laptop in the image.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "There is no visible laptop in the image.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.02857142857142857,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0003",
+    "caption": "The zebra is behind the horse.",
+    "relation": "behind",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.149921875,
+      0.00225,
+      1.0,
+      0.665625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0004",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing on the floor, not on the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing on the floor, not on the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is standing on the floor, not on the chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.1701,
+      0.5977066666666666,
+      0.77838,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0006",
+    "caption": "The chair is above the dog.",
+    "relation": "above",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on a surface that appears to be a couch, not a chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on a surface that appears to be a couch, not a chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on a surface that appears to be a couch, not a chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.01008,
+      0.1445180722891566,
+      0.73412,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0007",
+    "caption": "The zebra is left of the horse.",
+    "relation": "left of",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The zebra is positioned to the right of the horse when looking at the image.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The zebra is positioned to the right of the horse when looking at the image.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The zebra is positioned to the right of the horse when looking at the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0050625,
+      0.18328125,
+      0.961296875,
+      0.673140625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0008",
+    "caption": "The motorcycle is ahead of the train.",
+    "relation": "ahead of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is positioned in front of the train, as indicated by its placement relative to the train's position in the image.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is positioned in front of the train, as indicated by its placement relative to the train's position in the image.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The motorcycle is positioned in front of the train, as indicated by its placement relative to the train's position in the image.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.018501170960187354,
+      0.9977500000000001,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0009",
+    "caption": "The bench is over the dog.",
+    "relation": "over",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned above the dog, which is lying on the ground beneath it.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned above the dog, which is lying on the ground beneath it.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench is positioned above the dog, which is lying on the ground beneath it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.06476562500000001,
+      0.0,
+      0.86459375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0010",
+    "caption": "The train is perpendicular to the motorcycle.",
+    "relation": "perpendicular to",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The train is positioned parallel to the motorcycle, not perpendicular.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is positioned parallel to the motorcycle, not perpendicular.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The train is positioned parallel to the motorcycle, not perpendicular.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.01234375,
+      0.9977500000000001,
+      0.9887656249999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0011",
+    "caption": "The laptop is above the dog.",
+    "relation": "above",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed on a person's lap, which is above the dog lying on the floor.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed on a person's lap, which is above the dog lying on the floor.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is placed on a person's lap, which is above the dog lying on the floor.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.09825,
+      0.028145539906103287,
+      0.78125,
+      0.8711032863849766
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0012",
+    "caption": "The motorcycle is behind the dog.",
+    "relation": "behind",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the motorcycle, not behind it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the motorcycle, not behind it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned on the motorcycle, not behind it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.159546875,
+      0.6828125,
+      0.9977500000000001
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0013",
+    "caption": "The dog is in the middle of the chair.",
+    "relation": "in the middle of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned towards the back of the chair, not in the middle.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned towards the back of the chair, not in the middle.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned towards the back of the chair, not in the middle.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.007541666666666667,
+      0.772640625,
+      0.9876250000000001
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0014",
+    "caption": "The refrigerator is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the left side of the refrigerator, as indicated by its proximity to the left edge of the image.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the left side of the refrigerator, as indicated by its proximity to the left edge of the image.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned on the left side of the refrigerator, as indicated by its proximity to the left edge of the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.00826,
+      0.011013333333333333,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0015",
+    "caption": "The chair is opposite to the dog.",
+    "relation": "opposite to",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The chair is visible on the right side of the image, while the dog is lying on the left side. They are not directly opposite each other.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is visible on the right side of the image, while the dog is lying on the left side. They are not directly opposite each other.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is visible on the right side of the image, while the dog is lying on the left side. They are not directly opposite each other.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0016",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is wearing a harness and goggles, which suggests it's being ridden by someone, but there is no motorcycle visible in the image.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is wearing a harness and goggles, which suggests it's being ridden by someone, but there is no motorcycle visible in the image.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is wearing a harness and goggles, which suggests it's being ridden by someone, but there is no motorcycle visible in the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.040703125,
+      0.25009345794392523,
+      0.7078125,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0017",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench appears to be directly beneath the dog, indicating that they are in contact.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench appears to be directly beneath the dog, indicating that they are in contact.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench appears to be directly beneath the dog, indicating that they are in contact.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.4462291666666667,
+      0.020999999999999998,
+      1.0,
+      0.672578125
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0018",
+    "caption": "The bench is in front of the train.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned behind the train, not in front of it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned behind the train, not in front of it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is positioned behind the train, not in front of it.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.000375,
+      0.24911007025761125,
+      0.880796875,
+      0.8107025761124123
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0019",
+    "caption": "The laptop is on the bench.",
+    "relation": "on",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed on a round table, not on a bench.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed on a round table, not on a bench.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is placed on a round table, not on a bench.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.002511737089201878,
+      0.0,
+      1.0,
+      0.7383124999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0020",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's body is positioned on the bench, indicating that the bench is touching the dog.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's body is positioned on the bench, indicating that the bench is touching the dog.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's body is positioned on the bench, indicating that the bench is touching the dog.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.334671875,
+      0.028535031847133758,
+      0.8890625,
+      0.9139065817409766
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0021",
+    "caption": "The laptop is facing the chair.",
+    "relation": "facing",
+    "subj": "laptop",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned on the desk and appears to be oriented towards the chair, suggesting it is set up for use.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned on the desk and appears to be oriented towards the chair, suggesting it is set up for use.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned on the desk and appears to be oriented towards the chair, suggesting it is set up for use.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.21290625,
+      0.02370023419203747,
+      1.0,
+      0.6981967213114754
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0022",
+    "caption": "The laptop is beside the train.",
+    "relation": "beside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The reflection on the laptop screen shows the interior of a train, indicating that the laptop is inside the train.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The reflection on the laptop screen shows the interior of a train, indicating that the laptop is inside the train.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The reflection on the laptop screen shows the interior of a train, indicating that the laptop is inside the train.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.25508333333333333,
+      0.869953125,
+      0.8900208333333333
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0023",
+    "caption": "The train is away from the chair.",
+    "relation": "away from",
+    "subj": "train",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The train is on the tracks, and there is no chair visible in the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is on the tracks, and there is no chair visible in the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The train is on the tracks, and there is no chair visible in the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.002875,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0024",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned on the left side of the dog in the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned on the left side of the dog in the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned on the left side of the dog in the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.1181875,
+      0.07023364485981308,
+      0.8959687500000001,
+      0.8532710280373832
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0025",
+    "caption": "The dog is in front of the chair.",
+    "relation": "in front of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the chair, indicating it is in front of the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the chair, indicating it is in front of the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned on the chair, indicating it is in front of the chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.07765625000000001,
+      0.141046875,
+      0.66640625,
+      0.765
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0026",
+    "caption": "The laptop is on top of the handbag.",
+    "relation": "on top of",
+    "subj": "laptop",
+    "obj": "handbag",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed directly on the surface, while the handbag is underneath it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed directly on the surface, while the handbag is underneath it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is placed directly on the surface, while the handbag is underneath it.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0052812499999999995,
+      0.23735655737704917,
+      0.318484375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0028",
+    "caption": "The laptop is in front of the dog.",
+    "relation": "in front of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed on the couch behind the dog.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed on the couch behind the dog.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is placed on the couch behind the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.0,
+      0.9609375,
+      0.9196666666666666
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0029",
+    "caption": "The chair is on the train.",
+    "relation": "on",
+    "subj": "chair",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair is clearly visible outside the fence, not on the train.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is clearly visible outside the fence, not on the train.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is clearly visible outside the fence, not on the train.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.002584269662921348,
+      0.0,
+      0.898876404494382,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0030",
+    "caption": "The dog is at the left side of the motorcycle.",
+    "relation": "at the left side of",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is seated in a trailer attached to the left side of the motorcycle.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is seated in a trailer attached to the left side of the motorcycle.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is seated in a trailer attached to the left side of the motorcycle.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.002421875,
+      0.05033240997229917,
+      0.7381875,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0031",
+    "caption": "The bench is under the dog.",
+    "relation": "under",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's body is positioned on top of the bench, indicating that the bench is not under the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's body is positioned on top of the bench, indicating that the bench is not under the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's body is positioned on top of the bench, indicating that the bench is not under the dog.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.135359375,
+      0.7861149825783973,
+      0.7515156249999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0032",
+    "caption": "The laptop is on top of the bench.",
+    "relation": "on top of",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned above the books and appears to be resting on a surface that looks like a bench.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned above the books and appears to be resting on a surface that looks like a bench.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned above the books and appears to be resting on a surface that looks like a bench.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.183015625,
+      0.1206875,
+      0.678109375,
+      0.7721874999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0033",
+    "caption": "The dog is under the chair.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the grass, partially under a green and white striped object that resembles a chair.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the grass, partially under a green and white striped object that resembles a chair.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on the grass, partially under a green and white striped object that resembles a chair.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.180390625,
+      0.10304449648711944,
+      0.8268593750000001,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0034",
+    "caption": "The laptop is on top of the bench.",
+    "relation": "on top of",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed on the wooden bench, which is elevated above the ground.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed on the wooden bench, which is elevated above the ground.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is placed on the wooden bench, which is elevated above the ground.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.27430913348946134,
+      0.090515625,
+      1.0,
+      0.579140625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0036",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog's body is positioned such that its front paws are on the laptop, indicating the laptop is in front of the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's body is positioned such that its front paws are on the laptop, indicating the laptop is in front of the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's body is positioned such that its front paws are on the laptop, indicating the laptop is in front of the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.17714285714285716,
+      0.04696875,
+      1.0,
+      0.5706249999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0040",
+    "caption": "The chair is above the dog.",
+    "relation": "above",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The chair is partially visible behind the dog, indicating it is indeed above the dog.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is partially visible behind the dog, indicating it is indeed above the dog.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The chair is partially visible behind the dog, indicating it is indeed above the dog.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.007875,
+      0.11236533957845432,
+      0.57353125,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0041",
+    "caption": "The dog is on top of the motorcycle.",
+    "relation": "on top of",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing on the ground next to the motorcycle, not on top of it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing on the ground next to the motorcycle, not on top of it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is standing on the ground next to the motorcycle, not on top of it.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.04409375,
+      0.41731934731934733,
+      1.0,
+      0.9933799533799533
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0043",
+    "caption": "The chair is away from the horse.",
+    "relation": "away from",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The chair is positioned behind the horse, indicating it is not close to the horse.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is positioned behind the horse, indicating it is not close to the horse.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is positioned behind the horse, indicating it is not close to the horse.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.33689583333333334,
+      0.126546875,
+      0.825125,
+      0.6940000000000001
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0044",
+    "caption": "The train contains the laptop.",
+    "relation": "contains",
+    "subj": "train",
+    "obj": "laptop",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The train is visible in the background, but there's no indication that it contains the laptop. The laptop appears to be on the table in front of the man.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is visible in the background, but there's no indication that it contains the laptop. The laptop appears to be on the table in front of the man.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The train is visible in the background, but there's no indication that it contains the laptop. The laptop appears to be on the table in front of the man.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.042687499999999996,
+      0.965609375,
+      0.9775208333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0045",
+    "caption": "The train contains the laptop.",
+    "relation": "contains",
+    "subj": "train",
+    "obj": "laptop",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The image shows a book on top of a laptop keyboard, but the book does not contain the laptop.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows a book on top of a laptop keyboard, but the book does not contain the laptop.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image shows a book on top of a laptop keyboard, but the book does not contain the laptop.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.047985948477751755,
+      0.965609375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0046",
+    "caption": "The refrigerator is behind the dog.",
+    "relation": "behind",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is positioned in front of the refrigerator, indicating that the refrigerator is behind it.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is positioned in front of the refrigerator, indicating that the refrigerator is behind it.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's head is positioned in front of the refrigerator, indicating that the refrigerator is behind it.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.00826,
+      0.011013333333333333,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0048",
+    "caption": "The motorcycle is ahead of the train.",
+    "relation": "ahead of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is positioned behind the train, as it is further away from the camera and closer to the building.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is positioned behind the train, as it is further away from the camera and closer to the building.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The motorcycle is positioned behind the train, as it is further away from the camera and closer to the building.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.016390041493775934,
+      0.9977500000000001,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0049",
+    "caption": "The motorcycle is under the dog.",
+    "relation": "under",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on the seat of the motorcycle, which is above the ground.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on the seat of the motorcycle, which is above the ground.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on the seat of the motorcycle, which is above the ground.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.03929742388758783,
+      0.000171875,
+      1.0,
+      0.75359375
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0051",
+    "caption": "The dog is below the motorcycle.",
+    "relation": "below",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the ground in front of the motorcycle, indicating it is below the motorcycle.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the ground in front of the motorcycle, indicating it is below the motorcycle.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned on the ground in front of the motorcycle, indicating it is below the motorcycle.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.061109375,
+      0.01605009633911368,
+      0.9938281250000001,
+      0.882466281310212
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0052",
+    "caption": "The chair is at the right side of the laptop.",
+    "relation": "at the right side of",
+    "subj": "chair",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The woman is sitting on the chair, which is positioned behind the laptop.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The woman is sitting on the chair, which is positioned behind the laptop.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The woman is sitting on the chair, which is positioned behind the laptop.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.7182708333333333,
+      0.129140625,
+      1.0,
+      0.75
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0053",
+    "caption": "The dog is on top of the motorcycle.",
+    "relation": "on top of",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing next to the motorcycle, not on it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing next to the motorcycle, not on it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is standing next to the motorcycle, not on it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.04409375,
+      0.3761134453781513,
+      1.0,
+      0.8952941176470588
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0054",
+    "caption": "The dog is in the motorcycle.",
+    "relation": "in",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting inside a vehicle that appears to be a motorcycle, as indicated by the visible seat and handlebars.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting inside a vehicle that appears to be a motorcycle, as indicated by the visible seat and handlebars.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is sitting inside a vehicle that appears to be a motorcycle, as indicated by the visible seat and handlebars.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.056,
+      0.13485333333333333,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0057",
+    "caption": "The chair is behind the dog.",
+    "relation": "behind",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the chair, which means the chair is not behind the dog.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the chair, which means the chair is not behind the dog.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on the chair, which means the chair is not behind the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.007796875,
+      0.07533333333333332,
+      1.0,
+      0.9870208333333333
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0059",
+    "caption": "The bench is touching the laptop.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench appears to be directly beneath the laptop, indicating they are in contact.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench appears to be directly beneath the laptop, indicating they are in contact.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench appears to be directly beneath the laptop, indicating they are in contact.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.175421875,
+      0.0,
+      0.9992812499999999,
+      0.8269583333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0060",
+    "caption": "The train is perpendicular to the bench.",
+    "relation": "perpendicular to",
+    "subj": "train",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The train is parallel to the bench, as both are aligned horizontally on the platform.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is parallel to the bench, as both are aligned horizontally on the platform.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The train is parallel to the bench, as both are aligned horizontally on the platform.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.49662763466042154,
+      1.0,
+      0.9937236533957845
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0061",
+    "caption": "The dog is under the bench.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned beneath a bench, partially obscured by it.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned beneath a bench, partially obscured by it.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned beneath a bench, partially obscured by it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.050562499999999996,
+      0.41004166666666664,
+      0.657296875,
+      0.9453958333333332
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0063",
+    "caption": "The dog is under the chair.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on a red cushioned chair, not under it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on a red cushioned chair, not under it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on a red cushioned chair, not under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.21029143897996358,
+      0.06875,
+      0.9639162112932605,
+      0.75
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0064",
+    "caption": "The bench is in front of the refrigerator.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "refrigerator",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned directly in front of the refrigerator, as it is placed on the same level and aligned with the refrigerator's front.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned directly in front of the refrigerator, as it is placed on the same level and aligned with the refrigerator's front.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench is positioned directly in front of the refrigerator, as it is placed on the same level and aligned with the refrigerator's front.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.3955,
+      0.05401197604790419,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0065",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair is partially visible behind the dog, suggesting it is positioned behind the dog rather than under it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is partially visible behind the dog, suggesting it is positioned behind the dog rather than under it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is partially visible behind the dog, suggesting it is positioned behind the dog rather than under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.13289062499999998,
+      0.4669583333333333,
+      0.608109375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0066",
+    "caption": "The chair is at the right side of the dog.",
+    "relation": "at the right side of",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The chair is indeed positioned to the right of the dog in the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is indeed positioned to the right of the dog in the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The chair is indeed positioned to the right of the dog in the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.14992,
+      0.22107462686567164,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0067",
+    "caption": "The laptop is at the left side of the chair.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is on the desk in front of the person, not to the left of the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is on the desk in front of the person, not to the left of the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is on the desk in front of the person, not to the left of the chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.069015625,
+      0.511875,
+      0.74521875,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0068",
+    "caption": "The dog is far from the surfboard.",
+    "relation": "far from",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is visible on the left side of the image, while the surfboard is held by a person in the foreground. The dog is clearly farther away from the surfboard than the person holding it.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is visible on the left side of the image, while the surfboard is held by a person in the foreground. The dog is clearly farther away from the surfboard than the person holding it.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is visible on the left side of the image, while the surfboard is held by a person in the foreground. The dog is clearly farther away from the surfboard than the person holding it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.003125,
+      0.07481249999999999,
+      1.0,
+      0.9077291666666666
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0069",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned behind the dog, not touching it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned behind the dog, not touching it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is positioned behind the dog, not touching it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.334671875,
+      0.028,
+      0.8890625,
+      0.8967708333333333
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0070",
+    "caption": "The surfboard is under the dog.",
+    "relation": "under",
+    "subj": "surfboard",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's paws are on the surfboard, indicating it is standing on it.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's paws are on the surfboard, indicating it is standing on it.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's paws are on the surfboard, indicating it is standing on it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0033750000000000004,
+      0.0024324324324324327,
+      0.9960625000000001,
+      0.9927477477477477
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0072",
+    "caption": "The dog is in front of the motorcycle.",
+    "relation": "in front of",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting inside a trailer attached to the motorcycle, which is positioned behind it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting inside a trailer attached to the motorcycle, which is positioned behind it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting inside a trailer attached to the motorcycle, which is positioned behind it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.09281249999999999,
+      0.1406371191135734,
+      0.876375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0073",
+    "caption": "The bench is in front of the refrigerator.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "refrigerator",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The child is sitting on a bench that is positioned directly in front of the refrigerator, which contains beverages.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The child is sitting on a bench that is positioned directly in front of the refrigerator, which contains beverages.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The child is sitting on a bench that is positioned directly in front of the refrigerator, which contains beverages.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.308984375,
+      0.04224824355971897,
+      0.9160468749999999,
+      0.9263934426229508
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0074",
+    "caption": "The bench is part of the train.",
+    "relation": "part of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The bench is located on the platform, not on the train.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is located on the platform, not on the train.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is located on the platform, not on the train.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.007623529411764706,
+      0.66875,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0075",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the grass in front of the motorcycle, not on it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the grass in front of the motorcycle, not on it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on the grass in front of the motorcycle, not on it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.040703125,
+      0.206242774566474,
+      0.7078125,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0078",
+    "caption": "The dog is on the chair.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying down on the white armchair.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying down on the white armchair.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying down on the white armchair.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.06881999999999999,
+      0.4918318318318318,
+      0.8891199999999999,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0080",
+    "caption": "The motorcycle is at the left side of the train.",
+    "relation": "at the left side of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is positioned on the road, while the train is behind it, indicating that the motorcycle is to the right of the train.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is positioned on the road, while the train is behind it, indicating that the motorcycle is to the right of the train.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The motorcycle is positioned on the road, while the train is behind it, indicating that the motorcycle is to the right of the train.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.00646875,
+      0.179921875,
+      0.9295625,
+      0.626703125
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0081",
+    "caption": "The dog is in front of the motorcycle.",
+    "relation": "in front of",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the seat of the motorcycle, indicating it is not in front of the motorcycle.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the seat of the motorcycle, indicating it is not in front of the motorcycle.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned on the seat of the motorcycle, indicating it is not in front of the motorcycle.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.13911007025761124,
+      0.079328125,
+      1.0,
+      0.864046875
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0082",
+    "caption": "The laptop is in front of the dog.",
+    "relation": "in front of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned behind the dog, not in front of it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned behind the dog, not in front of it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is positioned behind the dog, not in front of it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.0,
+      0.9609375,
+      0.9196666666666666
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0083",
+    "caption": "The laptop is in front of the refrigerator.",
+    "relation": "in front of",
+    "subj": "laptop",
+    "obj": "refrigerator",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is on a table in front of a window, not in front of a refrigerator.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is on a table in front of a window, not in front of a refrigerator.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is on a table in front of a window, not in front of a refrigerator.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.5868125,
+      0.12042735042735044,
+      0.88053125,
+      0.6435726495726496
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0085",
+    "caption": "The bench is surrounding the horse.",
+    "relation": "surrounding",
+    "subj": "bench",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned behind the horse, not surrounding it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned behind the horse, not surrounding it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is positioned behind the horse, not surrounding it.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.017208333333333332,
+      0.791390625,
+      0.8716875
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0087",
+    "caption": "The dog is at the left side of the horse.",
+    "relation": "at the left side of",
+    "subj": "dog",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned to the right of the horse when looking at the image.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned to the right of the horse when looking at the image.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned to the right of the horse when looking at the image.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      0.6096078431372549
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0088",
+    "caption": "The dog is in the chair.",
+    "relation": "in",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the bed, not in the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the bed, not in the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on the bed, not in the chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.22379687499999998,
+      0.0,
+      1.0,
+      0.9996041666666665
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0092",
+    "caption": "The dog is facing away from the laptop.",
+    "relation": "facing away from",
+    "subj": "dog",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is turned towards the camera, not the laptop.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is turned towards the camera, not the laptop.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's head is turned towards the camera, not the laptop.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.00043750000000000006,
+      0.20829166666666668,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0093",
+    "caption": "The dog is at the right side of the refrigerator.",
+    "relation": "at the right side of",
+    "subj": "dog",
+    "obj": "refrigerator",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the right side of the image, while the refrigerator is on the left.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the right side of the image, while the refrigerator is on the left.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned on the right side of the image, while the refrigerator is on the left.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0016718750000000002,
+      0.0,
+      0.9993437499999999,
+      0.7206066945606695
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0094",
+    "caption": "The dog is beneath the chair.",
+    "relation": "beneath",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on a mat under a chair.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on a mat under a chair.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on a mat under a chair.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.034984375,
+      0.004164648910411622,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0096",
+    "caption": "The dog is under the chair.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on a green mat beneath a wooden chair.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on a green mat beneath a wooden chair.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on a green mat beneath a wooden chair.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.180390625,
+      0.10653753026634383,
+      0.8268593750000001,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0097",
+    "caption": "The train is on top of the laptop.",
+    "relation": "on top of",
+    "subj": "train",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The image shows a book with a train illustration placed on a laptop keyboard.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows a book with a train illustration placed on a laptop keyboard.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image shows a book with a train illustration placed on a laptop keyboard.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.0002107728337236534,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0098",
+    "caption": "The dog is under the bench.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "bench",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on the man's lap, which is above the bench.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on the man's lap, which is above the bench.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on the man's lap, which is above the bench.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.06741666666666667,
+      0.30753125,
+      0.8763958333333334,
+      0.709046875
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0100",
+    "caption": "The refrigerator is facing the bench.",
+    "relation": "facing",
+    "subj": "refrigerator",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The refrigerator is positioned parallel to the wall and not directly facing the bench.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The refrigerator is positioned parallel to the wall and not directly facing the bench.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The refrigerator is positioned parallel to the wall and not directly facing the bench.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.13552,
+      0.26027999999999996,
+      1.0,
+      0.6593199999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0101",
+    "caption": "The dog is facing the chair.",
+    "relation": "facing",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is turned towards the camera, indicating it is not facing the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is turned towards the camera, indicating it is not facing the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's head is turned towards the camera, indicating it is not facing the chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.014140625,
+      1.0,
+      0.9894999999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0102",
+    "caption": "The motorcycle is in front of the dog.",
+    "relation": "in front of",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is clearly visible in the foreground, while the dog is on the back seat, indicating that the motorcycle is in front of the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is clearly visible in the foreground, while the dog is on the back seat, indicating that the motorcycle is in front of the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The motorcycle is clearly visible in the foreground, while the dog is on the back seat, indicating that the motorcycle is in front of the dog.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.040703125,
+      0.25126760563380285,
+      0.7078125,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0104",
+    "caption": "The chair is below the horse.",
+    "relation": "below",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The horse statue is positioned above the chair in the image.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The horse statue is positioned above the chair in the image.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The horse statue is positioned above the chair in the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.09329166666666668,
+      0.01428125,
+      0.8625,
+      0.6640625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0105",
+    "caption": "The laptop is at the edge of the bench.",
+    "relation": "at the edge of",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is placed on the person's lap, not at the edge of the bench.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is placed on the person's lap, not at the edge of the bench.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is placed on the person's lap, not at the edge of the bench.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.5718072289156627,
+      0.852,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0106",
+    "caption": "The chair is over the dog.",
+    "relation": "over",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on a surface that appears to be a couch, not a chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on a surface that appears to be a couch, not a chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on a surface that appears to be a couch, not a chair.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.15496000000000001,
+      0.0066867469879518075,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0109",
+    "caption": "The dog is far away from the horse.",
+    "relation": "far away from",
+    "subj": "dog",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's body is partially visible on the right side of the image, indicating it is close to the horse.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's body is partially visible on the right side of the image, indicating it is close to the horse.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's body is partially visible on the right side of the image, indicating it is close to the horse.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.101609375,
+      0.08224999999999999,
+      0.99696875,
+      0.9797916666666666
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0110",
+    "caption": "The motorcycle is behind the dog.",
+    "relation": "behind",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is positioned behind the dog in the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is positioned behind the dog in the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The motorcycle is positioned behind the dog in the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.21451680672268908,
+      0.6828125,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0114",
+    "caption": "The dog is above the laptop.",
+    "relation": "above",
+    "subj": "dog",
+    "obj": "laptop",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned in front of the laptop, partially obscuring it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned in front of the laptop, partially obscuring it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned in front of the laptop, partially obscuring it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.3646041666666667,
+      0.866296875,
+      0.9873124999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0116",
+    "caption": "The laptop is above the dog.",
+    "relation": "above",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned behind the dog on the desk.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned behind the dog on the desk.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is positioned behind the dog on the desk.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.12576,
+      0.03197333333333333,
+      1.0,
+      0.9895733333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0118",
+    "caption": "The chair is facing the laptop.",
+    "relation": "facing",
+    "subj": "chair",
+    "obj": "laptop",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair is positioned in front of the laptop, suggesting it is facing the laptop.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is positioned in front of the laptop, suggesting it is facing the laptop.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The chair is positioned in front of the laptop, suggesting it is facing the laptop.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.497078125,
+      0.40042253521126764,
+      0.982375,
+      0.9154460093896714
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0119",
+    "caption": "The dog is facing the horse.",
+    "relation": "facing",
+    "subj": "dog",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is turned towards the horse, indicating it is facing the horse.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is turned towards the horse, indicating it is facing the horse.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's head is turned towards the horse, indicating it is facing the horse.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.0021562499999999997,
+      0.0014375,
+      0.8909062500000001,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0120",
+    "caption": "The zebra is touching the horse.",
+    "relation": "touching",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The zebra's body is partially obscured by the horse, but its legs appear to be in contact with the horse's body.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The zebra's body is partially obscured by the horse, but its legs appear to be in contact with the horse's body.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The zebra's body is partially obscured by the horse, but its legs appear to be in contact with the horse's body.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0865,
+      0.06754022988505747,
+      0.9363906249999999,
+      0.8398390804597701
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0124",
+    "caption": "The chair is under the horse.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair is positioned behind the horse, not under it.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is positioned behind the horse, not under it.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is positioned behind the horse, not under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.13764062500000002,
+      0.35841666666666666,
+      0.630109375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0125",
+    "caption": "The dog is on top of the bench.",
+    "relation": "on top of",
+    "subj": "dog",
+    "obj": "bench",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the yellow wooden bench.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the yellow wooden bench.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on the yellow wooden bench.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.09568750000000001,
+      0.32048832271762207,
+      0.9295937499999999,
+      0.9012738853503185
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0129",
+    "caption": "The dog is at the right side of the horse.",
+    "relation": "at the right side of",
+    "subj": "dog",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned on the right side of the horse when looking at the image from above.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned on the right side of the horse when looking at the image from above.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned on the right side of the horse when looking at the image from above.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.088890625,
+      0.11793319415448852,
+      0.665625,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0130",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The bench is not directly touching the dog; it is behind the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is not directly touching the dog; it is behind the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is not directly touching the dog; it is behind the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.3764323374340949,
+      0.020999999999999998,
+      1.0,
+      0.672578125
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0131",
+    "caption": "The dog is in front of the chair.",
+    "relation": "in front of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is positioned behind the chair, indicating it is not in front of the chair.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is positioned behind the chair, indicating it is not in front of the chair.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog's head is positioned behind the chair, indicating it is not in front of the chair.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0994,
+      0.18053999999999998,
+      0.853,
+      0.9792000000000001
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0135",
+    "caption": "The chair is touching the dog.",
+    "relation": "touching",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the chair, indicating that the chair is touching the dog.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the chair, indicating that the chair is touching the dog.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on the chair, indicating that the chair is touching the dog.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.2608925318761384,
+      0.0,
+      1.0,
+      0.7497031249999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0138",
+    "caption": "The dog is under the bench.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "bench",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on the bench, not under it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on the bench, not under it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is sitting on the bench, not under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.050562499999999996,
+      0.41004166666666664,
+      0.657296875,
+      0.9453958333333332
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0139",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is on the bed, not under it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is on the bed, not under it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is on the bed, not under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.13289062499999998,
+      0.4669583333333333,
+      0.608109375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0141",
+    "caption": "The train contains the laptop.",
+    "relation": "contains",
+    "subj": "train",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The image shows an interior view of a train with seats and windows, but there is no visible laptop.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows an interior view of a train with seats and windows, but there is no visible laptop.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image shows an interior view of a train with seats and windows, but there is no visible laptop.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.042687499999999996,
+      0.965609375,
+      0.9775208333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0142",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"There is no dog visible on the motorcycle in the image.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "There is no dog visible on the motorcycle in the image.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "There is no dog visible on the motorcycle in the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.043416666666666666,
+      0.2676,
+      0.755,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0145",
+    "caption": "The dog is at the edge of the laptop.",
+    "relation": "at the edge of",
+    "subj": "dog",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is positioned close to the left side of the laptop, indicating it is near the edge.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is positioned close to the left side of the laptop, indicating it is near the edge.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's head is positioned close to the left side of the laptop, indicating it is near the edge.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.059203125,
+      0.008979166666666667,
+      0.994375,
+      0.9865208333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0146",
+    "caption": "The motorcycle is facing the train.",
+    "relation": "facing",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle is positioned in front of the train, indicating it is facing the train.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle is positioned in front of the train, indicating it is facing the train.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The motorcycle is positioned in front of the train, indicating it is facing the train.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.01234375,
+      0.9977500000000001,
+      0.9887656249999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0147",
+    "caption": "The dog is alongside the horse.",
+    "relation": "alongside",
+    "subj": "dog",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned close to the horse, indicating it is alongside the horse.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned close to the horse, indicating it is alongside the horse.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned close to the horse, indicating it is alongside the horse.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.10625816993464053,
+      0.06450980392156862,
+      1.0,
+      0.7684640522875816
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0152",
+    "caption": "The laptop is under the train.",
+    "relation": "under",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The book with a train on it is resting on the laptop keyboard, indicating that the laptop is underneath the book.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The book with a train on it is resting on the laptop keyboard, indicating that the laptop is underneath the book.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The book with a train on it is resting on the laptop keyboard, indicating that the laptop is underneath the book.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.3064871194379391,
+      0.7521093750000001,
+      0.8206557377049181
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0153",
+    "caption": "The laptop is inside the train.",
+    "relation": "inside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The reflection of the train's interior and windows suggests that the laptop is on a train.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The reflection of the train's interior and windows suggests that the laptop is on a train.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The reflection of the train's interior and windows suggests that the laptop is on a train.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.025416666666666664,
+      1.0,
+      0.8895833333333333
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0154",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on the seat of the motorcycle, which confirms it is on the motorcycle.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on the seat of the motorcycle, which confirms it is on the motorcycle.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is sitting on the seat of the motorcycle, which confirms it is on the motorcycle.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.06100702576112412,
+      0.16725,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0155",
+    "caption": "The train is behind the motorcycle.",
+    "relation": "behind",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The train is positioned in front of the motorcycle on the street.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is positioned in front of the motorcycle on the street.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The train is positioned in front of the motorcycle on the street.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.336765625,
+      0.2012448132780083,
+      0.691890625,
+      0.7043360995850623
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0156",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is sitting on the chair, which means the chair is indeed under the dog.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is sitting on the chair, which means the chair is indeed under the dog.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is sitting on the chair, which means the chair is indeed under the dog.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.13289062499999998,
+      0.5273882352941176,
+      0.608109375,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0161",
+    "caption": "The dog is under the chair.",
+    "relation": "under",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the floor beneath the cat, which is standing on top of it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the floor beneath the cat, which is standing on top of it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on the floor beneath the cat, which is standing on top of it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.2309,
+      0.13134328358208955,
+      1.0,
+      1.0
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0163",
+    "caption": "The dog is touching the laptop.",
+    "relation": "touching",
+    "subj": "dog",
+    "obj": "laptop",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the floor next to the table where the laptop is placed.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the floor next to the table where the laptop is placed.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on the floor next to the table where the laptop is placed.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.00453125,
+      0.007354166666666666,
+      1.0,
+      0.882875
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0165",
+    "caption": "The laptop is under the train.",
+    "relation": "under",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is on a table at the platform, not under the train.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is on a table at the platform, not under the train.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is on a table at the platform, not under the train.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.27264583333333337,
+      0.7521093750000001,
+      0.7300416666666667
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0168",
+    "caption": "The chair is away from the horse.",
+    "relation": "away from",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair and the horse are positioned side by side, indicating they are close to each other.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair and the horse are positioned side by side, indicating they are close to each other.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair and the horse are positioned side by side, indicating they are close to each other.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.37871194379391104,
+      0.126546875,
+      0.9275409836065573,
+      0.6940000000000001
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0170",
+    "caption": "The dog is far from the surfboard.",
+    "relation": "far from",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing on the surfboard, indicating it is close to it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing on the surfboard, indicating it is close to it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is standing on the surfboard, indicating it is close to it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.003125,
+      0.08087837837837837,
+      1.0,
+      0.9813288288288288
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0175",
+    "caption": "The refrigerator is behind the dog.",
+    "relation": "behind",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The refrigerator is positioned directly behind the dog, as indicated by its proximity and the visible edge of the appliance.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The refrigerator is positioned directly behind the dog, as indicated by its proximity and the visible edge of the appliance.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The refrigerator is positioned directly behind the dog, as indicated by its proximity and the visible edge of the appliance.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.008604166666666666,
+      0.006453125,
+      1.0,
+      0.726046875
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0178",
+    "caption": "The bench is below the laptop.",
+    "relation": "below",
+    "subj": "bench",
+    "obj": "laptop",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The woman is sitting on the bench, and the laptop is placed on her lap, which is above the bench.\",\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The woman is sitting on the bench, and the laptop is placed on her lap, which is above the bench.",
+      "answer": "false"
+    },
+    "parsed_reasoning": "The woman is sitting on the bench, and the laptop is placed on her lap, which is above the bench.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.0,
+      0.224125,
+      1.0,
+      0.741765625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0179",
+    "caption": "The bench is at the right side of the refrigerator.",
+    "relation": "at the right side of",
+    "subj": "bench",
+    "obj": "refrigerator",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned in front of the refrigerator, not to its right.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned in front of the refrigerator, not to its right.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The bench is positioned in front of the refrigerator, not to its right.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.1394375,
+      0.18442622950819673,
+      1.0,
+      0.9213583138173301
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0180",
+    "caption": "The motorcycle is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The motorcycle's handlebars and part of its body are visible in the foreground, indicating it is positioned in front of the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The motorcycle's handlebars and part of its body are visible in the foreground, indicating it is positioned in front of the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The motorcycle's handlebars and part of its body are visible in the foreground, indicating it is positioned in front of the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      0.986515625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0186",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned to the right of the dog on the desk.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned to the right of the dog on the desk.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is positioned to the right of the dog on the desk.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.1181875,
+      0.062625,
+      0.8959687500000001,
+      0.7608333333333334
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0187",
+    "caption": "The train is behind the motorcycle.",
+    "relation": "behind",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The train is positioned behind the motorcycle in the background of the image.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is positioned behind the motorcycle in the background of the image.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The train is positioned behind the motorcycle in the background of the image.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.336765625,
+      0.1515625,
+      0.691890625,
+      0.530453125
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0188",
+    "caption": "The chair is on top of the horse.",
+    "relation": "on top of",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The chair is positioned behind the horse, not on top of it.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The chair is positioned behind the horse, not on top of it.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The chair is positioned behind the horse, not on top of it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.04209964412811388,
+      0.16128,
+      0.9451601423487543,
+      0.9440799999999999
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0189",
+    "caption": "The bench is in front of the train.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned in the foreground, directly in front of the train, which is visible behind it.\",\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned in the foreground, directly in front of the train, which is visible behind it.",
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench is positioned in the foreground, directly in front of the train, which is visible behind it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.000375,
+      0.21359437751004018,
+      0.880796875,
+      0.6951204819277109
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0193",
+    "caption": "The skateboard is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "skateboard",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The skateboard is positioned under the dog's body, indicating it is not on the left side but rather beneath the dog.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The skateboard is positioned under the dog's body, indicating it is not on the left side but rather beneath the dog.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "The skateboard is positioned under the dog's body, indicating it is not on the left side but rather beneath the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.135359375,
+      1.0,
+      0.8130625
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0196",
+    "caption": "The bench is part of the train.",
+    "relation": "part of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The image shows a section of a subway car with a bench, indicating it is part of the train.\",\n\"box\": null,\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows a section of a subway car with a bench, indicating it is part of the train.",
+      "box": null,
+      "answer": "true"
+    },
+    "parsed_reasoning": "The image shows a section of a subway car with a bench, indicating it is part of the train.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "target_box": [
+      0.0,
+      0.0050625,
+      1.0,
+      0.991578125
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0198",
+    "caption": "The refrigerator contains the dog.",
+    "relation": "contains",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"There is no dog visible in the refrigerator; instead, there is a kitten.\",\n\"box\": null,\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "There is no dog visible in the refrigerator; instead, there is a kitten.",
+      "box": null,
+      "answer": "false"
+    },
+    "parsed_reasoning": "There is no dog visible in the refrigerator; instead, there is a kitten.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "target_box": [
+      0.23145833333333332,
+      0.0033750000000000004,
+      1.0,
+      0.75
+    ],
+    "model": "qwen",
+    "method": "textual",
+    "perturbation_type": "occlusion",
+    "target": "object_1",
+    "severity": "low",
+    "display_name": "occlusion-obj1-low",
+    "rsa_valid": true
+  }
+]

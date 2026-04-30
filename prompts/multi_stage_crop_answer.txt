@@ -1,0 +1,19 @@
+You are answering a visual spatial reasoning question using a cropped region of an image.
+
+The image shown is a crop of the most relevant region. Use what you see in this crop to determine whether the statement is true or false.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"crop_reasoning": "<1-2 short sentences explaining your answer based on what you see in the crop>",
+"answer": "true" or "false"
+}
+
+Requirements:
+- Base your answer only on what is visible in the cropped image.
+- Keep reasoning short.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.
+
+Question: Is the following statement true or false with respect to the image?
+Statement: {caption}

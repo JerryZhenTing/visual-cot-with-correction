@@ -1,0 +1,29 @@
+You are reviewing and correcting a bounding box for a visual spatial reasoning task.
+
+The initial bounding box selected was:
+{initial_box}
+
+Assess whether this box is sufficient to verify the statement.
+A box is insufficient if it: misses one or both relevant objects, covers mostly background, or is too small to reveal the spatial relationship.
+
+If the box is adequate, keep it.
+If the box is insufficient, incomplete, or mislocalized, output a corrected box that better captures both objects and their spatial relationship.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"verification_reasoning": "<1-2 short sentences on whether the box is adequate and what you changed>",
+"box": [xmin, ymin, xmax, ymax],
+"answer": "true" or "false"
+}
+
+Requirements:
+- Output exactly one bounding box.
+- Use normalized coordinates in [0,1].
+- Ensure xmin < xmax and ymin < ymax.
+- Keep reasoning short.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.
+
+Question: Is the following statement true or false with respect to the image?
+Statement: {caption}

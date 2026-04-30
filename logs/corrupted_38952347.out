@@ -1,0 +1,100 @@
+Job 38952347 starting on v004.ib.bridges2.psc.edu at Mon Apr 13 21:39:44 EDT 2026
+Method: verification   Corruption: rot-45
+GPU: Tesla V100-SXM2-32GB
+Method: verification  Corruption: rot-45  RSA valid: False
+
+Loading VSR examples...
+Downloading/loading cambridgeltl/vsr_zeroshot (validation split)...
+Loaded 140 annotation entries from /jet/home/zliu51/project/src/../data/vsr_with_bboxes.jsonl
+Loaded 20 VSR examples  (20 with bounding box annotations).
+  20 examples ready.
+
+Loading corrupted images from disk...
+
+Loading model...
+Loading Qwen/Qwen2.5-VL-7B-Instruct (dtype=torch.bfloat16, device_map=auto) ...
+Model ready.
+
+[1/20] vsr_0000
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[2/20] vsr_0001
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[3/20] vsr_0002
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[4/20] vsr_0003
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[5/20] vsr_0004
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[6/20] vsr_0005
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[7/20] vsr_0006
+  [P1] ans=true  correct=False
+  [P2] ans=true  correct=False  revised=False  flipped=False
+
+[8/20] vsr_0007
+  [P1] ans=false  correct=True
+  [P2] ans=false  correct=True  revised=False  flipped=False
+
+[9/20] vsr_0008
+  [P1] ans=true  correct=True
+  [P2] ans=false  correct=False  revised=False  flipped=True
+
+[10/20] vsr_0009
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[11/20] vsr_0010
+  [P1] ans=false  correct=False
+  [P2] ans=false  correct=False  revised=False  flipped=False
+
+[12/20] vsr_0011
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[13/20] vsr_0012
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[14/20] vsr_0013
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[15/20] vsr_0014
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[16/20] vsr_0015
+  [P1] ans=false  correct=False
+  [P2] ans=false  correct=False  revised=True  flipped=False
+
+[17/20] vsr_0016
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[18/20] vsr_0017
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[19/20] vsr_0018
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[20/20] vsr_0019
+  [P1] ans=true  correct=False
+  [P2] ans=true  correct=False  revised=False  flipped=False
+Saved 20 results → /jet/home/zliu51/project/src/../results/corrupted/verification/rot-45.json
+
+  [rot-45] Verification FAA=0.550 (11/20)  RSA=N/A
+Job finished at Mon Apr 13 21:42:09 EDT 2026

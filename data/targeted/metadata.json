@@ -1,0 +1,1118 @@
+{
+  "subset_file": "data/subsets/vsr_n200_seq.json",
+  "n_loaded": 200,
+  "n_with_boxes": 0,
+  "n_skipped": 200,
+  "n_images_written": 0,
+  "specs": [
+    {
+      "display_name": "occlusion-obj1-low",
+      "perturbation_type": "occlusion",
+      "target": "object_1",
+      "severity": "low",
+      "subdir": "occlusion/object_1/low"
+    },
+    {
+      "display_name": "occlusion-obj2-low",
+      "perturbation_type": "occlusion",
+      "target": "object_2",
+      "severity": "low",
+      "subdir": "occlusion/object_2/low"
+    },
+    {
+      "display_name": "mask-union-low",
+      "perturbation_type": "mask",
+      "target": "union",
+      "severity": "low",
+      "subdir": "mask/union/low"
+    },
+    {
+      "display_name": "distractor-nearobj1-low",
+      "perturbation_type": "distractor",
+      "target": "near_obj1",
+      "severity": "low",
+      "subdir": "distractor/near_obj1/low"
+    },
+    {
+      "display_name": "distractor-nearobj2-low",
+      "perturbation_type": "distractor",
+      "target": "near_obj2",
+      "severity": "low",
+      "subdir": "distractor/near_obj2/low"
+    },
+    {
+      "display_name": "occlusion-obj1-medium",
+      "perturbation_type": "occlusion",
+      "target": "object_1",
+      "severity": "medium",
+      "subdir": "occlusion/object_1/medium"
+    },
+    {
+      "display_name": "occlusion-obj2-medium",
+      "perturbation_type": "occlusion",
+      "target": "object_2",
+      "severity": "medium",
+      "subdir": "occlusion/object_2/medium"
+    },
+    {
+      "display_name": "mask-union-medium",
+      "perturbation_type": "mask",
+      "target": "union",
+      "severity": "medium",
+      "subdir": "mask/union/medium"
+    },
+    {
+      "display_name": "distractor-nearobj1-medium",
+      "perturbation_type": "distractor",
+      "target": "near_obj1",
+      "severity": "medium",
+      "subdir": "distractor/near_obj1/medium"
+    },
+    {
+      "display_name": "distractor-nearobj2-medium",
+      "perturbation_type": "distractor",
+      "target": "near_obj2",
+      "severity": "medium",
+      "subdir": "distractor/near_obj2/medium"
+    },
+    {
+      "display_name": "occlusion-obj1-high",
+      "perturbation_type": "occlusion",
+      "target": "object_1",
+      "severity": "high",
+      "subdir": "occlusion/object_1/high"
+    },
+    {
+      "display_name": "occlusion-obj2-high",
+      "perturbation_type": "occlusion",
+      "target": "object_2",
+      "severity": "high",
+      "subdir": "occlusion/object_2/high"
+    },
+    {
+      "display_name": "mask-union-high",
+      "perturbation_type": "mask",
+      "target": "union",
+      "severity": "high",
+      "subdir": "mask/union/high"
+    },
+    {
+      "display_name": "distractor-nearobj1-high",
+      "perturbation_type": "distractor",
+      "target": "near_obj1",
+      "severity": "high",
+      "subdir": "distractor/near_obj1/high"
+    },
+    {
+      "display_name": "distractor-nearobj2-high",
+      "perturbation_type": "distractor",
+      "target": "near_obj2",
+      "severity": "high",
+      "subdir": "distractor/near_obj2/high"
+    }
+  ],
+  "created_at": "2026-04-26T21:06:04.586951",
+  "dry_run": false,
+  "examples": [
+    {
+      "example_id": "vsr_0000",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0001",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0002",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0003",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0004",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0005",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0006",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0007",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0008",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0009",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0010",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0011",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0012",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0013",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0014",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0015",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0016",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0017",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0018",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0019",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0020",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0021",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0022",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0023",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0024",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0025",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0026",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0027",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0028",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0029",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0030",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0031",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0032",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0033",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0034",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0035",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0036",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0037",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0038",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0039",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0040",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0041",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0042",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0043",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0044",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0045",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0046",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0047",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0048",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0049",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0050",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0051",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0052",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0053",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0054",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0055",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0056",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0057",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0058",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0059",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0060",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0061",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0062",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0063",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0064",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0065",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0066",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0067",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0068",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0069",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0070",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0071",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0072",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0073",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0074",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0075",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0076",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0077",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0078",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0079",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0080",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0081",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0082",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0083",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0084",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0085",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0086",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0087",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0088",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0089",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0090",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0091",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0092",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0093",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0094",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0095",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0096",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0097",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0098",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0099",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0100",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0101",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0102",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0103",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0104",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0105",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0106",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0107",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0108",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0109",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0110",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0111",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0112",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0113",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0114",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0115",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0116",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0117",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0118",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0119",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0120",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0121",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0122",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0123",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0124",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0125",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0126",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0127",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0128",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0129",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0130",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0131",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0132",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0133",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0134",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0135",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0136",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0137",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0138",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0139",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0140",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0141",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0142",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0143",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0144",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0145",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0146",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0147",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0148",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0149",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0150",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0151",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0152",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0153",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0154",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0155",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0156",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0157",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0158",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0159",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0160",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0161",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0162",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0163",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0164",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0165",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0166",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0167",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0168",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0169",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0170",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0171",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0172",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0173",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0174",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0175",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0176",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0177",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0178",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0179",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0180",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0181",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0182",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0183",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0184",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0185",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0186",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0187",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0188",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0189",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0190",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0191",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0192",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0193",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0194",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0195",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0196",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0197",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0198",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    },
+    {
+      "example_id": "vsr_0199",
+      "has_boxes": false,
+      "skip_reason": "both obj1_bbox and obj2_bbox missing"
+    }
+  ]
+}

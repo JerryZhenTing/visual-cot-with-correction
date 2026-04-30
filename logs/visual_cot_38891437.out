@@ -1,0 +1,141 @@
+Job 38891437 starting on v021.ib.bridges2.psc.edu at Sun Apr 12 23:03:41 EDT 2026
+GPU: Tesla V100-SXM2-32GB
+Loading VSR dev subset...
+Downloading/loading cambridgeltl/vsr_zeroshot (validation split)...
+Loaded 20 VSR examples.
+  20 examples ready.
+
+Loading Qwen/Qwen2.5-VL-7B-Instruct (dtype=torch.bfloat16, device_map=auto) ...
+Model ready.
+
+[1/20] vsr_0000
+  Caption : The dog is on the surfboard.
+  GT      : True
+  Raw     : { "reasoning": "The dog is clearly standing on a surfboard in the water.", "box": [24, 39, 435, 387], "answer": "true" }
+  [✓] vsr_0000  ans=true  gt=true  box=INVALID(box values outside [0,1]: [24.0, 39.0, 435.0, 387.0])
+
+[2/20] vsr_0001
+  Caption : The laptop is at the left side of the dog.
+  GT      : True
+  Raw     : { "reasoning": "The laptop is positioned on the left side of the dog, which is lying on the right side of the frame.", "box": [0, 75, 316, 428], "answer": "true" }
+  [✓] vsr_0001  ans=true  gt=true  box=INVALID(box values outside [0,1]: [0.0, 75.0, 316.0, 428.0])
+
+[3/20] vsr_0002
+  Caption : The laptop is inside the train.
+  GT      : True
+  Raw     : { "reasoning": "The laptop is visible on a desk within the train's interior.", "box": [304, 150, 326, 180], "answer": "true" }
+  [✓] vsr_0002  ans=true  gt=true  box=INVALID(box values outside [0,1]: [304.0, 150.0, 326.0, 180.0])
+
+[4/20] vsr_0003
+  Caption : The zebra is behind the horse.
+  GT      : True
+  Raw     : { "reasoning": "The zebra is positioned to the right of the horse and appears to be hanging slightly lower, indicating it is behind the horse.", "box": [386, 314, 629, 599], "answer": "true" }
+  [✓] vsr_0003  ans=true  gt=true  box=INVALID(box values outside [0,1]: [386.0, 314.0, 629.0, 599.0])
+
+[5/20] vsr_0004
+  Caption : The chair is under the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is standing on the floor, not on the chair.", "box": [185, 173, 490, 364], "answer": "false" }
+  [✓] vsr_0004  ans=false  gt=false  box=INVALID(box values outside [0,1]: [185.0, 173.0, 490.0, 364.0])
+
+[6/20] vsr_0005
+  Caption : The chair is beneath the horse.
+  GT      : True
+  Raw     : { "reasoning": "The horse is positioned on top of the chair, indicating that the chair is beneath the horse.", "box": [13, 84, 396, 635], "answer": "true" }
+  [✓] vsr_0005  ans=true  gt=true  box=INVALID(box values outside [0,1]: [13.0, 84.0, 396.0, 635.0])
+
+[7/20] vsr_0006
+  Caption : The chair is above the dog.
+  GT      : False
+  Raw     : { "reasoning": "The chair is not visible above the dog; it appears to be behind the dog on the couch.", "box": [0, 134, 504, 336], "answer": "false" }
+  [✓] vsr_0006  ans=false  gt=false  box=INVALID(box values outside [0,1]: [0.0, 134.0, 504.0, 336.0])
+
+[8/20] vsr_0007
+  Caption : The zebra is left of the horse.
+  GT      : False
+  Raw     : { "reasoning": "The zebra is positioned to the right of the horse in the image.", "box": [386, 314, 629, 599], "answer": "false" }
+  [✓] vsr_0007  ans=false  gt=false  box=INVALID(box values outside [0,1]: [386.0, 314.0, 629.0, 599.0])
+
+[9/20] vsr_0008
+  Caption : The motorcycle is ahead of the train.
+  GT      : True
+  Raw     : { "reasoning": "There is no motorcycle visible in the image; it appears to be a train inspection scene.", "box": [234, 58, 644, 414], "answer": "false" }
+  [✗] vsr_0008  ans=false  gt=true  box=INVALID(box values outside [0,1]: [234.0, 58.0, 644.0, 414.0])
+
+[10/20] vsr_0009
+  Caption : The bench is over the dog.
+  GT      : True
+  Raw     : { "reasoning": "The bench is positioned above the dog, indicating that it is indeed over the dog.", "box": [0, 0, 643, 257], "answer": "true" }
+  [✓] vsr_0009  ans=true  gt=true  box=INVALID(box values outside [0,1]: [0.0, 0.0, 643.0, 257.0])
+
+[11/20] vsr_0010
+  Caption : The train is perpendicular to the motorcycle.
+  GT      : True
+  Raw     : { "reasoning": "The train is positioned parallel to the motorcycle, not perpendicular.", "box": [0, 0, 443, 256], "answer": "false" }
+  [✗] vsr_0010  ans=false  gt=true  box=INVALID(box values outside [0,1]: [0.0, 0.0, 443.0, 256.0])
+
+[12/20] vsr_0011
+  Caption : The laptop is above the dog.
+  GT      : True
+  Raw     : { "reasoning": "The laptop is positioned on the person's lap, which is above the dog lying on the floor.", "box": [74, 148, 356, 415], "answer": "true" }
+  [✓] vsr_0011  ans=true  gt=true  box=INVALID(box values outside [0,1]: [74.0, 148.0, 356.0, 415.0])
+
+[13/20] vsr_0012
+  Caption : The motorcycle is behind the dog.
+  GT      : False
+  Raw     : { "reasoning": "The dog is positioned on the motorcycle, indicating it's not behind the motorcycle.", "box": [34, 256, 589, 590], "answer": "false" }
+  [✓] vsr_0012  ans=false  gt=false  box=INVALID(box values outside [0,1]: [34.0, 256.0, 589.0, 590.0])
+
+[14/20] vsr_0013
+  Caption : The dog is in the middle of the chair.
+  GT      : True
+  Raw     : { "reasoning": "The dog is positioned towards the back of the chair, not in the middle.", "box": [116, 58, 479, 468], "answer": "false" }
+  [✗] vsr_0013  ans=false  gt=true  box=INVALID(box values outside [0,1]: [116.0, 58.0, 479.0, 468.0])
+
+[15/20] vsr_0014
+  Caption : The refrigerator is at the left side of the dog.
+  GT      : False
+  Raw     : { "reasoning": "The refrigerator is on the right side of the dog as seen from the perspective of the image.", "box": [134, 0, 504, 364], "answer": "false" }
+  [✓] vsr_0014  ans=false  gt=false  box=INVALID(box values outside [0,1]: [134.0, 0.0, 504.0, 364.0])
+
+[16/20] vsr_0015
+  Caption : The chair is opposite to the dog.
+  GT      : True
+  Raw     : { "reasoning": "The dog is lying on a bed, and there is no visible chair in the image.", "box": [534, 0, 644, 207], "answer": "false" }
+  [✗] vsr_0015  ans=false  gt=true  box=INVALID(box values outside [0,1]: [534.0, 0.0, 644.0, 207.0])
+
+[17/20] vsr_0016
+  Caption : The dog is on the motorcycle.
+  GT      : False
+  Raw     : { "reasoning": "The dog is wearing goggles and a harness, which suggests it's being prepared for an activity, possibly riding, but it is not on the motorcycle itself.", "box": [0, 45, 463, 415], "answ
+  [✓] vsr_0016  ans=false  gt=false  box=INVALID(box values outside [0,1]: [0.0, 45.0, 463.0, 415.0])
+
+[18/20] vsr_0017
+  Caption : The bench is touching the dog.
+  GT      : True
+  Raw     : { "reasoning": "The bench and the dog appear to be in close proximity, but the dog is not physically on the bench.", "box": [89, 176, 384, 540], "answer": "false" }
+  [✗] vsr_0017  ans=false  gt=true  box=INVALID(box values outside [0,1]: [89.0, 176.0, 384.0, 540.0])
+
+[19/20] vsr_0018
+  Caption : The bench is in front of the train.
+  GT      : True
+  Raw     : { "reasoning": "The bench is positioned behind the train, not in front.", "box": [46, 227, 365, 415], "answer": "false" }
+  [✗] vsr_0018  ans=false  gt=true  box=INVALID(box values outside [0,1]: [46.0, 227.0, 365.0, 415.0])
+
+[20/20] vsr_0019
+  Caption : The laptop is on the bench.
+  GT      : False
+  Raw     : { "reasoning": "The laptop is placed on a round table, not on the bench.", "box": [139, 274, 418, 425], "answer": "false" }
+  [✓] vsr_0019  ans=false  gt=false  box=INVALID(box values outside [0,1]: [139.0, 274.0, 418.0, 425.0])
+Saved 20 results → /jet/home/zliu51/project/src/../results/visual_cot_results.json
+
+====================================================
+  Visual CoT — Summary
+====================================================
+  Examples          : 20
+  Parsed answers    : 20 / 20
+  Final Answer Acc  : 0.700   (14/20 correct)
+  Valid box rate    : 0.000   (0/20 valid)
+  Mean RSA          : N/A   (no target boxes available)
+====================================================
+Job finished at Sun Apr 12 23:11:03 EDT 2026

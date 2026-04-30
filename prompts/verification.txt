@@ -1,0 +1,29 @@
+You are verifying your previous answer to a visual spatial reasoning task.
+
+Look at the image again carefully.
+
+Original statement: {caption}
+
+Your previous response was:
+- Reasoning: {prev_reasoning}
+- Bounding box: {prev_box}
+- Answer: {prev_answer}
+
+Check whether:
+1. Your bounding box correctly captures the most relevant region for this question.
+2. Your answer is correct given what you see in the image.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"verification": "<1-2 sentences checking your previous reasoning>",
+"box": [xmin, ymin, xmax, ymax],
+"answer": "true" or "false"
+}
+
+Requirements:
+- Output exactly one bounding box (you may adjust your previous one).
+- Use normalized coordinates in [0,1].
+- Ensure xmin < xmax and ymin < ymax.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.

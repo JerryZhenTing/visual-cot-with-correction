@@ -1,0 +1,125 @@
+Job 38949569 starting on v014.ib.bridges2.psc.edu at Mon Apr 13 20:23:42 EDT 2026
+GPU: Tesla V100-SXM2-32GB
+Loading VSR dev subset...
+Downloading/loading cambridgeltl/vsr_zeroshot (validation split)...
+Loaded 140 annotation entries from /jet/home/zliu51/project/src/../data/vsr_with_bboxes.jsonl
+Loaded 20 VSR examples  (20 with bounding box annotations).
+  20 examples ready.
+
+Loading Qwen/Qwen2.5-VL-7B-Instruct (dtype=torch.bfloat16, device_map=auto) ...
+Model ready.
+
+[1/20] vsr_0000
+  Caption : The dog is on the surfboard.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[2/20] vsr_0001
+  Caption : The laptop is at the left side of the dog.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[3/20] vsr_0002
+  Caption : The laptop is inside the train.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=True  answer_flipped=False
+
+[4/20] vsr_0003
+  Caption : The zebra is behind the horse.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[5/20] vsr_0004
+  Caption : The chair is under the dog.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=false  correct=True  box_revised=False  answer_flipped=False
+
+[6/20] vsr_0005
+  Caption : The chair is beneath the horse.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[7/20] vsr_0006
+  Caption : The chair is above the dog.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=false  correct=True  box_revised=False  answer_flipped=False
+
+[8/20] vsr_0007
+  Caption : The zebra is left of the horse.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=false  correct=True  box_revised=False  answer_flipped=False
+
+[9/20] vsr_0008
+  Caption : The motorcycle is ahead of the train.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=false  correct=False  box_revised=True  answer_flipped=False
+
+[10/20] vsr_0009
+  Caption : The bench is over the dog.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[11/20] vsr_0010
+  Caption : The train is perpendicular to the motorcycle.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=false  correct=False  box_revised=False  answer_flipped=False
+
+[12/20] vsr_0011
+  Caption : The laptop is above the dog.
+  [P1] ans=true  correct=True  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=False
+
+[13/20] vsr_0012
+  Caption : The motorcycle is behind the dog.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=true  correct=False  box_revised=False  answer_flipped=True
+
+[14/20] vsr_0013
+  Caption : The dog is in the middle of the chair.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=True
+
+[15/20] vsr_0014
+  Caption : The refrigerator is at the left side of the dog.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=false  correct=True  box_revised=False  answer_flipped=False
+
+[16/20] vsr_0015
+  Caption : The chair is opposite to the dog.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=True
+
+[17/20] vsr_0016
+  Caption : The dog is on the motorcycle.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=true  correct=False  box_revised=False  answer_flipped=True
+
+[18/20] vsr_0017
+  Caption : The bench is touching the dog.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=True
+
+[19/20] vsr_0018
+  Caption : The bench is in front of the train.
+  [P1] ans=false  correct=False  box_valid=False
+  [P2] ans=true  correct=True  box_revised=False  answer_flipped=True
+
+[20/20] vsr_0019
+  Caption : The laptop is on the bench.
+  [P1] ans=false  correct=True  box_valid=False
+  [P2] ans=false  correct=True  box_revised=False  answer_flipped=False
+Saved 20 results → /jet/home/zliu51/project/src/../results/visual_cot_verification_results.json
+
+========================================================
+  Visual CoT + Verification — Summary
+========================================================
+  Examples              : 20
+  Pass 1 FAA            : 0.700   (14/20 correct)
+  Pass 2 FAA            : 0.800   (16/20 correct)
+  Pass 1 RSA            : N/A
+  Pass 2 RSA            : N/A
+  Box revision rate     : 0.100   (2/20 revised)
+  Answer flip rate      : 0.300   (6/20 flipped)
+  Recovery rate         : 0.667   (4/6 recovered)
+========================================================
+Job finished at Mon Apr 13 20:34:49 EDT 2026

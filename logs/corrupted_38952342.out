@@ -1,0 +1,100 @@
+Job 38952342 starting on v021.ib.bridges2.psc.edu at Mon Apr 13 21:35:47 EDT 2026
+Method: verification   Corruption: blur-5
+GPU: Tesla V100-SXM2-32GB
+Method: verification  Corruption: blur-5  RSA valid: True
+
+Loading VSR examples...
+Downloading/loading cambridgeltl/vsr_zeroshot (validation split)...
+Loaded 140 annotation entries from /jet/home/zliu51/project/src/../data/vsr_with_bboxes.jsonl
+Loaded 20 VSR examples  (20 with bounding box annotations).
+  20 examples ready.
+
+Loading corrupted images from disk...
+
+Loading model...
+Loading Qwen/Qwen2.5-VL-7B-Instruct (dtype=torch.bfloat16, device_map=auto) ...
+Model ready.
+
+[1/20] vsr_0000
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[2/20] vsr_0001
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[3/20] vsr_0002
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[4/20] vsr_0003
+  [P1] ans=true  correct=True
+  [P2] ans=false  correct=False  revised=False  flipped=True
+
+[5/20] vsr_0004
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[6/20] vsr_0005
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[7/20] vsr_0006
+  [P1] ans=false  correct=True
+  [P2] ans=false  correct=True  revised=False  flipped=False
+
+[8/20] vsr_0007
+  [P1] ans=false  correct=True
+  [P2] ans=false  correct=True  revised=False  flipped=False
+
+[9/20] vsr_0008
+  [P1] ans=false  correct=False
+  [P2] ans=false  correct=False  revised=False  flipped=False
+
+[10/20] vsr_0009
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[11/20] vsr_0010
+  [P1] ans=false  correct=False
+  [P2] ans=false  correct=False  revised=False  flipped=False
+
+[12/20] vsr_0011
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[13/20] vsr_0012
+  [P1] ans=false  correct=True
+  [P2] ans=false  correct=True  revised=False  flipped=False
+
+[14/20] vsr_0013
+  [P1] ans=false  correct=False
+  [P2] ans=true  correct=True  revised=False  flipped=True
+
+[15/20] vsr_0014
+  [P1] ans=false  correct=True
+  [P2] ans=false  correct=True  revised=False  flipped=False
+
+[16/20] vsr_0015
+  [P1] ans=true  correct=True
+  [P2] ans=false  correct=False  revised=False  flipped=True
+
+[17/20] vsr_0016
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+
+[18/20] vsr_0017
+  [P1] ans=true  correct=True
+  [P2] ans=true  correct=True  revised=False  flipped=False
+
+[19/20] vsr_0018
+  [P1] ans=false  correct=False
+  [P2] ans=false  correct=False  revised=False  flipped=False
+
+[20/20] vsr_0019
+  [P1] ans=false  correct=True
+  [P2] ans=true  correct=False  revised=False  flipped=True
+Saved 20 results → /jet/home/zliu51/project/src/../results/corrupted/verification/blur-5.json
+
+  [blur-5] Verification FAA=0.600 (12/20)  RSA=N/A
+Job finished at Mon Apr 13 21:38:11 EDT 2026

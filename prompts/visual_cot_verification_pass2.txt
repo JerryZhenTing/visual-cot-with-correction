@@ -1,0 +1,28 @@
+You are verifying a previously selected image region for a visual spatial reasoning task.
+
+You previously selected this bounding box:
+{initial_box}
+
+Check whether this box clearly contains the objects and spatial evidence needed to answer the question.
+
+If the box is good, keep it.
+If the box is incomplete, uncertain, or mislocalized, output a corrected box.
+
+Return output in valid JSON only, with exactly these keys:
+{
+"verification_reasoning": "<1-2 short sentences>",
+"box": [xmin, ymin, xmax, ymax],
+"answer": "true" or "false"
+}
+
+Requirements:
+- Output exactly one bounding box.
+- Use normalized coordinates in [0,1].
+- Ensure xmin < xmax and ymin < ymax.
+- Keep reasoning short.
+- Output only a single JSON object.
+- Do not include markdown fences.
+- Do not include any text before or after the JSON.
+
+Question: Is the following statement true or false with respect to the image?
+Statement: {caption}

@@ -1,0 +1,842 @@
+[
+  {
+    "example_id": "vsr_0000",
+    "caption": "The dog is on the surfboard.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog's paws are on the surfboard, indicating it is standing on it.\",\n\"box\": [137, 114, 485, 448],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's paws are on the surfboard, indicating it is standing on it.",
+      "box": [
+        137,
+        114,
+        485,
+        448
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's paws are on the surfboard, indicating it is standing on it.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.137,
+      0.114,
+      0.485,
+      0.448
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0025781249999999997,
+      0.3800900900900901,
+      0.9294531249999999,
+      0.9804054054054054
+    ],
+    "iou": 0.03641301056460248,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0001",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned on the left side relative to the dog's body.\",\n\"box\": [76, 304, 428, 615],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned on the left side relative to the dog's body.",
+      "box": [
+        76,
+        304,
+        428,
+        615
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned on the left side relative to the dog's body.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.076,
+      0.304,
+      0.428,
+      0.615
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.12359477124183006,
+      0.04911764705882353,
+      0.9369607843137256,
+      0.5967320261437908
+    ],
+    "iou": 0.19131425191990808,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0002",
+    "caption": "The laptop is inside the train.",
+    "relation": "inside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The image shows the interior of a train car with a laptop placed on a table.\",\n\"box\": [273, 145, 326, 200],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows the interior of a train car with a laptop placed on a table.",
+      "box": [
+        273,
+        145,
+        326,
+        200
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The image shows the interior of a train car with a laptop placed on a table.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.273,
+      0.145,
+      0.326,
+      0.2
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.02857142857142857,
+      1.0,
+      1.0
+    ],
+    "iou": 0.003000735294117648,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0003",
+    "caption": "The zebra is behind the horse.",
+    "relation": "behind",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The zebra is positioned above the horse, indicating it is behind.\",\n\"box\": [316, 15, 642, 257],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The zebra is positioned above the horse, indicating it is behind.",
+      "box": [
+        316,
+        15,
+        642,
+        257
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The zebra is positioned above the horse, indicating it is behind.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.316,
+      0.015,
+      0.642,
+      0.257
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.149921875,
+      0.00225,
+      1.0,
+      0.665625
+    ],
+    "iou": 0.13989913355450045,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0004",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is standing on the floor, and there is no chair directly under it.\",\n\"box\": [245, 0, 439, 267],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is standing on the floor, and there is no chair directly under it.",
+      "box": [
+        245,
+        0,
+        439,
+        267
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is standing on the floor, and there is no chair directly under it.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.245,
+      0.0,
+      0.439,
+      0.267
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.1701,
+      0.5977066666666666,
+      0.77838,
+      1.0
+    ],
+    "iou": 0.0,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0005",
+    "caption": "The chair is beneath the horse.",
+    "relation": "beneath",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The horse appears to be positioned above the chair, suggesting the statement is false.\",\n\"box\": [1, 163, 475, 548],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The horse appears to be positioned above the chair, suggesting the statement is false.",
+      "box": [
+        1,
+        163,
+        475,
+        548
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The horse appears to be positioned above the chair, suggesting the statement is false.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "parsed_box": [
+      0.001,
+      0.163,
+      0.475,
+      0.548
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.01891666666666667,
+      0.113625,
+      1.0,
+      0.55765625
+    ],
+    "iou": 0.3967917469169624,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0006",
+    "caption": "The chair is above the dog.",
+    "relation": "above",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The image does not show a chair; it shows a close-up of a dog's face.\",\n\"box\": [153, 0, 419, 336],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image does not show a chair; it shows a close-up of a dog's face.",
+      "box": [
+        153,
+        0,
+        419,
+        336
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image does not show a chair; it shows a close-up of a dog's face.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.153,
+      0.0,
+      0.419,
+      0.336
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.01008,
+      0.1445180722891566,
+      0.73412,
+      1.0
+    ],
+    "iou": 0.07742583321104955,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0007",
+    "caption": "The zebra is left of the horse.",
+    "relation": "left of",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The zebra is positioned above the horse in the image.\",\n\"box\": [316, 15, 644, 257],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The zebra is positioned above the horse in the image.",
+      "box": [
+        316,
+        15,
+        644,
+        257
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The zebra is positioned above the horse in the image.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.316,
+      0.015,
+      0.644,
+      0.257
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0050625,
+      0.18328125,
+      0.961296875,
+      0.673140625
+    ],
+    "iou": 0.04617834676070124,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0008",
+    "caption": "The motorcycle is ahead of the train.",
+    "relation": "ahead of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"There is no motorcycle visible in the image; it appears to be a train scene.\",\n\"box\": [165, 0, 537, 419],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "There is no motorcycle visible in the image; it appears to be a train scene.",
+      "box": [
+        165,
+        0,
+        537,
+        419
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "There is no motorcycle visible in the image; it appears to be a train scene.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "parsed_box": [
+      0.165,
+      0.0,
+      0.537,
+      0.419
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.018501170960187354,
+      0.9977500000000001,
+      1.0
+    ],
+    "iou": 0.1510744876181092,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0009",
+    "caption": "The bench is over the dog.",
+    "relation": "over",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The bench is positioned above the dog, which is lying on the ground.\",\n\"box\": [95, 0, 346, 448],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The bench is positioned above the dog, which is lying on the ground.",
+      "box": [
+        95,
+        0,
+        346,
+        448
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The bench is positioned above the dog, which is lying on the ground.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.095,
+      0.0,
+      0.346,
+      0.448
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.06476562500000001,
+      0.0,
+      0.86459375,
+      1.0
+    ],
+    "iou": 0.14059020492683977,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0010",
+    "caption": "The train is perpendicular to the motorcycle.",
+    "relation": "perpendicular to",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The train is parallel to the motorcycle, not perpendicular.\",\n\"box\": [0, 218, 194, 637],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The train is parallel to the motorcycle, not perpendicular.",
+      "box": [
+        0,
+        218,
+        194,
+        637
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The train is parallel to the motorcycle, not perpendicular.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "parsed_box": [
+      0.0,
+      0.218,
+      0.194,
+      0.637
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.01234375,
+      0.9977500000000001,
+      0.9887656249999999
+    ],
+    "iou": 0.08343658414899945,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0011",
+    "caption": "The laptop is above the dog.",
+    "relation": "above",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The laptop is positioned on a surface that is higher than the dog lying on the floor.\",\n\"box\": [256, 228, 437, 419],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is positioned on a surface that is higher than the dog lying on the floor.",
+      "box": [
+        256,
+        228,
+        437,
+        419
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The laptop is positioned on a surface that is higher than the dog lying on the floor.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.256,
+      0.228,
+      0.437,
+      0.419
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.09825,
+      0.028145539906103287,
+      0.78125,
+      0.8711032863849766
+    ],
+    "iou": 0.06004618672107304,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0012",
+    "caption": "The motorcycle is behind the dog.",
+    "relation": "behind",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind the dog.\",\n\"box\": [309, 54, 587, 609],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind the dog.",
+      "box": [
+        309,
+        54,
+        587,
+        609
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is positioned in front of the motorcycle, indicating that the motorcycle is behind the dog.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.309,
+      0.054,
+      0.587,
+      0.609
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.159546875,
+      0.6828125,
+      0.9977500000000001
+    ],
+    "iou": 0.20766597962550554,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0013",
+    "caption": "The dog is in the middle of the chair.",
+    "relation": "in the middle of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is positioned centrally on the chair, indicating it's in the middle.\",\n\"box\": [138, 87, 435, 441],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is positioned centrally on the chair, indicating it's in the middle.",
+      "box": [
+        138,
+        87,
+        435,
+        441
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is positioned centrally on the chair, indicating it's in the middle.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.138,
+      0.087,
+      0.435,
+      0.441
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.007541666666666667,
+      0.772640625,
+      0.9876250000000001
+    ],
+    "iou": 0.13884145877485715,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0014",
+    "caption": "The refrigerator is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The dog's head is positioned on the right side of the refrigerator door, indicating that the refrigerator is indeed on the left side of the dog.\",\n\"box\": [63, 0, 445, 364],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog's head is positioned on the right side of the refrigerator door, indicating that the refrigerator is indeed on the left side of the dog.",
+      "box": [
+        63,
+        0,
+        445,
+        364
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog's head is positioned on the right side of the refrigerator door, indicating that the refrigerator is indeed on the left side of the dog.",
+    "parsed_answer": "true",
+    "answer_correct": false,
+    "parsed_box": [
+      0.063,
+      0.0,
+      0.445,
+      0.364
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.00826,
+      0.011013333333333333,
+      1.0,
+      1.0
+    ],
+    "iou": 0.13689088460592716,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0015",
+    "caption": "The chair is opposite to the dog.",
+    "relation": "opposite to",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on a couch, which is not a chair. The statement is false.\",\n\"box\": [3, 3, 644, 470],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on a couch, which is not a chair. The statement is false.",
+      "box": [
+        3,
+        3,
+        644,
+        470
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The dog is lying on a couch, which is not a chair. The statement is false.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "parsed_box": [
+      0.003,
+      0.003,
+      0.644,
+      0.47
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "iou": 0.299347,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0016",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The image shows a dog wearing goggles and a harness inside what appears to be an aircraft, not a motorcycle.\",\n\"box\": [153, 74, 539, 415],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows a dog wearing goggles and a harness inside what appears to be an aircraft, not a motorcycle.",
+      "box": [
+        153,
+        74,
+        539,
+        415
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image shows a dog wearing goggles and a harness inside what appears to be an aircraft, not a motorcycle.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.153,
+      0.074,
+      0.539,
+      0.415
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.040703125,
+      0.25009345794392523,
+      0.7078125,
+      1.0
+    ],
+    "iou": 0.11201909079496089,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0017",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The dog is lying on the bench, indicating they are in contact.\",\n\"box\": [56, 173, 451, 478],\n\"answer\": \"true\"\n}",
+    "parsed_json": {
+      "reasoning": "The dog is lying on the bench, indicating they are in contact.",
+      "box": [
+        56,
+        173,
+        451,
+        478
+      ],
+      "answer": "true"
+    },
+    "parsed_reasoning": "The dog is lying on the bench, indicating they are in contact.",
+    "parsed_answer": "true",
+    "answer_correct": true,
+    "parsed_box": [
+      0.056,
+      0.173,
+      0.451,
+      0.478
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.4462291666666667,
+      0.020999999999999998,
+      1.0,
+      0.672578125
+    ],
+    "iou": 0.0030324471444204276,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0018",
+    "caption": "The bench is in front of the train.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth": "true",
+    "raw_output": "{\n\"reasoning\": \"The image shows a red train-like structure with a bench placed on it, indicating that the bench is part of the train structure.\",\n\"box\": [263, 50, 537, 415],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The image shows a red train-like structure with a bench placed on it, indicating that the bench is part of the train structure.",
+      "box": [
+        263,
+        50,
+        537,
+        415
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The image shows a red train-like structure with a bench placed on it, indicating that the bench is part of the train structure.",
+    "parsed_answer": "false",
+    "answer_correct": false,
+    "parsed_box": [
+      0.263,
+      0.05,
+      0.537,
+      0.415
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.000375,
+      0.24911007025761125,
+      0.880796875,
+      0.8107025761124123
+    ],
+    "iou": 0.08279471267666419,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  },
+  {
+    "example_id": "vsr_0019",
+    "caption": "The laptop is on the bench.",
+    "relation": "on",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth": "false",
+    "raw_output": "{\n\"reasoning\": \"The laptop is resting on the boy's lap, not on the bench.\",\n\"box\": [163, 107, 348, 395],\n\"answer\": \"false\"\n}",
+    "parsed_json": {
+      "reasoning": "The laptop is resting on the boy's lap, not on the bench.",
+      "box": [
+        163,
+        107,
+        348,
+        395
+      ],
+      "answer": "false"
+    },
+    "parsed_reasoning": "The laptop is resting on the boy's lap, not on the bench.",
+    "parsed_answer": "false",
+    "answer_correct": true,
+    "parsed_box": [
+      0.163,
+      0.107,
+      0.348,
+      0.395
+    ],
+    "box_valid": true,
+    "box_invalid_reason": null,
+    "target_box": [
+      0.002511737089201878,
+      0.0,
+      1.0,
+      0.7383124999999999
+    ],
+    "iou": 0.07234627929585304,
+    "rsa": 0.0,
+    "corruption_type": "rotation",
+    "severity": 90.0,
+    "display_name": "rot-90",
+    "rsa_valid": false
+  }
+]

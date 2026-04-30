@@ -1,0 +1,478 @@
+================================================================================
+PROJECT NOTES — Visual Chain-of-Thought Robustness
+Last updated: 2026-04-13
+================================================================================
+
+--------------------------------------------------------------------------------
+OVERVIEW
+--------------------------------------------------------------------------------
+Research project evaluating robustness of Visual Chain-of-Thought reasoning.
+Model: Qwen2.5-VL-7B-Instruct (local HuggingFace inference)
+Dataset: VSR (Visual Spatial Reasoning) — binary true/false spatial questions
+
+4 reasoning settings planned overall:
+  1. Textual CoT                        ← DONE + TESTED
+  2. Visual CoT                         ← DONE + TESTED
+  3. Visual CoT + Verification          ← DONE, ready to run
+  4. Visual CoT + Multi-Stage Correction (day 3+)
+
+--------------------------------------------------------------------------------
+PROJECT STRUCTURE
+--------------------------------------------------------------------------------
+project/
+├── data/
+│   ├── images/                      image cache (runtime)
+│   ├── vsr_annotations.jsonl        VSR metadata (relation/subj/obj, NO bboxes)
+│   ├── vsr_with_bboxes.jsonl        VSR + COCO bboxes ← USE THIS for RSA/IoU
+│   ├── corrupted/                   output of generate_corrupted_dataset.py
+│   │   ├── blur/sigma_{1,3,5}/      JPEG images per example
+│   │   ├── noise/var_{0.001,...}/
+│   │   ├── rotation/deg_{15,45,90}/
+│   │   └── metadata.json            index: example_id, type, severity, path, rsa_valid
+│   └── coco_annotations/
+│       ├── instances_train2017.json
+│       └── instances_val2017.json
+├── prompts/
+│   ├── textual_cot.txt              Setting 1: {caption}
+│   ├── visual_cot.txt               Setting 2: {caption}
+│   ├── visual_cot_pass1.txt         Setting 3 pass 1: {caption}
+│   └── visual_cot_verification_pass2.txt  Setting 3 pass 2: {initial_box}, {caption}
+├── src/
+│   ├── load_vsr.py                  VSR loader — auto-detects vsr_with_bboxes.jsonl
+│   ├── model_interface.py           Qwen2.5-VL-7B HF inference
+│   ├── coco_bbox_lookup.py          COCO annotation index + bbox lookup
+│   ├── build_vsr_bboxes.py          joins VSR annotations + COCO bboxes → vsr_with_bboxes.jsonl
+│   ├── parse_outputs.py             JSON extraction, parse_answer/box/reasoning(key=)
+│   ├── metrics.py                   FAA, valid_box_rate, IoU, RSA, box_revision_rate,
+│   │                                answer_flip_rate, recovery_rate, answer_change_rate
+│   ├── utils.py                     prompt loading, saving, summary printers
+│   ├── run_textual_cot.py           Setting 1
+│   ├── run_visual_cot.py            Setting 2
+│   ├── run_verification.py          (OLD — superseded, ignore)
+│   ├── run_visual_cot_verification.py  Setting 3 — TWO-PASS script (use this)
+│   ├── compare_results.py           Side-by-side FAA/RSA table across all settings
+│   ├── corruptions.py               Corruption functions: blur, noise, rotation
+│   ├── generate_corrupted_dataset.py  Saves all 9 corrupted image variants to disk
+│   ├── run_corrupted.py             Runs textual/visual/verification on corrupted images
+│   └── compare_all_results.py       FAA/RSA/VBR table across all methods × conditions
+├── scripts/
+│   ├── setup_env.sh                 (OUTDATED — ignore)
+│   ├── download_model.sh            downloads Qwen weights to Ocean
+│   ├── download_annotations.sh      clones VSR GitHub → data/vsr_annotations.jsonl
+│   ├── download_coco_annotations.sh downloads COCO instances JSON → data/coco_annotations/
+│   ├── run_textual_cot.sh           SLURM: Setting 1
+│   ├── run_visual_cot.sh            SLURM: Setting 2
+│   ├── run_verification.sh          (OLD — superseded, ignore)
+│   ├── run_visual_cot_verification.sh  SLURM: Setting 3 (use this, 3h limit)
+│   └── run_corrupted.sh             SLURM: corrupted inference ($1=method $2=corruption)
+├── results/
+│   ├── textual_cot_results.json        ← exists, FAA=0.75
+│   ├── visual_cot_results.json         ← exists, FAA=0.70
+│   └── visual_cot_verification_results.json  ← Setting 3, not yet run
+├── logs/                            SLURM stdout/stderr
+└── note.txt                         this file
+
+--------------------------------------------------------------------------------
+KEY DESIGN DECISIONS
+--------------------------------------------------------------------------------
+- Output format: strict JSON only
+- Setting 1 (Textual CoT):    {"reasoning": ..., "box": null, "answer": ...}
+- Setting 2 (Visual CoT):     {"reasoning": ..., "box": [...], "answer": ...}
+- Setting 3 pass 1:           {"reasoning": ..., "box": [...], "answer": ...}
+- Setting 3 pass 2:           {"verification_reasoning": ..., "box": [...], "answer": ...}
+- Box: normalized [xmin, ymin, xmax, ymax] in [0,1]
+- Target region: union of obj1_bbox + obj2_bbox from COCO (normalized)
+- RSA = 1 if IoU(pred_box, target_box) >= 0.5
+- Generation: greedy (do_sample=False) for reproducibility
+- Dev subset: 20 examples from VSR validation split (DEV_SUBSET_SIZE in load_vsr.py)
+
+--------------------------------------------------------------------------------
+SETTING 3 — VISUAL CoT + VERIFICATION (two-pass design)
+--------------------------------------------------------------------------------
+Pass 1:
+  - prompt: visual_cot_pass1.txt  →  {caption}
+  - model outputs: reasoning, box, answer
+  - parsed as: pass1_reasoning, pass1_box, pass1_answer
+
+Pass 2:
+  - prompt: visual_cot_verification_pass2.txt  →  {initial_box}, {caption}
+  - model sees ONLY its own pass-1 box (not its reasoning or answer)
+  - asks: is this box good? revise if needed. give final answer.
+  - model outputs: verification_reasoning, box, answer
+  - parsed as: pass2_verification_reasoning, pass2_box, pass2_answer
+
+Both passes run in a single job (model loaded once).
+Script: src/run_visual_cot_verification.py
+SLURM:  scripts/run_visual_cot_verification.sh  (3h limit, ~55 min actual)
+
+Result schema per example:
+  example_id, caption, relation, subj, obj, ground_truth_answer, target_box
+  pass1_raw_output, pass1_parsed_json, pass1_reasoning,
+  pass1_box, pass1_box_valid, pass1_box_invalid_reason,
+  pass1_answer, pass1_answer_correct, pass1_iou, pass1_rsa
+  pass2_raw_output, pass2_parsed_json, pass2_verification_reasoning,
+  pass2_box, pass2_box_valid, pass2_box_invalid_reason,
+  pass2_answer, pass2_answer_correct, pass2_iou, pass2_rsa
+  box_revised, answer_flipped, recovered
+
+Summary printed:
+  pass1 FAA, pass2 FAA, pass1 RSA, pass2 RSA,
+  box revision rate, answer flip rate, recovery rate
+
+--------------------------------------------------------------------------------
+BOUNDING BOX SETUP (important — took work to get here)
+--------------------------------------------------------------------------------
+VSR GitHub annotations (data/vsr_annotations.jsonl):
+  - Has: relation, subj, obj, image, image_link, label
+  - Does NOT have bounding boxes
+
+COCO bboxes (data/coco_annotations/instances_*.json):
+  - Downloaded separately (~252 MB)
+  - Contains bounding boxes for all COCO objects
+
+Enriched file (data/vsr_with_bboxes.jsonl):
+  - Generated by: python src/build_vsr_bboxes.py
+  - Joins VSR annotations + COCO bboxes by (image_filename, category_name)
+  - Uses largest bbox by area as heuristic when multiple instances exist
+  - Coverage: 340/340 (100%) for the dev split ← confirmed
+  - load_vsr.py auto-detects this file; no code changes needed
+
+If COCO files are missing, re-run:
+  bash scripts/download_coco_annotations.sh
+  python src/build_vsr_bboxes.py
+
+--------------------------------------------------------------------------------
+DATASET ASSUMPTIONS (in src/load_vsr.py top block)
+--------------------------------------------------------------------------------
+- Source: HuggingFace cambridgeltl/vsr_zeroshot, validation split
+- image field: PIL Image or HF Image dict (fallback: image_link URL download)
+- label: ClassLabel 0=false, 1=true
+- Annotation priority: vsr_with_bboxes.jsonl > vsr_annotations.jsonl > none
+- Bbox format in COCO annotations: [x, y, w, h] absolute pixels (ANNOTATION_BBOX_FORMAT="coco")
+- Target box = normalized union of obj1 + obj2 bboxes
+
+--------------------------------------------------------------------------------
+BRIDGES2 SETUP
+--------------------------------------------------------------------------------
+Login:         ssh bridges2   (in local ~/.ssh/config)
+Username:      zliu51
+Home dir:      /jet/home/zliu51/          (25 GB quota)
+Project dir:   /jet/home/zliu51/project/
+Ocean storage: /ocean/projects/cis260099p/zliu51/   (3 TB)
+Charge acct:   cis260099p
+Allocation:    ~2,605 SU remaining (expires 2027-01-22)
+
+Python environment:
+  - Base conda (module load anaconda3) — NO separate env, NO Singularity
+  - Packages in ~/.local via pip install --user
+  - Installed: torch, torchvision, transformers, accelerate, datasets,
+               pillow, qwen-vl-utils, huggingface_hub, hf-transfer
+
+Cached on Ocean (/ocean/projects/cis260099p/zliu51/hf_cache/):
+  - Qwen2.5-VL-7B-Instruct weights ✓
+  - cambridgeltl/vsr_zeroshot dataset ✓
+
+SLURM: GPU-shared partition, 1x V100-SXM2-32GB
+  - Model load: ~2-3 min
+  - Single-pass inference (20 examples): ~30 min
+  - Two-pass inference (20 examples):   ~55 min
+
+--------------------------------------------------------------------------------
+CURRENT STAGE (as of 2026-04-14)
+--------------------------------------------------------------------------------
+COMPLETE:
+  [x] All src/ files implemented and tested
+  [x] Prompt templates for all 4 settings
+  [x] SLURM scripts for all 4 settings
+  [x] Bridges2 environment fully set up
+  [x] Qwen + VSR dataset cached on Ocean
+  [x] VSR annotations downloaded (vsr_annotations.jsonl)
+  [x] COCO annotations downloaded (instances_train/val2017.json)
+  [x] vsr_with_bboxes.jsonl built — 100% bbox coverage
+  [x] Setting 1 (Textual CoT)          — FAA=0.75  (RSA=N/A by design)
+  [x] Setting 2 (Visual CoT)           — FAA=0.70  (RSA=null — re-run needed)
+  [x] Setting 3 (VCoT+Verify)          — FAA < textual (see findings)
+  [x] Setting 4 (Multi-Stage Corr.)    — ran on 20 examples, results synced back
+  [x] Image corruption pipeline        — 9 conditions, 20 examples each
+  [x] All 27 corrupted jobs run        — results/corrupted/<method>/<condition>.json
+  [x] Analysis scripts                 — compare_results.py, compare_all_results.py,
+                                          summarize_results.py (all support 4 methods)
+
+NOT YET DONE:
+  [ ] Re-run Setting 2 (Visual CoT) to get RSA — old result predates bbox file
+        sbatch /jet/home/zliu51/project/scripts/run_visual_cot.sh
+  [ ] Diagnose RSA null in corrupted runs — check target_box vs box_valid
+        python -c "import json; r=json.load(open('results/corrupted/visual/blur-1.json')); ..."
+  [ ] Scale up from 20 → full VSR validation set (~1000 examples)
+  [ ] Run corrupted inference for Setting 4 (multistage) — same 27-job loop,
+        method=multistage not yet submitted
+
+--------------------------------------------------------------------------------
+DAY 2 — WHAT WAS DONE (2026-04-14)
+--------------------------------------------------------------------------------
+BUG FIX:
+  - load_vsr.py: ANNOTATION_BBOX_FORMAT was referenced in _bbox_to_xyxy but never
+    defined. Added constant at module level: ANNOTATION_BBOX_FORMAT = "coco".
+    This was causing a NameError crash in run_visual_cot_verification.py.
+
+CORRUPTION PIPELINE (src/corruptions.py, src/generate_corrupted_dataset.py):
+  - CorruptionSpec dataclass: type, severity, display_name, rsa_valid, subdir
+  - 9 corruption specs: blur-{1,3,5}, noise-{001,005,010}, rot-{15,45,90}
+  - apply_gaussian_blur(image, sigma) — PIL GaussianBlur
+  - apply_gaussian_noise(image, variance, seed) — float32 path, N(0, sqrt(var)), clipped
+  - apply_rotation(image, degrees) — PIL rotate, counter-clockwise, black fill
+  - RSA valid: blur + noise only. Rotation changes geometry → rsa_valid=False.
+  - generate_corrupted_dataset.py: saves all 9 variants per example to
+    data/corrupted/<type>/<severity>/<example_id>.jpg + metadata.json
+  - Noise seed derived per-example: base_seed * 100_000 + example_index
+
+CORRUPTED INFERENCE (src/run_corrupted.py, scripts/run_corrupted.sh):
+  - Runs any of the 3 methods on pre-saved corrupted JPEGs
+  - --method textual|visual|verification   --corruption blur-1|...|rot-90
+  - Loads corrupted image from disk; keeps caption/label/target_box from VSR
+  - RSA computed only when spec.rsa_valid=True
+  - Saves to results/corrupted/<method>/<corruption>.json
+  - SLURM: scripts/run_corrupted.sh $method $corruption  (3h limit, ~30-55 min)
+  - Submitted all 27 jobs via for-loop; all completed successfully
+
+ANALYSIS SCRIPTS:
+  - compare_all_results.py: 4-table printout (FAA, RSA, VBR, verify dynamics)
+    rows=conditions, columns=methods. "---" for missing files, "N/A" for rotation RSA.
+  - summarize_results.py: writes results/summary.csv — one row per (method, condition)
+    with all metrics. Blank cells where metric doesn't apply.
+
+FINDINGS:
+  - VCoT+Verify FAA < Textual CoT FAA on clean images.
+    Root cause: pass-1 often produces a bad box; pass-2 anchors on that bad box
+    and flips a correct answer to wrong. Flip rate > recovery rate.
+    Diagnostic: check pass1_answer_correct + answer_flipped vs recovered counts.
+  - RSA currently null for all clean visual_cot results (file predates bbox work).
+    Must re-run: sbatch scripts/run_visual_cot.sh
+
+--------------------------------------------------------------------------------
+HOW TO SYNC AND RUN
+--------------------------------------------------------------------------------
+Sync from local machine:
+  rsync -av /home/jerryliu/Desktop/CMU/10423/project/ bridges2:/jet/home/zliu51/project/
+
+Submit clean inference jobs (Bridges2):
+  sbatch /jet/home/zliu51/project/scripts/run_textual_cot.sh
+  sbatch /jet/home/zliu51/project/scripts/run_visual_cot.sh
+  sbatch /jet/home/zliu51/project/scripts/run_visual_cot_verification.sh
+  sbatch /jet/home/zliu51/project/scripts/run_multistage_correction.sh
+
+Submit corrupted inference jobs (Bridges2):
+  # Single job:
+  sbatch /jet/home/zliu51/project/scripts/run_corrupted.sh <method> <corruption>
+  # All 27 at once (textual/visual/verification):
+  for method in textual visual verification; do
+    for corruption in blur-1 blur-3 blur-5 noise-001 noise-005 noise-010 rot-15 rot-45 rot-90; do
+      sbatch /jet/home/zliu51/project/scripts/run_corrupted.sh $method $corruption
+    done
+  done
+  # Multistage corrupted (add method=multistage to run_corrupted.py dispatch first):
+  for corruption in blur-1 blur-3 blur-5 noise-001 noise-005 noise-010 rot-15 rot-45 rot-90; do
+    sbatch /jet/home/zliu51/project/scripts/run_corrupted.sh multistage $corruption
+  done
+
+Monitor:
+  squeue -u zliu51
+  tail -f /jet/home/zliu51/project/logs/<name>_<JOBID>.out
+  scancel <JOBID>
+
+Get results back to local:
+  rsync -av bridges2:/jet/home/zliu51/project/results/ /home/jerryliu/Desktop/CMU/10423/project/results/
+
+Run analysis locally:
+  python src/compare_results.py          # clean only, quick
+  python src/compare_all_results.py      # full matrix (clean + corrupted)
+  python src/summarize_results.py        # → results/summary.csv
+
+--------------------------------------------------------------------------------
+WHAT TO IMPLEMENT NEXT
+--------------------------------------------------------------------------------
+1. Wire multistage into run_corrupted.py
+   - Add "multistage" to the dispatch dict in run_corrupted.py
+   - Submit 9 corrupted jobs: sbatch run_corrupted.sh multistage <corruption>
+
+2. Scale up to full VSR validation set
+   - Change DEV_SUBSET_SIZE in load_vsr.py (currently 20)
+   - Increase SLURM time limits accordingly
+
+3. Per-relation breakdown analysis
+   - Group results by ex.relation (e.g. "on", "to the left of", "above")
+   - Does multi-stage correction help more for certain relation types?
+
+--------------------------------------------------------------------------------
+GOTCHAS / LESSONS LEARNED
+--------------------------------------------------------------------------------
+1. Singularity pull fails on Bridges2 login nodes. Use conda base + pip --user.
+2. setup_env.sh is outdated — ignore it. Packages already in ~/.local.
+3. BOTH model AND dataset must be pre-downloaded before submitting jobs.
+   TRANSFORMERS_OFFLINE=1 blocks all HuggingFace access on compute nodes.
+4. LD_LIBRARY_PATH must be set in all SLURM scripts:
+     export LD_LIBRARY_PATH=/opt/packages/anaconda3-2024.10-1/lib:$LD_LIBRARY_PATH
+5. HF_HOME must point to Ocean (home dir is only 25 GB).
+6. Set HF_TOKEN + HF_HUB_ENABLE_HF_TRANSFER=1 for fast downloads (~100 MB/s vs 350 KB/s).
+7. VSR annotation file (GitHub) has NO bounding boxes — only relation/subj/obj metadata.
+   Bboxes come from COCO annotations, joined via build_vsr_bboxes.py.
+8. run_verification.py is the OLD verification script — superseded by
+   run_visual_cot_verification.py which does both passes in one run.
+9. python (without 3) may not be found — use python3 or load anaconda3 first.
+10. Model loading takes 2-3 min at job start — this is normal, not stuck.
+11. Home dir quota (25 GB) fills fast — always set HF_HOME to Ocean, never home.
+    Delete ~/.cache/huggingface/hub/ if it appears (duplicate of Ocean copy).
+12. BQS overlap_score is IoU vs COCO ground truth — never high since model isn't
+    reproducing COCO boxes. Don't use BQS < threshold as a trigger for anything.
+================================================================================
+
+--------------------------------------------------------------------------------
+DAY 3+ — MATCHED EVAL PIPELINE + MULTISTAGE FIX (2026-04-25/26)
+--------------------------------------------------------------------------------
+
+NEW CANONICAL PIPELINE:
+  eval_runner.py is now the single entry point for all runs.
+  Old per-method scripts (run_textual_cot.py, run_visual_cot.py, etc.) are legacy.
+
+NEW FILES:
+  src/eval_config.py          EvalConfig dataclass + create_subset() + load_subset_indices()
+  src/eval_runner.py          Runs any (model, method, condition) cell
+  src/aggregate_results.py    Computes FAA/RSA/PDR/BRR/AFR/Recovery; writes paper tables
+  scripts/run_eval.sh         SLURM script: $1=method $2=condition
+  prompts/multi_stage_reask_answer.txt  New Stage 5 prompt (full-image re-ask)
+  data/subsets/vsr_n200_seq.json        Matched subset: sequential indices 0-199
+
+OUTPUT STRUCTURE:
+  results/raw/qwen_{method}_{condition}.json   one file per cell
+  results/aggregated/paper_table.csv           aggregated metrics
+  results/aggregated/per_condition.csv
+  results/aggregated/summary.json
+
+MATCHED SUBSET:
+  - 200 requested, 127 actually loaded (73 images failed due to home quota hit on first run)
+  - All 40 cells use the same 127 examples — true matched comparison
+  - Created with: python src/eval_config.py --n 200 --sequential
+
+BRIDGES2 QUOTA INCIDENT:
+  - Home dir hit 25 GB limit mid-first-run
+  - Fix: deleted ~/.cache/huggingface/hub/ (13 GB duplicate of Ocean copy)
+           and ~/.cache/pip/ (2.8 GB)
+  - Always point HF_HOME to Ocean, never home dir
+
+SUBMIT ALL 40 CELLS:
+  for method in textual visual verification multistage; do
+    for cond in clean blur-1 blur-3 blur-5 noise-001 noise-005 noise-010 rot-15 rot-45 rot-90; do
+      sbatch scripts/run_eval.sh $method $cond
+    done
+  done
+
+  Single cell: sbatch scripts/run_eval.sh multistage clean
+
+AGGREGATE:
+  python src/aggregate_results.py
+  # or: python src/aggregate_results.py --raw-dir results/raw --out-dir results/aggregated
+
+SYNC:
+  # local → Bridges2:
+  rsync -av --exclude='data/' --exclude='results/' --exclude='*.pyc' --exclude='__pycache__' \
+    /home/jerryliu/Desktop/CMU/10423/project/ bridges2:/jet/home/zliu51/project/
+  # Bridges2 → local (results only):
+  rsync -av bridges2:/jet/home/zliu51/project/results/ \
+    /home/jerryliu/Desktop/CMU/10423/project/results/
+
+--------------------------------------------------------------------------------
+MULTISTAGE DIAGNOSIS AND FIX (2026-04-26)
+--------------------------------------------------------------------------------
+
+PROBLEM:
+  Before fix — clean condition:
+    Initial FAA:  87.4% (111/127)
+    Final FAA:    65.4% (83/127)   <- 22 point drop from correction
+    Triggered:    84.3% (107/127)  <- fires on almost everything
+    Recovered:     4.7% (6 examples flipped wrong->right)
+    Degraded:     26.8% (34 examples flipped right->wrong)
+    Mean IoU:      0.108  max=0.562
+
+ROOT CAUSE 1 — BQS trigger miscalibrated:
+  triggered = not box_valid OR bqs < 0.6
+  BQS overlap_score (weight=0.50) = IoU(predicted_box, COCO_ground_truth_box)
+  Mean IoU=0.108 because model localizes what it thinks is relevant, not COCO boxes.
+  So correction fires on ~84% of examples regardless of actual box quality.
+
+ROOT CAUSE 2 — Crop destroys spatial context:
+  Stage 5 cropped to the predicted box, then asked the model on the crop.
+  VSR questions are relational ("is A left of B?") — cropping to one object
+  removes both objects and the space between them. Model can't answer spatially.
+
+FIX #1 — trigger condition (eval_runner.py + run_corrupted.py):
+  Before: triggered = not br1["valid"] or bqs_prov["bqs"] < BQS_THRESHOLD
+  After:  triggered = not br1["valid"]
+  Correction now fires only on format failure (~5-10% of examples).
+
+FIX #2 — Stage 5 full-image re-ask (eval_runner.py + run_corrupted.py):
+  Before: crop_img = safe_crop(img, revised_box); model on cropped image
+  After:  model on full image with revised_box coordinates in the prompt text
+  Prompt: prompts/multi_stage_reask_answer.txt
+          placeholders: {revised_box}, {caption}
+          JSON keys: answer_reasoning, answer
+  Result dict fields: crop_* -> reask_* (reask_raw_output, reask_parsed_json, reask_reasoning)
+  safe_crop import removed from both files.
+
+STATUS (as of 2026-04-26):
+  Fix verified — triggered=0/127 on clean, final_FAA=initial_FAA=87.4%.
+  All 10 multistage conditions re-run and aggregated.
+
+--------------------------------------------------------------------------------
+FINAL RESULTS (2026-04-26) — 127 examples, all 40 cells
+--------------------------------------------------------------------------------
+FAA = Final Answer Accuracy. PDR = Performance Drop Rate (lower=more robust).
+
+Method         Clean   Blur   Noise    Rot   PDR-B   PDR-N   PDR-R
+---------------------------------------------------------------------------
+multistage     87.4%  86.6%   86.4%  84.8%    0.9%    1.2%    3.0%
+visual         80.3%  80.8%   81.1%  79.8%   -0.7%   -1.0%    0.7%
+textual        79.5%  78.5%   79.5%  77.2%    1.3%    0.0%    3.0%
+verification   77.2%  76.4%   78.2%  75.3%    1.0%   -1.4%    2.4%
+
+Verification dynamics (clean condition):
+  Method         BRR     AFR   Recov
+  multistage   100.0%    0.0%    0.0%   (correction never fires — triggered=0)
+  verification  20.5%   14.2%   28.0%
+
+KEY FINDINGS:
+1. Multistage has highest FAA but only because correction never fires (format failure
+   rate ~0%). It is functionally equivalent to visual CoT pass 1. Correction would
+   need a smarter trigger to add actual value.
+
+2. Visual CoT is the most robust method — negative PDR for blur/noise means it
+   actually improves slightly on corrupted images vs clean. Bounding box grounding
+   helps on blurred/noisy inputs.
+
+3. Verification underperforms clean FAA but has 28% recovery rate — it helps some
+   wrong examples but also flips correct ones (14.2% flip rate). Net negative on clean.
+
+4. All methods degrade ~3% under rotation (geometry change). Rotation PDR is the
+   most consistent robustness signal.
+
+Aggregated files:
+  results/aggregated/paper_table.csv
+  results/aggregated/per_condition.csv
+  results/aggregated/summary.json
+
+--------------------------------------------------------------------------------
+CURRENT STAGE (as of 2026-04-26)
+--------------------------------------------------------------------------------
+COMPLETE:
+  [x] All 40 eval cells ran (4 methods x 10 conditions) — 127 examples each
+  [x] Matched subset created (data/subsets/vsr_n200_seq.json)
+  [x] Aggregation script (aggregate_results.py) with PDR, BRR, AFR, Recovery
+  [x] Multistage root cause diagnosed and fixed (trigger + crop strategy)
+  [x] All results aggregated — paper_table.csv ready
+
+TO DO:
+  [ ] Fix the 73 failed images (clean data/images/ corrupted 0-byte files, retry)
+        to scale from 127 -> 200 matched examples
+  [ ] Smarter multistage trigger (confidence-based, background coverage, etc.)
+        so correction actually fires and can recover wrong answers
+  [ ] LLaVA as second model (deferred from day 1)
+================================================================================

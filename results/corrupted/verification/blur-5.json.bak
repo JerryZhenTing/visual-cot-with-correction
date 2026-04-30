@@ -1,0 +1,1382 @@
+[
+  {
+    "example_id": "vsr_0000",
+    "caption": "The dog is on the surfboard.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "surfboard",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0025781249999999997,
+      0.3800900900900901,
+      0.9294531249999999,
+      0.9804054054054054
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The dog is positioned on a surface that resembles a surfboard, and its posture suggests it is standing on it.\",\n\"box\": [25, 37, 436, 389],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The dog is positioned on a surface that resembles a surfboard, and its posture suggests it is standing on it.",
+      "box": [
+        25,
+        37,
+        436,
+        389
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The dog is positioned on a surface that resembles a surfboard, and its posture suggests it is standing on it.",
+    "pass1_box": [
+      25.0,
+      37.0,
+      436.0,
+      389.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [25.0, 37.0, 436.0, 389.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box appears to encompass the dog's body and part of the surfboard, indicating that the dog is indeed on the surfboard.\",\n\"box\": [25.0, 37.0, 436.0, 389.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box appears to encompass the dog's body and part of the surfboard, indicating that the dog is indeed on the surfboard.",
+      "box": [
+        25.0,
+        37.0,
+        436.0,
+        389.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box appears to encompass the dog's body and part of the surfboard, indicating that the dog is indeed on the surfboard.",
+    "pass2_box": [
+      25.0,
+      37.0,
+      436.0,
+      389.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [25.0, 37.0, 436.0, 389.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0001",
+    "caption": "The laptop is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.12359477124183006,
+      0.04911764705882353,
+      0.9369607843137256,
+      0.5967320261437908
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The laptop is positioned on the left side of the dog in the image.\",\n\"box\": [0, 73, 314, 418],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The laptop is positioned on the left side of the dog in the image.",
+      "box": [
+        0,
+        73,
+        314,
+        418
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The laptop is positioned on the left side of the dog in the image.",
+    "pass1_box": [
+      0.0,
+      73.0,
+      314.0,
+      418.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 73.0, 314.0, 418.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures the laptop on the left and the dog on the right.\",\n\"box\": [0.0, 73.0, 314.0, 418.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures the laptop on the left and the dog on the right.",
+      "box": [
+        0.0,
+        73.0,
+        314.0,
+        418.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly captures the laptop on the left and the dog on the right.",
+    "pass2_box": [
+      0.0,
+      73.0,
+      314.0,
+      418.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 73.0, 314.0, 418.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0002",
+    "caption": "The laptop is inside the train.",
+    "relation": "inside",
+    "subj": "laptop",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.02857142857142857,
+      1.0,
+      1.0
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image shows the interior of a train with seats and windows, but no laptop is visible.\",\n\"box\": [315, 176, 614, 415],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image shows the interior of a train with seats and windows, but no laptop is visible.",
+      "box": [
+        315,
+        176,
+        614,
+        415
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image shows the interior of a train with seats and windows, but no laptop is visible.",
+    "pass1_box": [
+      315.0,
+      176.0,
+      614.0,
+      415.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [315.0, 176.0, 614.0, 415.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": false,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box appears to be correctly placed around an armchair, which is a plausible location for a laptop if present.\",\n\"box\": [315.0, 176.0, 614.0, 415.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box appears to be correctly placed around an armchair, which is a plausible location for a laptop if present.",
+      "box": [
+        315.0,
+        176.0,
+        614.0,
+        415.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box appears to be correctly placed around an armchair, which is a plausible location for a laptop if present.",
+    "pass2_box": [
+      315.0,
+      176.0,
+      614.0,
+      415.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [315.0, 176.0, 614.0, 415.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": true,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0003",
+    "caption": "The zebra is behind the horse.",
+    "relation": "behind",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.149921875,
+      0.00225,
+      1.0,
+      0.665625
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The zebra is positioned to the right of the horse and appears to be hanging from the same structure, suggesting it is behind the horse.\",\n\"box\": [354, 316, 630, 607],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The zebra is positioned to the right of the horse and appears to be hanging from the same structure, suggesting it is behind the horse.",
+      "box": [
+        354,
+        316,
+        630,
+        607
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The zebra is positioned to the right of the horse and appears to be hanging from the same structure, suggesting it is behind the horse.",
+    "pass1_box": [
+      354.0,
+      316.0,
+      630.0,
+      607.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [354.0, 316.0, 630.0, 607.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures the zebra and horse, but the image is blurry, making it difficult to determine their exact positions.\",\n\"box\": [354.0, 316.0, 630.0, 607.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures the zebra and horse, but the image is blurry, making it difficult to determine their exact positions.",
+      "box": [
+        354.0,
+        316.0,
+        630.0,
+        607.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly captures the zebra and horse, but the image is blurry, making it difficult to determine their exact positions.",
+    "pass2_box": [
+      354.0,
+      316.0,
+      630.0,
+      607.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [354.0, 316.0, 630.0, 607.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0004",
+    "caption": "The chair is under the dog.",
+    "relation": "under",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.1701,
+      0.5977066666666666,
+      0.77838,
+      1.68552
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The dog appears to be standing on the floor, and there is a chair partially visible in front of it.\",\n\"box\": [194, 185, 487, 360],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The dog appears to be standing on the floor, and there is a chair partially visible in front of it.",
+      "box": [
+        194,
+        185,
+        487,
+        360
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The dog appears to be standing on the floor, and there is a chair partially visible in front of it.",
+    "pass1_box": [
+      194.0,
+      185.0,
+      487.0,
+      360.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [194.0, 185.0, 487.0, 360.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box appears to be correctly placed under the dog, suggesting the chair is indeed under the dog.\",\n\"box\": [194.0, 185.0, 487.0, 360.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box appears to be correctly placed under the dog, suggesting the chair is indeed under the dog.",
+      "box": [
+        194.0,
+        185.0,
+        487.0,
+        360.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box appears to be correctly placed under the dog, suggesting the chair is indeed under the dog.",
+    "pass2_box": [
+      194.0,
+      185.0,
+      487.0,
+      360.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [194.0, 185.0, 487.0, 360.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0005",
+    "caption": "The chair is beneath the horse.",
+    "relation": "beneath",
+    "subj": "chair",
+    "obj": "horse",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.01891666666666667,
+      0.113625,
+      1.2496666666666667,
+      0.55765625
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The horse is positioned on top of the chair, indicating that the chair is indeed beneath the horse.\",\n\"box\": [24, 83, 409, 635],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The horse is positioned on top of the chair, indicating that the chair is indeed beneath the horse.",
+      "box": [
+        24,
+        83,
+        409,
+        635
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The horse is positioned on top of the chair, indicating that the chair is indeed beneath the horse.",
+    "pass1_box": [
+      24.0,
+      83.0,
+      409.0,
+      635.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [24.0, 83.0, 409.0, 635.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures the red chair and the white horse, indicating that the horse is indeed on top of the chair.\",\n\"box\": [24.0, 83.0, 409.0, 635.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures the red chair and the white horse, indicating that the horse is indeed on top of the chair.",
+      "box": [
+        24.0,
+        83.0,
+        409.0,
+        635.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly captures the red chair and the white horse, indicating that the horse is indeed on top of the chair.",
+    "pass2_box": [
+      24.0,
+      83.0,
+      409.0,
+      635.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [24.0, 83.0, 409.0, 635.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0006",
+    "caption": "The chair is above the dog.",
+    "relation": "above",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.01008,
+      0.1445180722891566,
+      0.73412,
+      1.4805120481927712
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurry, but it appears that the dog is on the floor and there is no visible chair above it.\",\n\"box\": [0, 68, 504, 332],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurry, but it appears that the dog is on the floor and there is no visible chair above it.",
+      "box": [
+        0,
+        68,
+        504,
+        332
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurry, but it appears that the dog is on the floor and there is no visible chair above it.",
+    "pass1_box": [
+      0.0,
+      68.0,
+      504.0,
+      332.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 68.0, 504.0, 332.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box includes the dog and part of the chair, but the chair is not fully visible.\",\n\"box\": [0.0, 68.0, 504.0, 332.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box includes the dog and part of the chair, but the chair is not fully visible.",
+      "box": [
+        0.0,
+        68.0,
+        504.0,
+        332.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box includes the dog and part of the chair, but the chair is not fully visible.",
+    "pass2_box": [
+      0.0,
+      68.0,
+      504.0,
+      332.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 68.0, 504.0, 332.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0007",
+    "caption": "The zebra is left of the horse.",
+    "relation": "left of",
+    "subj": "zebra",
+    "obj": "horse",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.0050625,
+      0.18328125,
+      0.961296875,
+      0.673140625
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurred, but the zebra appears to be on the right side of the horse based on their relative positions.\",\n\"box\": [354, 316, 630, 607],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurred, but the zebra appears to be on the right side of the horse based on their relative positions.",
+      "box": [
+        354,
+        316,
+        630,
+        607
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurred, but the zebra appears to be on the right side of the horse based on their relative positions.",
+    "pass1_box": [
+      354.0,
+      316.0,
+      630.0,
+      607.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [354.0, 316.0, 630.0, 607.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly identifies the horse and zebra, but the zebra is not to the left of the horse.\",\n\"box\": [354.0, 316.0, 630.0, 607.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly identifies the horse and zebra, but the zebra is not to the left of the horse.",
+      "box": [
+        354.0,
+        316.0,
+        630.0,
+        607.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly identifies the horse and zebra, but the zebra is not to the left of the horse.",
+    "pass2_box": [
+      354.0,
+      316.0,
+      630.0,
+      607.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [354.0, 316.0, 630.0, 607.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0008",
+    "caption": "The motorcycle is ahead of the train.",
+    "relation": "ahead of",
+    "subj": "motorcycle",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.018501170960187354,
+      0.9977500000000001,
+      1.481990632318501
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurred, but it appears that there is no motorcycle visible in front of the train.\",\n\"box\": [183, 56, 644, 419],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurred, but it appears that there is no motorcycle visible in front of the train.",
+      "box": [
+        183,
+        56,
+        644,
+        419
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurred, but it appears that there is no motorcycle visible in front of the train.",
+    "pass1_box": [
+      183.0,
+      56.0,
+      644.0,
+      419.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [183.0, 56.0, 644.0, 419.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": false,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box is around a train, not a motorcycle.\",\n\"box\": [183.0, 56.0, 644.0, 419.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box is around a train, not a motorcycle.",
+      "box": [
+        183.0,
+        56.0,
+        644.0,
+        419.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box is around a train, not a motorcycle.",
+    "pass2_box": [
+      183.0,
+      56.0,
+      644.0,
+      419.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [183.0, 56.0, 644.0, 419.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0009",
+    "caption": "The bench is over the dog.",
+    "relation": "over",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.06476562500000001,
+      0.0,
+      0.86459375,
+      1.1356792873051225
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The bench is positioned above the dog, indicating that it is indeed over the dog.\",\n\"box\": [0, 0, 643, 287],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The bench is positioned above the dog, indicating that it is indeed over the dog.",
+      "box": [
+        0,
+        0,
+        643,
+        287
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The bench is positioned above the dog, indicating that it is indeed over the dog.",
+    "pass1_box": [
+      0.0,
+      0.0,
+      643.0,
+      287.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 287.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures the bench above the dog.\",\n\"box\": [0.0, 0.0, 643.0, 287.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures the bench above the dog.",
+      "box": [
+        0.0,
+        0.0,
+        643.0,
+        287.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly captures the bench above the dog.",
+    "pass2_box": [
+      0.0,
+      0.0,
+      643.0,
+      287.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 287.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0010",
+    "caption": "The train is perpendicular to the motorcycle.",
+    "relation": "perpendicular to",
+    "subj": "train",
+    "obj": "motorcycle",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.01234375,
+      0.9977500000000001,
+      0.9887656249999999
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The train appears to be parallel to the motorcycle, not perpendicular.\",\n\"box\": [0, 0, 643, 185],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The train appears to be parallel to the motorcycle, not perpendicular.",
+      "box": [
+        0,
+        0,
+        643,
+        185
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The train appears to be parallel to the motorcycle, not perpendicular.",
+    "pass1_box": [
+      0.0,
+      0.0,
+      643.0,
+      185.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 185.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": false,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box around the train does not overlap with the motorcycle, indicating they are not adjacent.\",\n\"box\": [0.0, 0.0, 643.0, 185.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box around the train does not overlap with the motorcycle, indicating they are not adjacent.",
+      "box": [
+        0.0,
+        0.0,
+        643.0,
+        185.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box around the train does not overlap with the motorcycle, indicating they are not adjacent.",
+    "pass2_box": [
+      0.0,
+      0.0,
+      643.0,
+      185.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 0.0, 643.0, 185.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0011",
+    "caption": "The laptop is above the dog.",
+    "relation": "above",
+    "subj": "laptop",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.09825,
+      0.028145539906103287,
+      0.78125,
+      0.8711032863849766
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The laptop appears to be on a surface that is higher than the dog, which is lying down.\",\n\"box\": [78, 153, 406, 419],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The laptop appears to be on a surface that is higher than the dog, which is lying down.",
+      "box": [
+        78,
+        153,
+        406,
+        419
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The laptop appears to be on a surface that is higher than the dog, which is lying down.",
+    "pass1_box": [
+      78.0,
+      153.0,
+      406.0,
+      419.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [78.0, 153.0, 406.0, 419.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly identifies the laptop and the dog, and the laptop appears to be positioned above the dog.\",\n\"box\": [78.0, 153.0, 406.0, 419.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly identifies the laptop and the dog, and the laptop appears to be positioned above the dog.",
+      "box": [
+        78.0,
+        153.0,
+        406.0,
+        419.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly identifies the laptop and the dog, and the laptop appears to be positioned above the dog.",
+    "pass2_box": [
+      78.0,
+      153.0,
+      406.0,
+      419.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [78.0, 153.0, 406.0, 419.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0012",
+    "caption": "The motorcycle is behind the dog.",
+    "relation": "behind",
+    "subj": "motorcycle",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.0,
+      0.159546875,
+      0.6828125,
+      0.9977500000000001
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurred, but it appears that the motorcycle is positioned in front of the dog.\",\n\"box\": [34, 207, 590, 600],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurred, but it appears that the motorcycle is positioned in front of the dog.",
+      "box": [
+        34,
+        207,
+        590,
+        600
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurred, but it appears that the motorcycle is positioned in front of the dog.",
+    "pass1_box": [
+      34.0,
+      207.0,
+      590.0,
+      600.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [34.0, 207.0, 590.0, 600.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly identifies the motorcycle and the person on it, but the dog is not within the bounding box.\",\n\"box\": [34.0, 207.0, 590.0, 600.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly identifies the motorcycle and the person on it, but the dog is not within the bounding box.",
+      "box": [
+        34.0,
+        207.0,
+        590.0,
+        600.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly identifies the motorcycle and the person on it, but the dog is not within the bounding box.",
+    "pass2_box": [
+      34.0,
+      207.0,
+      590.0,
+      600.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [34.0, 207.0, 590.0, 600.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0013",
+    "caption": "The dog is in the middle of the chair.",
+    "relation": "in the middle of",
+    "subj": "dog",
+    "obj": "chair",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.007541666666666667,
+      0.772640625,
+      0.9876250000000001
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurry, but it appears that the dog is positioned towards the back of the chair, not in the middle.\",\n\"box\": [143, 56, 479, 458],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurry, but it appears that the dog is positioned towards the back of the chair, not in the middle.",
+      "box": [
+        143,
+        56,
+        479,
+        458
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurry, but it appears that the dog is positioned towards the back of the chair, not in the middle.",
+    "pass1_box": [
+      143.0,
+      56.0,
+      479.0,
+      458.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [143.0, 56.0, 479.0, 458.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": false,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box appears to encompass the central area of the chair where the dog is located.\",\n\"box\": [143.0, 56.0, 479.0, 458.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box appears to encompass the central area of the chair where the dog is located.",
+      "box": [
+        143.0,
+        56.0,
+        479.0,
+        458.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box appears to encompass the central area of the chair where the dog is located.",
+    "pass2_box": [
+      143.0,
+      56.0,
+      479.0,
+      458.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [143.0, 56.0, 479.0, 458.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": true,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0014",
+    "caption": "The refrigerator is at the left side of the dog.",
+    "relation": "at the left side of",
+    "subj": "refrigerator",
+    "obj": "dog",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.00826,
+      0.011013333333333333,
+      1.088,
+      1.23912
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The dog is positioned on the left side of the refrigerator.\",\n\"box\": [0, 73, 265, 364],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The dog is positioned on the left side of the refrigerator.",
+      "box": [
+        0,
+        73,
+        265,
+        364
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The dog is positioned on the left side of the refrigerator.",
+    "pass1_box": [
+      0.0,
+      73.0,
+      265.0,
+      364.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 73.0, 265.0, 364.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box around the dog is correctly placed on the left side of the image, indicating that the refrigerator is indeed on the right side.\",\n\"box\": [0.0, 73.0, 265.0, 364.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box around the dog is correctly placed on the left side of the image, indicating that the refrigerator is indeed on the right side.",
+      "box": [
+        0.0,
+        73.0,
+        265.0,
+        364.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box around the dog is correctly placed on the left side of the image, indicating that the refrigerator is indeed on the right side.",
+    "pass2_box": [
+      0.0,
+      73.0,
+      265.0,
+      364.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 73.0, 265.0, 364.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0015",
+    "caption": "The chair is opposite to the dog.",
+    "relation": "opposite to",
+    "subj": "chair",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurry, but there appears to be a chair on the right side of the image and a dog on the left. The statement suggests they are opposite each other.\",\n\"box\": [534, 0, 644, 207],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurry, but there appears to be a chair on the right side of the image and a dog on the left. The statement suggests they are opposite each other.",
+      "box": [
+        534,
+        0,
+        644,
+        207
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The image is blurry, but there appears to be a chair on the right side of the image and a dog on the left. The statement suggests they are opposite each other.",
+    "pass1_box": [
+      534.0,
+      0.0,
+      644.0,
+      207.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [534.0, 0.0, 644.0, 207.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box is too large and does not clearly contain the chair or the dog.\",\n\"box\": [534.0, 0.0, 644.0, 207.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box is too large and does not clearly contain the chair or the dog.",
+      "box": [
+        534.0,
+        0.0,
+        644.0,
+        207.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box is too large and does not clearly contain the chair or the dog.",
+    "pass2_box": [
+      534.0,
+      0.0,
+      644.0,
+      207.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [534.0, 0.0, 644.0, 207.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0016",
+    "caption": "The dog is on the motorcycle.",
+    "relation": "on",
+    "subj": "dog",
+    "obj": "motorcycle",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.040703125,
+      0.25009345794392523,
+      0.7078125,
+      1.4953271028037383
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The dog appears to be positioned near the motorcycle, but the image is blurry and lacks clear details.\",\n\"box\": [0, 45, 463, 415],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The dog appears to be positioned near the motorcycle, but the image is blurry and lacks clear details.",
+      "box": [
+        0,
+        45,
+        463,
+        415
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The dog appears to be positioned near the motorcycle, but the image is blurry and lacks clear details.",
+    "pass1_box": [
+      0.0,
+      45.0,
+      463.0,
+      415.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [0.0, 45.0, 463.0, 415.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box appears to encompass the dog wearing goggles and a jacket, suggesting it is positioned near the motorcycle.\",\n\"box\": [0.0, 45.0, 463.0, 415.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box appears to encompass the dog wearing goggles and a jacket, suggesting it is positioned near the motorcycle.",
+      "box": [
+        0.0,
+        45.0,
+        463.0,
+        415.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box appears to encompass the dog wearing goggles and a jacket, suggesting it is positioned near the motorcycle.",
+    "pass2_box": [
+      0.0,
+      45.0,
+      463.0,
+      415.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [0.0, 45.0, 463.0, 415.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0017",
+    "caption": "The bench is touching the dog.",
+    "relation": "touching",
+    "subj": "bench",
+    "obj": "dog",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.4462291666666667,
+      0.020999999999999998,
+      1.1854166666666666,
+      0.672578125
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The dog appears to be standing on the bench, indicating they are in contact.\",\n\"box\": [85, 134, 396, 537],\n\"answer\": \"true\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The dog appears to be standing on the bench, indicating they are in contact.",
+      "box": [
+        85,
+        134,
+        396,
+        537
+      ],
+      "answer": "true"
+    },
+    "pass1_reasoning": "The dog appears to be standing on the bench, indicating they are in contact.",
+    "pass1_box": [
+      85.0,
+      134.0,
+      396.0,
+      537.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [85.0, 134.0, 396.0, 537.0]",
+    "pass1_answer": "true",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly captures the dog and part of the bench, indicating that the bench is indeed touching the dog.\",\n\"box\": [85.0, 134.0, 396.0, 537.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly captures the dog and part of the bench, indicating that the bench is indeed touching the dog.",
+      "box": [
+        85.0,
+        134.0,
+        396.0,
+        537.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly captures the dog and part of the bench, indicating that the bench is indeed touching the dog.",
+    "pass2_box": [
+      85.0,
+      134.0,
+      396.0,
+      537.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [85.0, 134.0, 396.0, 537.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": true,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0018",
+    "caption": "The bench is in front of the train.",
+    "relation": "in front of",
+    "subj": "bench",
+    "obj": "train",
+    "ground_truth_answer": "true",
+    "target_box": [
+      0.000375,
+      0.24911007025761125,
+      0.880796875,
+      0.8107025761124123
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The image is blurred, but the train appears to be on tracks in the foreground, and there's no visible bench in front of it.\",\n\"box\": [48, 153, 490, 416],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The image is blurred, but the train appears to be on tracks in the foreground, and there's no visible bench in front of it.",
+      "box": [
+        48,
+        153,
+        490,
+        416
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The image is blurred, but the train appears to be on tracks in the foreground, and there's no visible bench in front of it.",
+    "pass1_box": [
+      48.0,
+      153.0,
+      490.0,
+      416.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [48.0, 153.0, 490.0, 416.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": false,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box is correctly placed around the train, but the statement about the bench being in front of the train cannot be verified due to the blurriness and lack of clear details.\",\n\"box\": [48.0, 153.0, 490.0, 416.0],\n\"answer\": \"false\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box is correctly placed around the train, but the statement about the bench being in front of the train cannot be verified due to the blurriness and lack of clear details.",
+      "box": [
+        48.0,
+        153.0,
+        490.0,
+        416.0
+      ],
+      "answer": "false"
+    },
+    "pass2_verification_reasoning": "The bounding box is correctly placed around the train, but the statement about the bench being in front of the train cannot be verified due to the blurriness and lack of clear details.",
+    "pass2_box": [
+      48.0,
+      153.0,
+      490.0,
+      416.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [48.0, 153.0, 490.0, 416.0]",
+    "pass2_answer": "false",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": false,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  },
+  {
+    "example_id": "vsr_0019",
+    "caption": "The laptop is on the bench.",
+    "relation": "on",
+    "subj": "laptop",
+    "obj": "bench",
+    "ground_truth_answer": "false",
+    "target_box": [
+      0.002511737089201878,
+      0.0,
+      1.5013615023474178,
+      0.7383124999999999
+    ],
+    "pass1_raw_output": "{\n\"reasoning\": \"The laptop is placed on a surface that appears to be a table, not a bench.\",\n\"box\": [137, 345, 420, 638],\n\"answer\": \"false\"\n}",
+    "pass1_parsed_json": {
+      "reasoning": "The laptop is placed on a surface that appears to be a table, not a bench.",
+      "box": [
+        137,
+        345,
+        420,
+        638
+      ],
+      "answer": "false"
+    },
+    "pass1_reasoning": "The laptop is placed on a surface that appears to be a table, not a bench.",
+    "pass1_box": [
+      137.0,
+      345.0,
+      420.0,
+      638.0
+    ],
+    "pass1_box_valid": false,
+    "pass1_box_invalid_reason": "box values outside [0,1]: [137.0, 345.0, 420.0, 638.0]",
+    "pass1_answer": "false",
+    "pass1_answer_correct": true,
+    "pass1_iou": null,
+    "pass1_rsa": null,
+    "pass2_raw_output": "{\n\"verification_reasoning\": \"The bounding box correctly identifies the laptop as being on the bench.\",\n\"box\": [137.0, 345.0, 420.0, 638.0],\n\"answer\": \"true\"\n}",
+    "pass2_parsed_json": {
+      "verification_reasoning": "The bounding box correctly identifies the laptop as being on the bench.",
+      "box": [
+        137.0,
+        345.0,
+        420.0,
+        638.0
+      ],
+      "answer": "true"
+    },
+    "pass2_verification_reasoning": "The bounding box correctly identifies the laptop as being on the bench.",
+    "pass2_box": [
+      137.0,
+      345.0,
+      420.0,
+      638.0
+    ],
+    "pass2_box_valid": false,
+    "pass2_box_invalid_reason": "box values outside [0,1]: [137.0, 345.0, 420.0, 638.0]",
+    "pass2_answer": "true",
+    "pass2_answer_correct": false,
+    "pass2_iou": null,
+    "pass2_rsa": null,
+    "box_revised": false,
+    "answer_flipped": true,
+    "recovered": false,
+    "corruption_type": "blur",
+    "severity": 5.0,
+    "display_name": "blur-5",
+    "rsa_valid": true
+  }
+]
