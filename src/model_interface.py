@@ -41,6 +41,21 @@ class VLMInterface(ABC):
         """
         pass
 
+    def generate_response_multi(self, images: list[Image.Image], prompt: str) -> str:
+        """
+        Run inference with multiple images in one prompt.
+
+        Default implementation falls back to the first image only.
+        Backends that support multi-image input should override this.
+
+        Args:
+            images : list of PIL RGB images (e.g. [full_image, crop])
+            prompt : fully-formatted text prompt
+        Returns:
+            Raw string output from the model.
+        """
+        return self.generate_response(images[0], prompt)
+
 
 # ---------------------------------------------------------------------------
 # Local HuggingFace backend  (PRIMARY TODAY)
@@ -164,6 +179,63 @@ class QwenVLLocalInterface(VLMInterface):
         )[0]
 
         return output_text
+
+    def generate_response_multi(self, images: list[Image.Image], prompt: str) -> str:
+        """
+        Run inference with multiple images in a single prompt.
+
+        Builds a single user message where each image gets its own
+        {"type": "image"} entry followed by the text prompt.  Qwen2.5-VL
+        can attend to all images jointly.
+
+        Args:
+            images : list of PIL RGB images, e.g. [full_image, crop]
+            prompt : text prompt (caption already substituted)
+        Returns:
+            Raw decoded string from the model.
+        """
+        import torch
+
+        images = [img.convert("RGB") for img in images]
+
+        content = [{"type": "image", "image": img} for img in images]
+        content.append({"type": "text", "text": prompt})
+
+        messages = [{"role": "user", "content": content}]
+
+        text = self.processor.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True,
+        )
+
+        if self._process_vision_info is not None:
+            image_inputs, video_inputs = self._process_vision_info(messages)
+            inputs = self.processor(
+                text=[text], images=image_inputs, videos=video_inputs,
+                padding=True, return_tensors="pt",
+            )
+        else:
+            inputs = self.processor(
+                text=[text], images=images,
+                padding=True, return_tensors="pt",
+            )
+
+        inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
+
+        with torch.no_grad():
+            output_ids = self.model.generate(
+                **inputs,
+                max_new_tokens=self.max_new_tokens,
+                do_sample=False,
+                temperature=None,
+                top_p=None,
+            )
+
+        input_len = inputs["input_ids"].shape[1]
+        return self.processor.batch_decode(
+            output_ids[:, input_len:],
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False,
+        )[0]
 
 
 # ---------------------------------------------------------------------------

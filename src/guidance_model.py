@@ -231,6 +231,7 @@ def collate_fn(batch: list[dict], processor, device: Optional[torch.device] = No
         **inputs,
         "target_boxes": target_tensor,
         "answers":      [item["answer"]     for item in batch],
+        "captions":     [item["caption"]    for item in batch],
         "example_ids":  [item["example_id"] for item in batch],
         "image_paths":  [item["image_path"] for item in batch],
     }

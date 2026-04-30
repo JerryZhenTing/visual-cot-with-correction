@@ -156,50 +156,78 @@ class GaussianGuidancePolicy(nn.Module):
 # VLM answering helper (for "combined" reward mode)
 # ---------------------------------------------------------------------------
 
+def _load_pil(path: Optional[str]):
+    """Load a PIL image from path, returning None if unavailable."""
+    if path is None or not os.path.exists(path):
+        return None
+    try:
+        from PIL import Image
+        return Image.open(path).convert("RGB")
+    except Exception:
+        return None
+
+
+def _load_vlm(model_name: str):
+    """Load VLM interface. Called once before the training loop."""
+    from model_interface import QwenVLLocalInterface
+    if model_name == "qwen":
+        return QwenVLLocalInterface()
+    raise ValueError(f"Unknown model for combined RL: {model_name!r}")
+
+
 def get_vlm_answers(
-    model_name: str,
+    vlm,
     images,
     captions: list[str],
     boxes: list[list],
     cache: dict,
     prompt_template: str,
+    full_crop: bool = True,
 ) -> list[Optional[str]]:
     """
-    Query the VLM with a cropped image and return parsed answers.
-    Uses a cache dict keyed by (example_id, box_str) to avoid duplicate calls.
+    Query the VLM for each (image, box) pair and return parsed answers.
+
+    When full_crop=True (default), sends [full_image, crop] together so the
+    model can see both the spatial context and the highlighted region.
+    When full_crop=False, sends only the crop.
+
+    Caches results by (caption_prefix, box) to avoid redundant calls.
     """
-    try:
-        from crop_utils import safe_crop
-        from model_interface import QwenVLLocalInterface
-        from parse_outputs import parse_vlm_output
-    except ImportError:
-        return [None] * len(images)
+    from crop_utils import safe_crop
+    from parse_outputs import extract_json_object, parse_answer
 
-    # Lazy-load the VLM
-    if not hasattr(get_vlm_answers, "_vlm"):
-        get_vlm_answers._vlm = QwenVLLocalInterface()
+    FULL_CROP_PROMPT = (
+        "You are given two images: the full scene and a cropped region of interest.\n"
+        "Use both to answer whether the following statement is true or false.\n"
+        'Statement: "{caption}"\n'
+        'Respond with JSON only: {"reasoning": "...", "answer": "true" or "false"}'
+    )
 
-    vlm = get_vlm_answers._vlm
     answers = []
-
     for img, caption, box in zip(images, captions, boxes):
-        key = f"{caption[:40]}|{[round(v,3) for v in box]}"
+        key = f"{caption[:40]}|fc={full_crop}|{[round(v, 3) for v in box] if box else 'none'}"
         if key in cache:
             answers.append(cache[key])
             continue
 
-        crop = safe_crop(img, box) if box is not None else img
-        prompt = prompt_template.replace("{caption}", caption)
-        try:
-            raw = vlm.generate_response(crop, prompt)
-            from parse_outputs import extract_json_object, parse_answer
-            parsed = extract_json_object(raw)
-            ans = parse_answer(parsed)
-            cache[key] = ans
-            answers.append(ans)
-        except Exception:
+        if img is None:
             cache[key] = None
             answers.append(None)
+            continue
+
+        crop = safe_crop(img, box) if box is not None else img
+        try:
+            if full_crop and box is not None:
+                prompt = FULL_CROP_PROMPT.replace("{caption}", caption)
+                raw = vlm.generate_response_multi([img, crop], prompt)
+            else:
+                prompt = prompt_template.replace("{caption}", caption)
+                raw = vlm.generate_response(crop, prompt)
+            ans = parse_answer(extract_json_object(raw))
+        except Exception:
+            ans = None
+        cache[key] = ans
+        answers.append(ans)
 
     return answers
 
@@ -275,14 +303,18 @@ def train_rl(args):
     best_iou = -1.0
     rl_log = []
 
-    # Lazy-load VLM prompt for combined mode
+    # Load VLM and prompt for combined mode (done once, before the epoch loop)
+    vlm = None
     vlm_prompt = None
     if args.reward_type == "combined":
+        print(f"Loading VLM ({args.model}) for combined reward...")
+        vlm = _load_vlm(args.model)
         try:
             from utils import load_prompt_template
             vlm_prompt = load_prompt_template("textual_cot")
         except Exception:
-            vlm_prompt = "Answer true or false: {caption}\nRespond with JSON: {\"answer\": \"true\" or \"false\"}"
+            vlm_prompt = 'Answer true or false: {caption}\nRespond with JSON: {"answer": "true" or "false"}'
+        print("VLM loaded.")
 
     for epoch in range(1, args.epochs + 1):
         policy.train()
@@ -320,10 +352,21 @@ def train_rl(args):
             # VLM answers (combined mode only)
             vlm_answers = None
             if args.reward_type == "combined":
-                images_flat  = [batch["image_paths"][i // args.samples] for i in range(B_K)]
-                captions_flat = [batch["caption"] for _ in range(B) for _ in range(args.samples)]
-                # For simplicity, use None images if path not available
-                vlm_answers = [None] * B_K
+                # Load PIL images from paths for each example, repeated K times
+                pil_images_flat = []
+                for i in range(B_K):
+                    path = batch["image_paths"][i // args.samples]
+                    img = _load_pil(path)
+                    pil_images_flat.append(img)
+                captions_flat = [batch["captions"][i // args.samples] for i in range(B_K)]
+                vlm_answers = get_vlm_answers(
+                    vlm             = vlm,
+                    images          = pil_images_flat,
+                    captions        = captions_flat,
+                    boxes           = pred_list,
+                    cache           = vlm_cache,
+                    prompt_template = vlm_prompt,
+                )
 
             rewards = compute_rewards_batch(
                 pred_boxes       = pred_list,

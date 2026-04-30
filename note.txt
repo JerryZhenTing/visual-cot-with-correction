@@ -560,24 +560,91 @@ LEARNED VISUAL GUIDANCE PIPELINE (new):
     results/guidance_raw/      (per-method per-example JSON)
     results/guidance_aggregated/guidance_summary.csv
 
+  HOW THE GUIDANCE PIPELINE WORKS:
+
+  Stage 1 — SFT (Supervised Fine-Tuning):
+    Frozen CLIP ViT-B/32 encodes the image and caption separately.
+    Their 512-dim embeddings are concatenated (1024-dim) and fed through BoxHead
+    (three linear layers with ReLU). BoxHead outputs 4 raw values converted to a
+    normalized xyxy box via sigmoid + clamp (MIN_WH=0.02 to avoid degenerate boxes).
+    Trained with GIoU + L1 loss against the VSR ground-truth relation box.
+    Only BoxHead weights are updated; CLIP is frozen throughout.
+    Input: 1222 VSR examples (70% train, 15% val, 15% test) cached in
+           data/vsr_guidance_full.json
+
+  Stage 2 — RL Fine-Tuning (grounding mode, fast, no VLM):
+    Wraps the SFT policy in a Gaussian: mean = BoxHead output in raw space,
+    std = exp(log_std) where log_std is a learned 4-dim parameter.
+    At each step, samples N candidate boxes per image from N(mean, std).
+    Reward per sample: IoU(pred, gt) + 0.2*format_reward - 0.05*area_penalty
+    (format_reward is always 1.0 since boxes are always valid by construction).
+    Loss = -log_prob(sample) * advantage, advantage = reward - moving_avg_baseline.
+    No VLM involved. Runs in ~30 min on a V100.
+
+  Stage 3 — RL Fine-Tuning (combined mode, slow, uses VLM):
+    Same as Stage 2 but adds answer quality to the reward.
+    For each sampled box:
+      1. Crop the image to that box
+      2. Send [full_image, crop] to Qwen2.5-VL as two images in one prompt:
+         "You see the full scene and a highlighted region of interest.
+          Is this statement true or false? Statement: '{caption}'"
+      3. Parse Qwen's answer, compare to ground truth
+    Reward = 1.0*answer_correct + 0.5*IoU + 0.2*format - 0.05*area
+    Qwen loaded once before the epoch loop; answers cached per (caption, box).
+    ~3-4h for 200 training examples × 5 epochs × 2 samples each.
+
+  Stage 4 — Evaluation:
+    Policy predicts a box for each test image. Qwen is queried in 3 modes:
+      full      — full image only (baseline, no guidance used)
+      crop      — predicted crop only (guidance, loses spatial context)
+      full_crop — full image + crop sent together (best of both worlds)
+    Key comparison: full_crop FAA vs full FAA = improvement from guidance.
+    Also reports: IoU, RSA@0.5, RSA@0.25 for box quality.
+
+  Why full_crop > crop:
+    VSR questions are relational ("is X to the left of Y"). Cropping to the
+    relation region removes both objects and the space between them if the crop
+    is too tight. Sending the full image alongside the crop lets Qwen see both
+    the spatial context and the highlighted region of interest.
+
+  SLURM script (scripts/run_guidance.sh):
+    sbatch scripts/run_guidance.sh all          # sft + rl_grounding + eval (~2h)
+    sbatch scripts/run_guidance.sh rl_combined  # combined RL after all finishes (~3-4h)
+    sbatch scripts/run_guidance.sh eval         # re-run eval only
+
+  Checkpoint locations (relative to project/):
+    ../checkpoints/guidance_sft/best.pt         (after stage 1)
+    ../checkpoints/guidance_rl/best.pt          (after stage 2)
+    ../checkpoints/guidance_rl_combined/best.pt (after stage 3)
+
   Commands:
-    # 1. Build dataset cache
-    python src/guidance_dataset.py --subset data/subsets/vsr_n200_seq.json
+    # 1. Build dataset cache (full VSR validation set, ~1222 examples)
+    python src/guidance_dataset.py --cache data/vsr_guidance_full.json --n 1222
 
-    # 2. SFT training (GPU required)
-    python src/train_guidance_sft.py --data data/vsr_guidance.json --epochs 10 --batch-size 32
+    # 2. SFT training (GPU required, ~20 min)
+    python src/train_guidance_sft.py --data data/vsr_guidance_full.json --epochs 30 --batch-size 64
 
-    # 3. Eval grounding only (no VLM)
-    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_sft/best.pt --model none --save-viz
+    # 3. RL grounding-only (~30 min)
+    python src/train_guidance_rl.py --sft-checkpoint ../checkpoints/guidance_sft/best.pt \
+        --reward-type grounding --epochs 10 --batch-size 32 --samples 4
 
-    # 4. Eval with VLM answers
-    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_sft/best.pt --model qwen --modes full crop oracle
+    # 4. RL combined — answer-aware (~3-4h, needs VLM)
+    python src/train_guidance_rl.py --sft-checkpoint ../checkpoints/guidance_sft/best.pt \
+        --reward-type combined --epochs 5 --batch-size 8 --samples 2 --max-train 200
 
-    # 5. RL fine-tuning (fast, grounding-only)
-    python src/train_guidance_rl.py --sft-checkpoint checkpoints/guidance_sft/best.pt --reward-type grounding
+    # 5. Eval grounding metrics (no VLM, fast)
+    python src/eval_guidance_policy.py --checkpoint ../checkpoints/guidance_rl/best.pt \
+        --model none --baselines random full_image --split test
 
-    # 6. RL evaluation
-    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_rl/best.pt --model qwen --modes full crop
+    # 6. Eval with VLM (full / crop / full_crop modes)
+    python src/eval_guidance_policy.py --checkpoint ../checkpoints/guidance_rl/best.pt \
+        --model qwen --modes full crop full_crop --split test
+
+  Pre-requisite on Bridges2 login node (CLIP must be downloaded before job runs):
+    python -c "from transformers import CLIPModel, CLIPProcessor; \
+               CLIPModel.from_pretrained('openai/clip-vit-base-patch32'); \
+               CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32'); \
+               print('CLIP OK')"
 
 
 ================================================================================

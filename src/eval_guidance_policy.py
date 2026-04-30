@@ -59,6 +59,14 @@ VLM_PROMPT_TEMPLATE = (
     'Respond with JSON only: {"reasoning": "...", "answer": "true" or "false"}'
 )
 
+# Prompt for full+crop mode: model sees full image then the highlighted region
+VLM_PROMPT_FULL_CROP = (
+    "You are given two images: the full scene and a cropped region of interest.\n"
+    "Use both to answer whether the following statement is true or false.\n"
+    'Statement: "{caption}"\n'
+    'Respond with JSON only: {"reasoning": "...", "answer": "true" or "false"}'
+)
+
 
 # ---------------------------------------------------------------------------
 # Box utilities
@@ -99,13 +107,24 @@ def load_vlm(model_name: str):
 
 
 def ask_vlm(vlm, image: Image.Image, caption: str) -> tuple[Optional[str], str]:
-    """Query VLM and return (parsed_answer, raw_output)."""
+    """Query VLM with a single image."""
     prompt = VLM_PROMPT_TEMPLATE.replace("{caption}", caption)
     try:
         raw = vlm.generate_response(image, prompt)
         from parse_outputs import extract_json_object, parse_answer
-        parsed = extract_json_object(raw)
-        answer = parse_answer(parsed)
+        answer = parse_answer(extract_json_object(raw))
+        return answer, raw
+    except Exception as e:
+        return None, str(e)
+
+
+def ask_vlm_multi(vlm, full_image: Image.Image, crop: Image.Image, caption: str) -> tuple[Optional[str], str]:
+    """Query VLM with full image + crop side by side."""
+    prompt = VLM_PROMPT_FULL_CROP.replace("{caption}", caption)
+    try:
+        raw = vlm.generate_response_multi([full_image, crop], prompt)
+        from parse_outputs import extract_json_object, parse_answer
+        answer = parse_answer(extract_json_object(raw))
         return answer, raw
     except Exception as e:
         return None, str(e)
@@ -200,16 +219,21 @@ def eval_policy(
 
         # --- VLM answering for each mode ---
         for mode in modes:
-            if mode == "full":
-                query_image = image
+            if vlm is None:
+                vlm_answer, raw_out = None, ""
+            elif mode == "full":
+                vlm_answer, raw_out = ask_vlm(vlm, image, caption)
             elif mode == "crop":
-                query_image = safe_crop(image, pred_box) if pred_box else image
+                crop = safe_crop(image, pred_box) if pred_box else image
+                vlm_answer, raw_out = ask_vlm(vlm, crop, caption)
             elif mode == "oracle":
-                query_image = safe_crop(image, target_box)
+                vlm_answer, raw_out = ask_vlm(vlm, safe_crop(image, target_box), caption)
+            elif mode == "full_crop":
+                crop = safe_crop(image, pred_box) if pred_box else image
+                vlm_answer, raw_out = ask_vlm_multi(vlm, image, crop, caption)
             else:
-                query_image = image  # fallback
+                vlm_answer, raw_out = ask_vlm(vlm, image, caption)
 
-            vlm_answer, raw_out = (None, "") if vlm is None else ask_vlm(vlm, query_image, caption)
             correct = (vlm_answer == gt_answer) if vlm_answer else None
 
             record = {
@@ -372,8 +396,8 @@ def main():
                    help="Path to guidance policy checkpoint (.pt). If omitted, runs baselines only.")
     p.add_argument("--data",          default="data/vsr_guidance.json")
     p.add_argument("--model",         default="qwen",  choices=["qwen", "llava", "none"])
-    p.add_argument("--modes",         nargs="+", default=["full", "crop"],
-                   choices=["full", "crop", "oracle"],
+    p.add_argument("--modes",         nargs="+", default=["full", "crop", "full_crop"],
+                   choices=["full", "crop", "oracle", "full_crop"],
                    help="VLM answer modes to evaluate")
     p.add_argument("--baselines",     nargs="+", default=["random", "full_image"],
                    choices=["random", "full_image"])
