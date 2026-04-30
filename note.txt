@@ -475,4 +475,109 @@ TO DO:
   [ ] Smarter multistage trigger (confidence-based, background coverage, etc.)
         so correction actually fires and can recover wrong answers
   [ ] LLaVA as second model (deferred from day 1)
+
+--------------------------------------------------------------------------------
+DAY 4 — TARGETED ADVERSARIAL EVAL + LEARNED GUIDANCE PIPELINE 
+--------------------------------------------------------------------------------
+
+TARGETED ADVERSARIAL EVALUATION (completed):
+  New files:
+    src/adversarial_perturbations.py    — PerturbationSpec, 15 specs, apply_* functions
+    src/target_region_utils.py          — box helpers (get_boxes_for_example, union, pad, etc.)
+    src/generate_targeted_perturbations.py  — generates 1845 perturbed images (123 × 15)
+    src/eval_targeted.py                — runs 4 methods on perturbed images
+    src/aggregate_targeted_results.py   — builds adversarial paper table + CSVs
+    scripts/run_eval_targeted.sh        — SLURM: $1=method $2=display_name
+
+  Perturbation families (15 specs total):
+    occlusion × {obj1,obj2} × {low,medium,high}  = 6
+    mask      × {union}     × {low,medium,high}  = 3
+    distractor × {near_obj1,near_obj2} × {low,medium,high} = 6
+
+  Generation: 123 valid examples (out of 127 matched subset)
+    python src/generate_targeted_perturbations.py --subset data/subsets/vsr_n200_seq.json
+    Data saved to: data/targeted/{occlusion,mask,distractor}/.../<example_id>.jpg
+    Metadata index: data/targeted/metadata.json
+
+  Submit 60 eval jobs (4 methods × 15 specs):
+    SPECS="occlusion-obj1-low ... distractor-nearobj2-high"
+    for method in textual visual verification multistage; do
+      for spec in $SPECS; do sbatch scripts/run_eval_targeted.sh $method $spec; done
+    done
+
+  Results:
+    results/targeted_raw/{model}_{method}_{display_name}.json   (60 Qwen files)
+    python src/aggregate_targeted_results.py
+    → results/targeted_aggregated/adversarial_summary.csv
+    → results/targeted_aggregated/per_spec.csv
+    → results/targeted_aggregated/summary.json
+
+  Qwen targeted results (123 examples, FAA):
+    Method         Occ FAA  Mask FAA  Dist FAA  BRR    AFR    RR
+    multistage      79.7%    74.0%     79.7%    0.0%   0.0%   0.0%
+    textual         75.9%    73.2%     76.6%     ---    ---    ---
+    verification    73.4%    66.1%     74.8%    18.8%  19.0%  31.7%
+    visual          78.6%    73.2%     78.0%     ---    ---    ---
+
+  Key finding: multistage ≈ visual (correction never triggers on perturbed images either).
+  Mask perturbation hurts the most (lowest FAA across all methods).
+  Qwen RSA near 0 under perturbation — box quality collapses.
+
+BRR BUG FIX (eval_runner.py, run_corrupted.py, eval_targeted.py):
+  Bug: _boxes_differ(initial_box, None) returned True (None branch).
+  When correction didn't trigger, rev_box=None → box_revised=True → BRR=100%.
+  Fix: box_revised = _boxes_differ(...) if triggered else False
+  Applied to all three files.
+  Qwen multistage true BRR = 0% (correction never triggered).
+
+LEARNED VISUAL GUIDANCE PIPELINE (new):
+  New source files:
+    src/guidance_dataset.py     — VSRGuidanceDataset: loads subset, filters valid boxes,
+                                   70/15/15 split, caches to data/vsr_guidance.json
+    src/guidance_model.py       — GuidancePolicy: frozen CLIP ViT-B/32 + MLP → box
+                                   BoxHead: 1024→512→256→4, only trained params
+                                   Box parameterization: cx/cy/w/h via sigmoid+clamp
+    src/guidance_losses.py      — L1 + GIoU + area penalty (configurable weights)
+    src/guidance_rewards.py     — RL rewards: answer, IoU, format, area
+                                   Modes: "combined" | "grounding" | "answer_only"
+    src/train_guidance_sft.py   — SFT loop: AdamW + cosine LR, saves best by val mIoU
+    src/train_guidance_rl.py    — REINFORCE with Gaussian policy + moving avg baseline
+                                   Fast mode: grounding-only (no VLM call)
+                                   Slow mode: combined reward (VLM call per sample)
+    src/eval_guidance_policy.py — Eval: grounding metrics + VLM answering modes
+                                   Baselines: random box, full-image box
+                                   Optional: visualization (GT box + pred box)
+
+  Also extended:
+    src/crop_utils.py  — added normalized_box_to_pixel_box, pixel_box_to_normalized_box,
+                          crop_image_from_normalized_box, save_crop
+    src/metrics.py     — added rsa_at_threshold, mean_iou, box_area,
+                          invalid_box_rate, coverage_too_large_rate
+
+  New output dirs:
+    checkpoints/guidance_sft/  (best.pt, final.pt, train_log.json, config.json)
+    checkpoints/guidance_rl/   (best.pt, final.pt, rl_log.json, config.json)
+    results/guidance_raw/      (per-method per-example JSON)
+    results/guidance_aggregated/guidance_summary.csv
+
+  Commands:
+    # 1. Build dataset cache
+    python src/guidance_dataset.py --subset data/subsets/vsr_n200_seq.json
+
+    # 2. SFT training (GPU required)
+    python src/train_guidance_sft.py --data data/vsr_guidance.json --epochs 10 --batch-size 32
+
+    # 3. Eval grounding only (no VLM)
+    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_sft/best.pt --model none --save-viz
+
+    # 4. Eval with VLM answers
+    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_sft/best.pt --model qwen --modes full crop oracle
+
+    # 5. RL fine-tuning (fast, grounding-only)
+    python src/train_guidance_rl.py --sft-checkpoint checkpoints/guidance_sft/best.pt --reward-type grounding
+
+    # 6. RL evaluation
+    python src/eval_guidance_policy.py --checkpoint checkpoints/guidance_rl/best.pt --model qwen --modes full crop
+
+
 ================================================================================

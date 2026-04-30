@@ -226,6 +226,49 @@ def mean_rsa(results: list[dict]) -> Optional[float]:
     return sum(values) / len(values)
 
 
+def rsa_at_threshold(
+    pred_box: Optional[list],
+    target_box: Optional[list],
+    threshold: float,
+) -> Optional[float]:
+    """RSA for a single example at an arbitrary IoU threshold."""
+    if pred_box is None or target_box is None:
+        return None
+    return 1.0 if iou(pred_box, target_box) >= threshold else 0.0
+
+
+def mean_iou(results: list[dict], iou_key: str = "iou") -> Optional[float]:
+    """Mean IoU across results that have a non-None value for iou_key."""
+    values = [r[iou_key] for r in results if r.get(iou_key) is not None]
+    return sum(values) / len(values) if values else None
+
+
+def box_area(box: list) -> float:
+    """Area of a normalized [xmin,ymin,xmax,ymax] box."""
+    return max(0.0, box[2] - box[0]) * max(0.0, box[3] - box[1])
+
+
+def invalid_box_rate(results: list[dict], box_key: str = "predicted_box") -> float:
+    """Fraction of results where the predicted box is None."""
+    if not results:
+        return 0.0
+    return sum(1 for r in results if r.get(box_key) is None) / len(results)
+
+
+def coverage_too_large_rate(
+    results: list[dict],
+    box_key: str = "predicted_box",
+    threshold: float = 0.5,
+) -> float:
+    """Fraction of results where predicted box covers more than `threshold` of the image."""
+    if not results:
+        return 0.0
+    return sum(
+        1 for r in results
+        if r.get(box_key) is not None and box_area(r[box_key]) > threshold
+    ) / len(results)
+
+
 # ---------------------------------------------------------------------------
 # Coordinate utility
 # ---------------------------------------------------------------------------

@@ -6,6 +6,7 @@ All functions accept normalized [xmin, ymin, xmax, ymax] boxes in [0, 1].
 
 from __future__ import annotations
 
+import os
 from typing import Optional
 
 from PIL import Image
@@ -76,6 +77,59 @@ def safe_crop(
         return crop_normalized(image, box)
     except Exception:
         return image
+
+
+# ---------------------------------------------------------------------------
+# Additional utilities for guidance pipeline
+# ---------------------------------------------------------------------------
+
+def normalized_box_to_pixel_box(
+    box: list,
+    image_width: int,
+    image_height: int,
+) -> list[int]:
+    """Convert normalized [0,1] box to integer pixel [xmin,ymin,xmax,ymax]."""
+    xmin, ymin, xmax, ymax = clip_box(box)
+    return [
+        int(xmin * image_width),
+        int(ymin * image_height),
+        int(xmax * image_width),
+        int(ymax * image_height),
+    ]
+
+
+def pixel_box_to_normalized_box(
+    box: list,
+    image_width: int,
+    image_height: int,
+) -> list[float]:
+    """Convert integer pixel box to normalized [0,1] [xmin,ymin,xmax,ymax]."""
+    x1, y1, x2, y2 = box
+    return [
+        max(0.0, min(1.0, x1 / image_width)),
+        max(0.0, min(1.0, y1 / image_height)),
+        max(0.0, min(1.0, x2 / image_width)),
+        max(0.0, min(1.0, y2 / image_height)),
+    ]
+
+
+def crop_image_from_normalized_box(
+    image: Image.Image,
+    box: Optional[list],
+) -> Image.Image:
+    """Crop image using a normalized box. Falls back to full image on invalid input."""
+    return safe_crop(image, box)
+
+
+def save_crop(
+    image: Image.Image,
+    box: Optional[list],
+    output_path: str,
+) -> None:
+    """Crop and save to output_path. Creates parent dirs automatically."""
+    crop = safe_crop(image, box)
+    os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
+    crop.save(output_path)
 
 
 # ---------------------------------------------------------------------------
